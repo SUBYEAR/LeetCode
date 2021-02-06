@@ -1,35 +1,19 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
- */
-
 package com.leetcode;
 
 /**
- * 功能描述
- *
- * @since 2020-06-09
- */
+ * Definition for a binary tree node.*/
 public class TreeNode {
-    int val;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
-    TreeNode left;
+    public TreeNode(int x) { val = x; }
 
-    TreeNode right;
+    public TreeNode() {}
 
-    TreeNode(int num) {
-        val = num;
+    public TreeNode(int _val, TreeNode _left, TreeNode _right) {
+        val = _val;
+        left = _left;
+        right = _right;
     }
-
-    TreeNode() {
-        val = 0;
-    }
-
-    // public static void print(TreeNode root) {
-    // if (root == null) {
-    // return;
-    // }
-    // System.out.print(root.val);
-    // print(root.left);
-    // print(root.right);
-    // }
 }

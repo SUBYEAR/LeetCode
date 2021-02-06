@@ -1,30 +1,15 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
- */
-
 package com.leetcode;
 
-/**
- * 功能描述
- *
- * @since 2020-04-30
- */
-// Definition for singly-linked list.
 public class ListNode {
-    int val;
+      public int val;
+      public ListNode next;
+      public ListNode(int x) { val = x; }
 
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-
-    public static void print(ListNode head) {
-        ListNode temp = head;
-        while (temp != null) {
-            System.out.print(temp.val + "-->");
-            temp = temp.next;
-        }
-        System.out.println();
+    public static  void  printList(ListNode node) {
+          ListNode tmp = node;
+          while (tmp != null) {
+              System.out.println(tmp.val + "--->");
+              tmp = tmp.next;
+          }
     }
 }

@@ -41,7 +41,7 @@ public class Permutation {
         return result;
     }
 
-    void getPermutation(char[] arr, int left, int end, List<String> result) { // 有重复
+    public void getPermutation(char[] arr, int left, int end, List<String> result) { // 有重复
         if (arr == null) {
             return;
         }

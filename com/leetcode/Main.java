@@ -4,6 +4,8 @@
 
 package com.leetcode;
 
+import com.leetcode.medium.*;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -231,9 +233,14 @@ public class Main {
         // node2.neighbors.add(node1);node2.neighbors.add(node3);
         // node3.neighbors.add(node2);node3.neighbors.add(node4);
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
-
-        LeetCode714 test = new LeetCode714();
-        test.maxProfit(new int[] {1,3,2,8,4,9}, 2);
+        int[][] heights = new int[][] {
+                {1,2,2},
+                {3,8,2},
+                {5,3,5}
+        };
+        int[]  arr2 = new int[] {1,1,1,0,0,0,1,1,1,1,0};
+        LeetCode1004 test = new LeetCode1004();
+        test.longestOnes(arr2, 2);
     }
 
     private void  testOs() {
