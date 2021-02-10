@@ -238,9 +238,9 @@ public class Main {
                 {3,8,2},
                 {5,3,5}
         };
-        int[]  arr2 = new int[] {1,1,1,0,0,0,1,1,1,1,0};
-        LeetCode1004 test = new LeetCode1004();
-        test.longestOnes(arr2, 2);
+        int[]  arr2 = new int[] {0,};
+        LeetCode978 test = new LeetCode978();
+        System.out.println(test.maxTurbulenceSize(arr2));
     }
 
     private void  testOs() {
