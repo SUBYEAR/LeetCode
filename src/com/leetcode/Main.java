@@ -1,10 +1,6 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
- */
-
 package com.leetcode;
 
-import com.leetcode.medium.*;
+import com.leetcode.hard.LeetCode765;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -238,9 +234,9 @@ public class Main {
                 {3,8,2},
                 {5,3,5}
         };
-        int[]  arr2 = new int[] {0,};
-        LeetCode978 test = new LeetCode978();
-        System.out.println(test.maxTurbulenceSize(arr2));
+        int[]  arr2 = new int[] {1,2,0,3};
+        LeetCode765 test = new LeetCode765();
+        System.out.println(test.minSwapsCouples(arr2));
     }
 
     private void  testOs() {

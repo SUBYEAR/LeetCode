@@ -43,3 +43,16 @@ public class LeetCode1004 {
         return res;
     }
 }
+
+// int res = 0, i = 0, j = 0;
+// 		for (; i < A.length; i++) {
+// 			if (A[i] == 0) {
+// 				if (K > 0) {
+// 					K--;
+// 				} else {
+// 					res = Math.max(res, i - j);
+// 					while (A[j++] == 1);
+// 				}
+// 			}
+// 		}
+// 		return Math.max(res, i - j);

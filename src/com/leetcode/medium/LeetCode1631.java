@@ -49,3 +49,82 @@ public class LeetCode1631 {
         }
     }
 }
+
+// public int minimumEffortPath(int[][] heights) {
+//         int m = heights.length;
+//         int n = heights[0].length;
+//         List<int[]> edges = new ArrayList<>();
+//
+//         for (int i = 0; i < m; i++) {
+//             for (int j = 0; j < n; j++) {
+//                 int id = i * n + j;
+//                 if (i > 0) {
+//                     edges.add(new int[] { id - n, id, Math.abs(heights[i - 1][j] - heights[i][j])});
+//                 }
+//                 if (j > 0) {
+//                     edges.add(new int[] { id - 1, id, Math.abs(heights[i][j - 1] - heights[i][j])});
+//                 }
+//             }
+//         }
+//
+//         Collections.sort(edges, (o1, o2) -> o1[2] - o2[2]);
+//         int ans = 0;
+//         UF uf = new UF(m * n);
+//         for (int[] edge : edges) {
+//             int x = edge[0], y = edge[1];
+//             uf.unite(x, y);
+//             if (uf.connected(0, m * n - 1)) {
+//                 ans = edge[2];
+//                 break;
+//             }
+//         }
+//         return ans;
+//     }
+//
+//     private class UF {
+//         private int count;
+//         private int[] parent;
+//         private int[] size;
+//         private int n;
+//
+//         public UF(int n) {
+//             this.n = n;
+//             count = n;
+//             parent = new int[n];
+//             size = new int[n];
+//             for (int i = 0; i < n; i++) {
+//                 parent[i] = i;
+//                 size[i] = 1;
+//             }
+//         }
+//
+//         private int find(int x) {
+//             while (x != parent[x]) {
+//                 x = parent[x];
+//             }
+//             return x;
+//         }
+//
+//         public boolean connected(int x, int y) {
+//             return find(x) == find(y);
+//         }
+//
+//         public boolean unite(int x, int y) {
+//             int rootX = find(x);
+//             int rootY = find(y);
+//             if (rootX == rootY) {
+//                 return false;
+//             }
+//
+//             if (size[rootX] < size[rootY]) {
+//                 int temp = rootX;
+//                 rootX = rootY;
+//                 rootY = temp;
+//             }
+//
+//             parent[rootY] = rootX;
+//             size[rootX] += size[rootY];
+//             count--;
+//             return true;
+//         }
+//     }
