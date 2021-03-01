@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import com.leetcode.medium.LeetCode560;
+import com.leetcode.medium.SwordPointAtOffer38;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -234,13 +235,13 @@ public class Main {
                 {3,8,2},
                 {5,3,5}
         };
-        int[]  arr2 = new int[] {1,2,3};
+        int[]  arr2 = new int[] {1,2,1};
         int[]  arr1 = new int[] {0,1,0,1,0,1,0,1};
 
         String[] words = new String[] {"apple","pleas","please"};
         String[] puzzles = new String[] {"aelwxyz","aelpxyz","aelpsxy","saelpxy","xaelpsy"};
-        LeetCode560 test = new LeetCode560();
-        System.out.println(test.subarraySum(arr2, 3));
+        SwordPointAtOffer38 test = new SwordPointAtOffer38();
+        test.permutation("abb");
 
     }
 
@@ -251,6 +252,11 @@ public class Main {
         System.out.println(sa.substring(sa.indexOf("/*") + 2).chars().allMatch(c -> c == ' ' || c == '*'));
     }
 
+    public static void printIndent(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print("    ");
+        }
+    }
 
     static int longestOnes(int[] A, int K) {
         int res = 0, i = 0, j = 0;

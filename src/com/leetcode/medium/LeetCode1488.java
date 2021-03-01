@@ -40,7 +40,7 @@ public class LeetCode1488 {
             int pool = rains[i];
             if (map.containsKey(pool)) {
                 int lastFull = map.get(pool);
-                // 前一个满了的pool右边的第一个0的index, 也就是说上一次下雨以后在其后面要有晴天日期
+                // 前一个满了的pool右边的第一个0的index, 也就是说上一次让pool满了以后在其后面要有晴天日期
                 int id = lower_bound(zeros, lastFull); // 即两次相同的湖下雨之间找到可以抽干的地方
                 if (id >= zeros.size()) return new int[0];
 

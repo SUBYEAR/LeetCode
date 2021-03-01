@@ -28,7 +28,7 @@ public class LeetCode1248 {
         }
         oddPos[0] = -1;
         oddPos[pos + 1] = len;
-
+        // 这里很关键是的位置数组的长度怎么取以及下面的循环条件如何确定
         int res = 0;
         for (int i = 1; i + k < pos + 2; i++) {
             res += (oddPos[i] - oddPos[i - 1]) * (oddPos[i + k] - oddPos[i + k - 1]);
@@ -37,3 +37,18 @@ public class LeetCode1248 {
         return res;
     }
 }
+
+//  前缀和解法
+// 定义 pre[i] 为 [0..i]中奇数的个数，则 pre[i] 可以由 pre[i−1] 递推而来，即：
+//pre[i]=pre[i−1]+(nums[i]&1)
+//那么[j..i] 这个子数组里的奇数个数恰好为 k这个条件我们可以转化为pre[i]−pre[j−1]==k
+//        int n = nums.length;
+//        int[] cnt = new int[n + 1];
+//        int odd = 0, ans = 0;
+//        cnt[0] = 1;
+//        for (int i = 0; i < n; ++i) {
+//            odd += nums[i] & 1;
+//            ans += odd >= k ? cnt[odd - k] : 0;
+//            cnt[odd] += 1;
+//        }
+//        return ans;

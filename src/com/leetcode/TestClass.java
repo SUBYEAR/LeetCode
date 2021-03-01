@@ -1,8 +1,9 @@
 import com.leetcode.easy.LeetCode724;
+import com.leetcode.easy.LeetCode896;
 
 import java.util.List;
 
-public class main {
+public class TestClass {
     public static void main(String[] args) {
 //        List<String> data = new ArrayList<>();
 //        String[] tmp = {"hot","cog","dot","dog","hit","lot","log"};
@@ -158,7 +159,7 @@ public class main {
 //        s.add(s4);
 //        s.add(s5);
 //        t.findItinerary(s);
-        LeetCode724 ta = new LeetCode724();
+        LeetCode896 ta = new LeetCode896();
 //        int[][] edges = new int[][]{
 //                {3, 1, 2},
 //                {3, 2, 3},
@@ -168,8 +169,8 @@ public class main {
 //                {2, 3, 4}
 
 //        };
-        int[] arr = new int[] { 1, 7, 3, 6, 5, 6};
-        System.out.println(ta.pivotIndex(arr));
+        int[] arr = new int[] { 1,1,2,3};
+        System.out.println(ta.isMonotonic(arr));
     }
 
     static void printArr(int[][] a) {
