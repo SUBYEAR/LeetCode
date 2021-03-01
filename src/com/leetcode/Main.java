@@ -1,6 +1,6 @@
 package com.leetcode;
 
-import com.leetcode.hard.LeetCode765;
+import com.leetcode.medium.LeetCode560;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -234,9 +234,14 @@ public class Main {
                 {3,8,2},
                 {5,3,5}
         };
-        int[]  arr2 = new int[] {1,2,0,3};
-        LeetCode765 test = new LeetCode765();
-        System.out.println(test.minSwapsCouples(arr2));
+        int[]  arr2 = new int[] {1,2,3};
+        int[]  arr1 = new int[] {0,1,0,1,0,1,0,1};
+
+        String[] words = new String[] {"apple","pleas","please"};
+        String[] puzzles = new String[] {"aelwxyz","aelpxyz","aelpsxy","saelpxy","xaelpsy"};
+        LeetCode560 test = new LeetCode560();
+        System.out.println(test.subarraySum(arr2, 3));
+
     }
 
     private void  testOs() {

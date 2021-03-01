@@ -5,16 +5,7 @@
 package com.leetcode.medium;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.IntStream;
 
 /**
  * 你的国家有无数个湖泊，所有湖泊一开始都是空的。当第 n 个湖泊下雨的时候，如果第 n 个湖泊是空的，那么它就会装满水，否则这个湖泊会发生洪水。你的目标是避免任意一个湖泊发生洪水。
@@ -49,7 +40,8 @@ public class LeetCode1488 {
             int pool = rains[i];
             if (map.containsKey(pool)) {
                 int lastFull = map.get(pool);
-                int id = lower_bound(zeros, lastFull); // 前一个满了的pool右边的第一个0的index
+                // 前一个满了的pool右边的第一个0的index, 也就是说上一次下雨以后在其后面要有晴天日期
+                int id = lower_bound(zeros, lastFull); // 即两次相同的湖下雨之间找到可以抽干的地方
                 if (id >= zeros.size()) return new int[0];
 
                 res[zeros.get(id)] = pool;
@@ -63,7 +55,7 @@ public class LeetCode1488 {
     }
 
     /**二分搜索**/
-    private int lower_bound(ArrayList<Integer> A, int target) {
+    private int lower_bound(ArrayList<Integer> A, int target) { // 返回值是一个索引，含义是A 中小于 target 的元素有多少个。
         int lo = 0, hi = A.size();
         while (lo < hi) {
             int mid = lo + (hi - lo) / 2;
