@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.Deque;
 import java.util.LinkedList;

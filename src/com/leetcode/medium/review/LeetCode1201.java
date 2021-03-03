@@ -1,14 +1,21 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
+/**
+ * 请你帮忙设计一个程序，用来找出第 n 个丑数。
+ *
+ * 丑数是可以被 a 或 b 或 c 整除的 正整数。
+ */
 public class LeetCode1201 {
     public int nthUglyNumber(int n, int a, int b, int c) {
         long low = Math.min(Math.min(a, b), c);
-        long high = low * n;
+        long high = low * n; // 先找到a,b,c里最小的那个数，比如是a，那么第n个丑数肯定是小于等于n * a
 
         long res = BinarySearch(low, high, a, b, c, n);
         long remianderA = res % a;
         long remianderB = res % b;
         long remianderC = res % c;
+
+        // 临时答案是K(K∈[X,X + min(a,b,c))),那么K - min(K%a,K%b,K%c) = X.也就是只需要把临时答案减去其与a、b、c三者中取余的最小值即可
         res -= Math.min(Math.min(remianderA, remianderB), remianderC);
         return (int)res;
     }

@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 /**
  * 给你一个整数数组 nums 和一个整数 k。

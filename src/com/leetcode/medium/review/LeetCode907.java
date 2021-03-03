@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.Stack;
 
@@ -45,7 +45,8 @@ public class LeetCode907 {
         stack = new Stack();
         int[] next = new int[N];
         for (int k = N - 1; k >= 0; --k) {
-            while (!stack.isEmpty() && A[k] < A[stack.peek()]) {
+            while (!stack.isEmpty() && A[k] < A[stack.peek()]) { // 防止重复计算所以这里没有等于
+                // [10, 3, 4, 5, _3_, 2, 3, 10] 第三个3在计算前面的单调栈位置就会计算这里没有的等于情形
                 stack.pop();
             }
             next[k] = stack.isEmpty() ? N : stack.peek();

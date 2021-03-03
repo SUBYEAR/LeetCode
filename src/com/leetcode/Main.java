@@ -1,7 +1,6 @@
 package com.leetcode;
 
-import com.leetcode.medium.LeetCode560;
-import com.leetcode.medium.SwordPointAtOffer38;
+import com.leetcode.medium.LeetCode227;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -231,17 +230,17 @@ public class Main {
         // node3.neighbors.add(node2);node3.neighbors.add(node4);
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
         int[][] heights = new int[][] {
-                {1,2,2},
-                {3,8,2},
-                {5,3,5}
+                {1,0},
+                {2,0},
+                {3,1},
+                {3,2},
         };
-        int[]  arr2 = new int[] {1,2,1};
+        int[]  arr2 = new int[] {7,2,5,4};
         int[]  arr1 = new int[] {0,1,0,1,0,1,0,1};
 
         String[] words = new String[] {"apple","pleas","please"};
         String[] puzzles = new String[] {"aelwxyz","aelpxyz","aelpsxy","saelpxy","xaelpsy"};
-        SwordPointAtOffer38 test = new SwordPointAtOffer38();
-        test.permutation("abb");
+        LeetCode227 t = new LeetCode227();
 
     }
 

@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -35,3 +35,24 @@ public class LeetCode962 { //单调递减栈，遍历到当前元素比栈顶表
         return res;
     }
 }
+
+// 对于每一个形如 A[i] = v 的元素，我们将其索引 i 按照对应值 v 排序之后的顺序写下。
+// 例如， A[0] = 7, A[1] = 2, A[2] = 5, A[3] = 4，我们应该这样顺序写下索引值 i=1, i=3, i=2, i=0。
+//
+// 然后，当我们写下一个索引 i 的时候，我们可以得到候选的宽度答案
+// i - min(indexes_previously_written) （如果这个值是正数的话）。 我们可以用一个变量 m 记录已经写下的最小索引。
+//         int N = A.length;
+//         Integer[] B = new Integer[N];
+//         for (int i = 0; i < N; ++i)
+//             B[i] = i;
+//
+//         Arrays.sort(B, (i, j) -> ((Integer) A[i]).compareTo(A[j]));
+//
+//         int ans = 0;
+//         int m = N;
+//         for (int i: B) {
+//             ans = Math.max(ans, i - m);
+//             m = Math.min(m, i);
+//         }
+//
+//         return ans;
