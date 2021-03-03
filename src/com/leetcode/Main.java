@@ -1,6 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.easy.LeetCode392;
 import com.leetcode.medium.LeetCode227;
+import com.leetcode.medium.LeetCode866;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -240,8 +242,8 @@ public class Main {
 
         String[] words = new String[] {"apple","pleas","please"};
         String[] puzzles = new String[] {"aelwxyz","aelpxyz","aelpsxy","saelpxy","xaelpsy"};
-        LeetCode227 t = new LeetCode227();
-
+        LeetCode866 t = new LeetCode866();
+        t.primePalindrome(123);
     }
 
     private void  testOs() {

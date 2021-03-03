@@ -19,11 +19,12 @@ import java.util.List;
  * @since 2020-05-27
  */
 public class LeetCode866 {
-
+    // 知识点： “偶数长度的回文数”中只有11是素数，其他的都可以被11整除。
     public int primePalindrome(int N) {
         for (int L = 1; L <= 5; ++L) {
             // Check for odd-length palindromes
-            for (int root = (int) Math.pow(10, L - 1); root < (int) Math.pow(10, L); ++root) {
+            // 回文根的列举是1~9, 10~99, 100~999
+            for (int root = (int) Math.pow(10, L - 1); root < (int) Math.pow(10, L); ++root) { // 如果 123 是 12321 的回文根，那么下一个回文串 12421 的回文根就是 124
                 StringBuilder sb = new StringBuilder(Integer.toString(root));
                 for (int k = L - 2; k >= 0; --k) {
                     sb.append(sb.charAt(k));
@@ -35,7 +36,7 @@ public class LeetCode866 {
                 // If we didn't check for even-length palindromes:
                 // return N <= 11 ? min(x, 11) : x
             }
-
+            // 一个回文根可能对应两个回文串，例如 123321123321，1232112321 的回文根就都是 123123
             // Check for even-length palindromes
             for (int root = (int) Math.pow(10, L - 1); root < (int) Math.pow(10, L); ++root) {
                 StringBuilder sb = new StringBuilder(Integer.toString(root));
@@ -117,7 +118,7 @@ public class LeetCode866 {
         return count;
     }
 
-    boolean isPalindrome(int n) {
+    boolean isPalindrome(int n) { // 或者利用回文数逆序后的值来判断
         String s = Integer.toString(n);
         int end = s.length() - 1;
         for (int i = 0; i <= end; i++, end--) {
@@ -127,5 +128,4 @@ public class LeetCode866 {
         }
         return true;
     }
-
 }
