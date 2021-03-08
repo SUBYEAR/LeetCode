@@ -1,4 +1,4 @@
-package com.leetcode.medium;/*
+package com.leetcode.medium.review;/*
 让我们一起来玩扫雷游戏！
 
 给定一个代表游戏板的二维字符矩阵。 'M' 代表一个未挖出的地雷，'E' 代表一个未挖出的空方块，

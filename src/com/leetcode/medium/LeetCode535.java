@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class LeetCode553 {
+public class LeetCode535 {
     Map<Integer, String> map = new HashMap<>();
     Random r = new Random();
     int key = r.nextInt(Integer.MAX_VALUE);

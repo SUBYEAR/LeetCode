@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,8 +27,9 @@ public class LeetCode424 {
             if (right - left > maxCount + k) {
                 --map[chars[left] - 'A'];
                 left++;
+                // 求最小值的逻辑在此处更新
             }
-            res = Math.max(res, right - left);
+            res = Math.max(res, right - left); // 求最大值在此处更新
         }
         return res;
     }

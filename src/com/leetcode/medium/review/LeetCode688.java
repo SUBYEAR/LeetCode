@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 /*
 已知一个 NxN 的国际象棋棋盘，棋盘的行号和列号都是从 0 开始。即最左上角的格子记为 (0, 0)，最右下角的记为 (N-1, N-1)。 

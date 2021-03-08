@@ -3,6 +3,7 @@ package com.leetcode;
 import com.leetcode.easy.LeetCode392;
 import com.leetcode.medium.LeetCode227;
 import com.leetcode.medium.LeetCode866;
+import com.leetcode.medium.review.LeetCode556;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -231,26 +232,20 @@ public class Main {
         // node2.neighbors.add(node1);node2.neighbors.add(node3);
         // node3.neighbors.add(node2);node3.neighbors.add(node4);
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
-        int[][] heights = new int[][] {
-                {1,0},
-                {2,0},
-                {3,1},
-                {3,2},
+        int[][] heights = new int[][]{
+                {1, 0},
+                {2, 0},
+                {3, 1},
+                {3, 2},
         };
-        int[]  arr2 = new int[] {7,2,5,4};
-        int[]  arr1 = new int[] {0,1,0,1,0,1,0,1};
+        int[] arr2 = new int[]{7, 2, 5, 4};
+        int[] arr1 = new int[]{0, 1, 0, 1, 0, 1, 0, 1};
 
-        String[] words = new String[] {"apple","pleas","please"};
-        String[] puzzles = new String[] {"aelwxyz","aelpxyz","aelpsxy","saelpxy","xaelpsy"};
-        LeetCode866 t = new LeetCode866();
-        t.primePalindrome(123);
-    }
-
-    private void  testOs() {
-        String sa = "/*";
-        int i = 1;
-        if (i >5 && i > 1)
-        System.out.println(sa.substring(sa.indexOf("/*") + 2).chars().allMatch(c -> c == ' ' || c == '*'));
+        String[] words = new String[]{"apple", "pleas", "please"};
+        String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
+        int n = 98765;
+        LeetCode556 t = new LeetCode556();
+        t.nextGreaterElement(n);
     }
 
     public static void printIndent(int n) {

@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 /**
  * 给定一个包含 非负数 的数组和一个目标 整数 k，编写一个函数来判断该数组是否含有连续的子数组，其大小至少为 2，且总和为 k 的倍数，即总和为 n*k，其中 n 也是一个整数。
@@ -36,7 +36,7 @@ public class LeetCode523 {
 //         // key：区间 [0..i] 里所有元素的和 % k
 //         // value：下标 i
 //         Map<Integer, Integer> map = new HashMap<>();
-//         // 理解初始化的意义
+//         // 理解初始化的意义, 因为这里是要计算长度且map的value含义是下标所以取-1
 //         map.put(0, -1);
 //         int len = nums.length;
 //         for (int i = 0; i < len; i++) {

@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import com.leetcode.Permutation;
 
@@ -19,31 +19,12 @@ import java.util.List;
  * 思路2: 我们需要从右往左找到第一对连续的数字 a[i] 和 a[i-1] 满足 a[i-1] < a[i]
  * 要重新排布 a[i-1] 到最右边的数字来得到下一个排列
  * 得到恰好大于当前数字的下一个排列，所以我们需要用恰好大于 a[i−1] 的数字去替换掉 a[i−1]，比方说我们让这个数字为 a[j]，交换这两个数
- * 这时只是a[i -1]是正确情况了，还需要将下标1开始的数字升序排列及为结果
+ * 这时只是a[i -1]是正确情况了，还需要将下标i - 1开始的到最右边的数字升序排列为结果
  *
  * @since 2020-06-11
  */
 public class LeetCode556 {
     public int nextGreaterElement(int n) {
-        List<String> list = new LinkedList<>();
-        String str = String.valueOf(n);
-        new Permutation().getPermutation(str.toCharArray(), 0, str.length() - 1, list);
-        Collections.sort(list);
-        System.out.println(list);
-        int res = -1;
-        if (n == Integer.parseInt(list.get(list.size() - 1))) {
-            return res;
-        }
-        for (String s : list) {
-            if (n < Integer.parseInt(s)) {
-                res = Integer.parseInt(s);
-                break;
-            }
-        }
-        return res;
-    }
-
-    public int nextGreaterElement2(int n) {
         char[] a = ("" + n).toCharArray();
         int i = a.length - 2;
         while (i >= 0 && a[i + 1] <= a[i]) {
@@ -52,12 +33,13 @@ public class LeetCode556 {
         if (i < 0) {
             return -1;
         }
+        // 以{1,5,8,5,7,6,4,3,1}为例
         int j = a.length - 1;
-        while (j >= 0 && a[j] <= a[i]) {
+        while (j >= 0 && a[j] <= a[i]) { // 恰好大于 a[i] 的数字去替换掉 a[i]
             j--;
         }
         swap(a, i, j);
-        reverse(a, i + 1);
+        reverse(a, i + 1); // 只需要反转下标从 i 开始到最后的数字，就可以得到下一个字典序最小的排列。
         try {
             return Integer.parseInt(new String(a));
         } catch (Exception e) {

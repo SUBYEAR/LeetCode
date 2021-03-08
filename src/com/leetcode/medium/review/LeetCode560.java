@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.HashMap;
 
@@ -17,7 +17,7 @@ public class LeetCode560 {
 		//例如输入[1,1,0]，k = 2 如果没有这行代码，则会返回0,漏掉了1+1=2，和1+1+0=2的情况
 		//输入：[3,1,1,0] k = 2时则不会漏掉
 		//因为presum[3] - presum[0]表示前面 3 位的和，所以需要map.put(0,1),垫下底
-		map.put(0, 1);
+		map.put(0, 1); // 这里是求个数，所以这里初始化时个数是1个
 
 		int count = 0;
 		int presum = 0;

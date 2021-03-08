@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +15,11 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/queue-reconstruction-by-height
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
+
+// 如果我们在初始时建立一个包含 n 个位置的空队列，而我们每次将一个人放入队列中时，会将一个「空」位置变成「满」位置，
+// 那么当我们放入第 i 个人时，我们需要给他安排一个「空」位置，并且这个「空」位置前面恰好还有 k_i 个「空」位置，
+// 用来安排给后面身高更高的人。也就是说，第 i个人的位置，就是队列中从左往右数第 k_i+1 个「空」位置。
+// 当身高相等时k_i > k_j 那么说明 i 一定相对于 j 在队列中处于较后的位置
 public class LeetCode406 {
     public int[][] reconstructQueue(int[][] people) {
         // 需要按照 hi 为第一关键字降序，ki为第二关键字升序进行排序即可。
@@ -29,7 +34,7 @@ public class LeetCode406 {
         });
         List<int[]> ans = new ArrayList<int[]>();
         for (int[] person : people) {
-            ans.add(person[1], person);
+            ans.add(person[1], person); // 第 i个人的位置，就是队列中从左往右数第 k_i+1 个「空」位置
         }
         return ans.toArray(new int[ans.size()][]);
     }
