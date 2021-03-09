@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import java.util.*;
 
@@ -28,10 +28,20 @@ public class LeetCode332 {
             map.get(src).offer(dst);
         }
         dfs("JFK");
-        Collections.reverse(itinerary);
+        Collections.reverse(itinerary); // 注意最后要将结果反转
         return itinerary;
     }
 
+    // Hierholzer 算法用于在连通图中寻找欧拉路径，其流程如下：
+    //从起点出发，进行深度优先搜索。
+    //每次沿着某条边从某个顶点移动到另外一个顶点的时候，都需要删除这条边。
+    //如果没有可移动的路径，则将所在节点加入到栈中，并返回。
+/*
+只有那个入度与出度差为 1 的节点会导致死胡同。而该节点必然是最后一个遍历到的节点。
+我们可以改变入栈的规则，当我们遍历完一个节点所连的所有节点后，我们才将该节点入栈（即逆序入栈）。
+对于当前节点而言，从它的每一个非「死胡同」分支出发进行深度优先搜索，都将会搜回到当前节点。
+而从它的「死胡同」分支出发进行深度优先搜索将不会搜回到当前节点。也就是说当前节点的死胡同分支将会优先于其他非「死胡同」分支入栈。
+ */
     public void dfs(String curr) {
         while (map.containsKey(curr) && map.get(curr).size() > 0) {
             String tmp = map.get(curr).poll();

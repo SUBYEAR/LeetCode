@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 import com.leetcode.TreeNode;
 
@@ -38,11 +38,10 @@ public class LeetCode337 {
         if (root == null) {
             return new ReturnType(0, 0);
         }
+
         ReturnType left = process(root.left);
         ReturnType right = process(root.right);
         int choose = root.val + left.noChoose + right.noChoose;
-
-
         int a = Math.max(left.choose + right.choose, left.noChoose + right.noChoose);
         int b = Math.max(left.choose + right.noChoose, left.noChoose + right.choose);
         int noChoose = Math.max(a, b);

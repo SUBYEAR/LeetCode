@@ -25,6 +25,7 @@ public class LeetCode338 {
 	}
 }
 
+// 前缀和解法
 //         int[] bits = new int[num + 1];
 //         int highBit = 0;
 //         for (int i = 1; i <= num; i++) {

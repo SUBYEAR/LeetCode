@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review;
 
 /*
 给定一个无序的整数数组，找到其中最长上升子序列的长度。
@@ -33,3 +33,24 @@ public class LeetCode300 {
         return piles;
     }
 }
+
+// 动态规划解法
+// public int lengthOfLIS(int[] nums) {
+//        if (nums.length == 0) {
+//            return 0;
+//        }
+//        int[] dp = new int[nums.length];
+//        dp[0] = 1;
+//        int maxans = 1;
+//        for (int i = 1; i < nums.length; i++) {
+//            dp[i] = 1;
+//            for (int j = 0; j < i; j++) {
+//                if (nums[i] > nums[j]) {
+//                    dp[i] = Math.max(dp[i], dp[j] + 1);
+//                }
+//            }
+//            maxans = Math.max(maxans, dp[i]);
+//        }
+//        return maxans;
+//    }
+//
