@@ -1,8 +1,5 @@
 package com.leetcode;
 
-import com.leetcode.easy.LeetCode392;
-import com.leetcode.medium.LeetCode227;
-import com.leetcode.medium.LeetCode866;
 import com.leetcode.medium.review.LeetCode556;
 
 import java.util.Arrays;
@@ -243,9 +240,6 @@ public class Main {
 
         String[] words = new String[]{"apple", "pleas", "please"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        int n = 98765;
-        LeetCode556 t = new LeetCode556();
-        t.nextGreaterElement(n);
     }
 
     public static void printIndent(int n) {

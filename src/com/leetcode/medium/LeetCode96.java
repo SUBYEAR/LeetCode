@@ -20,7 +20,7 @@ public class LeetCode96 {
             for (int j = 1; j < i - 1; j++) {
                 subTree += dp[j] * dp[i - 1 - j];
             }
-            dp[i] = dp[i - 1] + subTree + dp[i - 1];
+            dp[i] = dp[i - 1] + subTree + dp[i - 1]; // 这三个值分别代表只有左子树, 左右子树都有, 只有右子树的情况
         }
         return dp[n];
     }

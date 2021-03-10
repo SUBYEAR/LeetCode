@@ -24,11 +24,11 @@ public class LeetCode147 {
         dummy.next = head;
 
         while (head != null && head.next != null) {
-            if (head.val <= head.next.val) {
+            if (head.val <= head.next.val) { // pre 到head之间的范围是有序的
                 head = head.next;
                 continue;
             }
-            pre = dummy;
+            pre = dummy; // 构造的亚节点方便每次从头找到比当前节点小的节点
 
             while (pre.next.val < head.next.val) {
                 pre = pre.next;
