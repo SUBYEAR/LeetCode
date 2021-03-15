@@ -28,7 +28,7 @@ public class Interview1713 {
 
     public int respace(String[] dictionary, String sentence) {
         Set<Long> hashValues = new HashSet<Long>();
-        for (String word : dictionary) {
+        for (String word : dictionary) { // 比较秒的想法是把每一个word都转换成了一个哈希值
             hashValues.add(getHash(word));
         }
 
@@ -64,7 +64,7 @@ public class Interview1713 {
 
         Trie root = new Trie();
         for (String word: dictionary) {
-            root.insert(word);
+            root.insert(word); // 词典中所有的单词「反序」插入字典树中
         }
 
         int[] dp = new int[n + 1];
@@ -81,9 +81,9 @@ public class Interview1713 {
                 } else if (curPos.next[t].isEnd) {
                     dp[i] = Math.min(dp[i], dp[j - 1]);
                 }
-//                if (dp[i] == 0) { // 为什么要break，表示当前字符串已经全部匹配完了，不需要继续在字典树上查找了
-//                    break; // 这是一个优化
-//                }
+                if (dp[i] == 0) { // 为什么要break，表示当前字符串已经全部匹配完了，不需要继续在字典树上查找了
+                    break; // 这是一个优化
+                }
                 curPos = curPos.next[t];
             }
         }

@@ -1,13 +1,10 @@
 package com.leetcode;
 
+import com.leetcode.hard.LeetCode115;
 import com.leetcode.medium.review.LeetCode556;
+import com.leetcode.medium.review.LeetCode8;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     // while (h < N / 3) { h = 3 * h + 1;} // (3^h - 1) / 2
@@ -231,11 +228,12 @@ public class Main {
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
         int[][] heights = new int[][]{
                 {1, 0},
-                {2, 0},
+                {2, 3},
                 {3, 1},
                 {3, 2},
         };
-        int[] arr2 = new int[]{7, 2, 5, 4};
+        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
+        int[] arr2 = new int[]{2,1,3,5,4};
         int[] arr1 = new int[]{0, 1, 0, 1, 0, 1, 0, 1};
 
         String[] words = new String[]{"apple", "pleas", "please"};
@@ -265,7 +263,7 @@ public class Main {
         return Math.max(res, i - j);
     }
 
-    static void printArr(int[][] A) {
+    public static void printArr(int[][] A) {
         if (A == null) {
             return;
         }

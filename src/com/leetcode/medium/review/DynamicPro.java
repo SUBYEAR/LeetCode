@@ -18,11 +18,7 @@ public class DynamicPro {
     public int bottomUpZeroOnePackage(int[] weight, int[] value, int n, int packageWeight) {
         // 初始化成0 如果初始化成-1时packageWeight=0会得到-1的解
         int[][] m_memo = new int[n + 1][packageWeight + 1];
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= packageWeight; j++) {
-                m_memo[i][j] = 0;
-            }
-        }
+
         for (int i = 1; i <= n; i++) {
             // 或者for(int j = packageWeight; j >= 1; j--) 内层循环从大到小循环也可以
             for (int j = 1; j <= packageWeight; j++) {
@@ -41,9 +37,7 @@ public class DynamicPro {
         }
         // m_memo[i][0]初始化成0
         int[][] m_memo = new int[coins.length][amount + 1];
-        for (int i = 0; i < coins.length; i++) {
-            m_memo[i][0] = 0;
-        }
+
         // 初始值初始化为 amount + 1
         // 主要因为求最小值,所以把问题和子问题的解初始化成amount + 1,因为面值最小单位都是1
         // 所以amount大小需要的面值张数不会超过amount
@@ -105,9 +99,24 @@ public class DynamicPro {
         return Math.min(a, Math.min(b, c));
     }
 
+    /**
+     * 你⾯前有⼀栋从 1 到 N 共 N 层的楼，然后给你 K 个鸡蛋
+     * （ K ⾄少为 1）。现在确定这栋楼存在楼层 0 <= F <= N ，在这层楼将鸡
+     * 蛋扔下去，鸡蛋恰好没摔碎（⾼于 F 的楼层都会碎，低于 F 的楼层都不
+     * 会碎）。现在问你，最坏情况下，你⾄少要扔⼏次鸡蛋，才能确定这个楼层
+     * F 呢？
+     * 也就是让你找摔不碎鸡蛋的最⾼楼层 F ，但什么叫「最坏情况」下「⾄
+     * 少」要扔⼏次呢？我们分别举个例⼦就明⽩了。
+     *
+     * 如果鸡蛋碎了，那么鸡蛋的个数 K 应该减⼀，搜索的楼层区间应该从
+     * [1..N] 变为 [1..i-1] 共 i-1 层楼；
+     * 如果鸡蛋没碎，那么鸡蛋的个数 K 不变，搜索的楼层区间应该从 [1..N]
+     * 变为 [i+1..N] 共 N-i 层楼。
+     */
     // 扔鸡蛋问题：确定当前的鸡蛋个数和最多允许的扔鸡蛋次数，就知道能够确定 F 的最高楼层数
     int superEggDrop(int K, int N) {
-        // m 最多不会超过 N 次（线性扫描）
+        // m 最多不会超过 N 次（线性扫描）当前有 k 个鸡蛋，可以尝试扔 m 次鸡蛋
+        // 这个状态下，最坏情况下最多能确切测试⼀栋 n 层的楼
         int[][] dp = new int[K + 1][N + 1];
         // base case:
         // dp[0][..] = 0
