@@ -58,7 +58,7 @@ public class LeetCode8 {
                     break;
                 case NUMBER:
                     if (isDigit(ch)) {
-                        if (number > (Integer.MAX_VALUE - ch - '0') / 10) {
+                        if (number > (Integer.MAX_VALUE - ch - '0') / 10) { // 防止越界的处理
                             return isNeg ? Integer.MIN_VALUE : Integer.MAX_VALUE;
                         }
                         number = number * 10 + ch - '0';
@@ -114,11 +114,11 @@ public class LeetCode8 {
 }
 
 // 官方解法 状态表如下
-// 	' '	+/-	number	other
-//start	start	signed	in_number	end
-//signed	end	end	in_number	end
-//in_number	end	end	in_number	end
-//end	end	end	end	end
+// 	        ' '	   +/-	   number	    other
+//start	    start  signed  in_number	end
+//signed	end	   end	   in_number	end
+//in_number	end	   end	   in_number	end
+//end	    end    end	   end	        end
 // class Solution {
 //    public int myAtoi(String str) {
 //        Automaton automaton = new Automaton();

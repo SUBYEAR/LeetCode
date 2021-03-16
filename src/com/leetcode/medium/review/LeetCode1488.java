@@ -44,7 +44,7 @@ public class LeetCode1488 {
                 int id = lower_bound(zeros, lastFull); // 即两次相同的湖下雨之间找到可以抽干的地方
                 if (id >= zeros.size()) return new int[0];
 
-                res[zeros.get(id)] = pool;
+                res[zeros.get(id)] = pool; // 根据返回值的索引取值就是数组中第一个比target大的数
                 zeros.remove(id);
             }
             map.put(pool, i);

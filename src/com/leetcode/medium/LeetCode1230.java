@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium;
 
 /**
  * 有一些不规则的硬币。在这些硬币中，prob[i] 表示第 i 枚硬币正面朝上的概率。

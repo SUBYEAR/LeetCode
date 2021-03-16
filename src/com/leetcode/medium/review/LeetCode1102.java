@@ -18,49 +18,45 @@ import java.util.PriorityQueue;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode1102 {
-    class Point{
+    class Point {
         int x;
         int y;
         int pointValue;
         int currentMinValue;
-        Point(int x,int y,int pointValue)
-        {
-            this.x=x;
-            this.y=y;
-            this.pointValue =pointValue;
+
+        Point(int x, int y, int pointValue) {
+            this.x = x;
+            this.y = y;
+            this.pointValue = pointValue;
         }
     }
-    public int maximumMinimumPath(int[][] A) {
 
+    public int maximumMinimumPath(int[][] A) {
         //优先队列，同时记录达到这个节点的最小值，到达该节点的路径中的最小值越大越优先，
-        PriorityQueue<Point> priorityQueue = new PriorityQueue<>((p1, p2)->p2.currentMinValue -p1.currentMinValue);
+        PriorityQueue<Point> priorityQueue = new PriorityQueue<>((p1, p2) -> p2.currentMinValue - p1.currentMinValue);
         int rows = A.length;
         int cols = A[0].length;
         boolean[][] visited = new boolean[rows][cols];
-        Point startPoint = new Point(0,0,A[0][0]);
-        startPoint.currentMinValue=A[0][0];
+        Point startPoint = new Point(0, 0, A[0][0]);
+        startPoint.currentMinValue = A[0][0];
         priorityQueue.add(startPoint);
 
-        int[][] directors = new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
-        while(!priorityQueue.isEmpty())
-        {
+        int[][] directors = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        while (!priorityQueue.isEmpty()) {
             Point currentPoint = priorityQueue.poll();
-            if(currentPoint.x==rows-1 && currentPoint.y==cols-1)
-            {
+            if (currentPoint.x == rows - 1 && currentPoint.y == cols - 1) {
                 return currentPoint.currentMinValue;
             }
-            visited[currentPoint.x][currentPoint.y]=true;
-            for(int i=0;i<directors.length;i++)
-            {
-                int nextX = currentPoint.x+directors[i][0];
-                int nextY = currentPoint.y+directors[i][1];
+            visited[currentPoint.x][currentPoint.y] = true;
+            for (int i = 0; i < directors.length; i++) {
+                int nextX = currentPoint.x + directors[i][0];
+                int nextY = currentPoint.y + directors[i][1];
                 //在范围内，且没有访问过，加入队列
-                if(nextX>=0&&nextX<rows&&nextY>=0&&nextY<cols &&!visited[nextX][nextY])
-                {
-                    int nextPointValue =A[nextX][nextY];
-                    Point nextPoint = new Point(nextX,nextY,nextPointValue);
+                if (nextX >= 0 && nextX < rows && nextY >= 0 && nextY < cols && !visited[nextX][nextY]) {
+                    int nextPointValue = A[nextX][nextY];
+                    Point nextPoint = new Point(nextX, nextY, nextPointValue);
                     //目前的最小值与当前节点比较
-                    nextPoint.currentMinValue=Math.min(currentPoint.currentMinValue,nextPoint.pointValue);
+                    nextPoint.currentMinValue = Math.min(currentPoint.currentMinValue, nextPoint.pointValue);
                     priorityQueue.offer(nextPoint);
                 }
             }

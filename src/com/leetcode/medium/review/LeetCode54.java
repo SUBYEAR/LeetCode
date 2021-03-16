@@ -56,3 +56,32 @@ public class LeetCode54 {
         return res;
     }
 }
+
+//     public List<Integer> spiralOrder(int[][] matrix) {
+//        List<Integer> res = new LinkedList<>();
+//        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+//            return res;
+//        }
+//        int n = matrix[0].length;
+//        int m = matrix.length;
+//        for (int i = 0; i < (Math.min(m, n) + 1) / 2; i++) {
+//            for (int j = i; j < n - i; j++) {
+//                res.add(matrix[i][j]);
+//            }
+//            for (int j = i + 1; j < m - i; j++) {
+//                res.add(matrix[j][n - 1 - i]);
+//            }
+//// m - 1 - i 是指随着层数增加时，层数的边界所在行（即最上行和最下行的所处的行数），
+//// 如果出现最上行和最下行是同一行的情况（比如：3行5列的矩阵中，第二层是1行3列的矩阵），
+//// 此时按顺序打印完第二层第一行后，第一列为空，不打印，折返后如果没有（m - 1 - i != i）这个限制，
+//// 会重新打印第二层的第一行，造成结果的值变多。同理可得，n - 1 - i != i。
+//            for (int j = i + 1; j < n - i && (m-1-i != i); j++) {
+//                res.add(matrix[m - 1 - i][n - 1 - j]);
+//            }
+//            for (int j = i + 1; j < m - 1 - i && (n-1-i) != i; j++) {
+//                res.add(matrix[m - 1 - j][i]);
+//            }
+//        }
+//        return res;
+//    }
+

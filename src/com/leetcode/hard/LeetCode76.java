@@ -13,7 +13,6 @@ public class LeetCode76 {
         Map<Character, Integer> need = new HashMap<>();
         int valid = 0;
         for (char ch : t.toCharArray()) {
-            Integer num = need.getOrDefault(ch, 0);
             need.put(ch, need.getOrDefault(ch, 0) + 1);
         }
         int start = 0;

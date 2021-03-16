@@ -1,6 +1,8 @@
 package com.leetcode;
 
 import com.leetcode.hard.LeetCode115;
+import com.leetcode.hard.LeetCode42;
+import com.leetcode.medium.review.LeetCode40;
 import com.leetcode.medium.review.LeetCode556;
 import com.leetcode.medium.review.LeetCode8;
 
@@ -233,11 +235,13 @@ public class Main {
                 {3, 2},
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{2,1,3,5,4};
-        int[] arr1 = new int[]{0, 1, 0, 1, 0, 1, 0, 1};
+        int[] arr2 = new int[]{1,1,1,1,1};
+        int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
         String[] words = new String[]{"apple", "pleas", "please"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
+        LeetCode42 t = new LeetCode42();
+        System.out.println("" + t.trap(arr1));
     }
 
     public static void printIndent(int n) {

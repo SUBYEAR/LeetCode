@@ -42,6 +42,7 @@ public class LeetCode1371 {
             if (pos[status] >= 0) {
                 ans = Math.max(ans, i + 1 - pos[status]);
             } else {
+                // 这里要加1是因为pos数组表示前i个字符中元音字母的奇偶性状态，索引是状态，值是字符个数
                 pos[status] = i + 1; // 加1必须有不然会 "leetcodeisgreat" 测试用例失败
             }
         }

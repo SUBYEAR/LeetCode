@@ -21,6 +21,7 @@ public class LeetCode45 {
         int end = 0;
         int maxPosition = 0;
         int steps = 0;
+        // 维护当前能够到达的最大下标位置，记为边界。我们从左到右遍历数组，到达边界时，更新边界并将跳跃次数增加 1。
         for (int i = 0; i < length - 1; i++) {
             maxPosition = Math.max(maxPosition, i + nums[i]);
             if (i == end) {

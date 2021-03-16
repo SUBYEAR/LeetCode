@@ -33,7 +33,7 @@ public class LeetCode51 {
         }
 
         for (int col = 0; col < n; col++) {
-            columns[row] = col;
+            columns[row] = col; // 第row行皇后的摆放位置是col列
             if (check(row, col, columns)) {
                 helper(n, row + 1, columns);
             }

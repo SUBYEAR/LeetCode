@@ -17,6 +17,7 @@ public class LeetCode29 {
             return Integer.MAX_VALUE;
         }
 
+        boolean sign = (dividend > 0 && divisor > 0) || (dividend < 0 && divisor < 0);
         int res = 0;
         dividend = -Math.abs(dividend);
         divisor = -Math.abs(divisor);
@@ -32,6 +33,6 @@ public class LeetCode29 {
             res += c;
         }
 
-        return ((dividend > 0 && divisor > 0) || (dividend < 0 && divisor < 0)) ? res : -res;
+        return sign ? res : -res;
     }
 }

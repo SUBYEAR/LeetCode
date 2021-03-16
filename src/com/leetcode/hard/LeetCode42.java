@@ -12,7 +12,7 @@ public class LeetCode42 {
     public int trap(int[] height) {
         int res = 0;
         Deque<Integer> s = new LinkedList<>();
-        for (int i = 0; i < height.length; i++) {
+        for (int i = 0; i < height.length; i++) { // 遍历当前元素时栈顶的元素就被当前元素和栈顶的前一个元素夹住了
             while (!s.isEmpty() && height[s.peek()] < height[i]) {
                 int top = s.pop();
                 if (s.isEmpty()) {
@@ -23,7 +23,7 @@ public class LeetCode42 {
                 int h = Math.min(height[i], height[s.peek()]) - height[top];
                 res += h * dis;
             }
-            s.push(i);
+            s.push(i); // 当前的条形块小于或等于栈顶的条形块，我们将条形块的索引入栈
         }
 
         return res;

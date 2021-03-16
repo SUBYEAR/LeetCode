@@ -7,7 +7,8 @@ package com.leetcode.medium.review;
 import java.util.Arrays;
 
 /**
- * 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
+ * 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。
+ * 找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
  * 双指针找到下一个不一样的数来更新结果
  * @since 2020-06-24
  */
@@ -48,3 +49,5 @@ public class LeetCode16 {
         return res;
     }
 }
+
+// 可考虑使用回溯算法，可能会超时，需要剪枝

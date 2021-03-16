@@ -36,18 +36,18 @@ public class LeetCode1151 {
     public int minSwaps(int[] data) {
         int m = data.length;
         int window_size = 0;
-        for(int da : data){
-            if(da == 1){
+        for (int da : data) {
+            if (da == 1) {
                 window_size += da;
             }
         }
 
-        int left = 0,right = 0,res = 0,max = 0;
-        while(right < m){
-            if(right - left < window_size){
+        int left = 0, right = 0, res = 0, max = 0;
+        while (right < m) {
+            if (right - left < window_size) {
                 res += data[right++];
-                max = Math.max(max,res);
-            }else{
+                max = Math.max(max, res);
+            } else {
                 res -= data[left++];
             }
         }
