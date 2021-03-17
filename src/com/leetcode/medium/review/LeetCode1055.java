@@ -3,7 +3,8 @@ package com.leetcode.medium.review;
 /**
  * 对于任何字符串，我们可以通过删除其中一些字符（也可能不删除）来构造该字符串的子序列。
  *
- * 给定源字符串 source 和目标字符串 target，找出源字符串中能通过串联形成目标字符串的子序列的最小数量。如果无法通过串联源字符串中的子序列来构造目标字符串，则返回 -1。
+ * 给定源字符串 source 和目标字符串 target，找出源字符串中能通过串联形成目标字符串的子序列的最小数量。
+ * 如果无法通过串联源字符串中的子序列来构造目标字符串，则返回 -1。
  *
  *  
  *
@@ -36,16 +37,16 @@ public class LeetCode1055 {
     //在每次寻找最长子序列的过程中，若source中没有子序列可以与target的子字符串匹配，则 i 不会变化，此时返回 -1 。
     public int shortestWay(String source, String target) {
         int len = 0, i = 0;
-        while(i < target.length()) {
+        while (i < target.length()) {
             int temp = i, j = 0;
             //寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列
-            while(j<source.length()) {
-                if(source.charAt(j++)==target.charAt(i)) {
-                    if(++i == target.length()) break;
+            while (j < source.length()) {
+                if (source.charAt(j++) == target.charAt(i)) {
+                    if (++i == target.length()) break;
                 }
             }
             //若source中的子序列与target的子字符串不能匹配
-            if(temp == i) return -1;
+            if (temp == i) return -1;
             len++;
         }
         return len;

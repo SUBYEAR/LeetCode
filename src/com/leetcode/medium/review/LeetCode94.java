@@ -14,15 +14,15 @@ public class LeetCode94 {
         List<Integer> res = new LinkedList<>();
         Stack<TreeNode> s = new Stack<>();
 
-        while (s.isEmpty() || root != null) {
-            while (root != null) {
-                s.push(root);
+        while (!s.isEmpty() || root != null) {
+            while (root != null) { // 一直寻找最左边的节点
+                s.push(root); // 使用栈记录沿途节点
                 root = root.left;
             }
 
             root = s.pop();
             res.add(root.val);
-            root = root.right;
+            root = root.right; // 遍历右边
         }
         return res;
     }

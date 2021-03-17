@@ -21,7 +21,7 @@ class Node {
 class LeetCode133 {
 
     // Definition for a Node.
-    class Node {
+    private class Node {
         public int val;
         public List<Node> neighbors;
 

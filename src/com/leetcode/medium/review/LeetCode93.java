@@ -5,6 +5,7 @@
 package com.leetcode.medium.review;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -15,12 +16,6 @@ import java.util.List;
  * @since 2020-06-28
  */
 public class LeetCode93 {
-    // private List<String> results;
-    //
-    // private StringBuilder sb;
-    //
-    // private char[] chars;
-
     public List<String> restoreIpAddresses(String s) {
         List<String> results = new ArrayList<>();
         StringBuilder sb = new StringBuilder();

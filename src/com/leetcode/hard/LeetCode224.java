@@ -18,37 +18,55 @@ import java.util.Stack;
  * https://leetcode-cn.com/problems/basic-calculator/
  */
 public class LeetCode224 {
+    private int i = 0;
+
     public int calculate(String s) {
-        Stack<Integer> st = new Stack<>();
-        char[] array = s.toCharArray();
-        char last = '+';
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == ' ') {
-                continue;
+        if (s == null) {
+            return 0;
+        }
+        Stack<Integer> stack = new Stack<>();
+        int num = 0;
+        char preOperator = '+';
+        for (; i < s.length(); i++) {
+            char value = s.charAt(i);
+            if (Character.isDigit(value)) {
+                num = num * 10 + (value - '0');
             }
-
-            if (Character.isDigit(array[i])) { // 数字中间肯定没有空格
-                int temp = array[i] - '0';
-                while (++i < s.length() && Character.isDigit(array[i])) {
-                    temp = temp * 10 + array[i] - '0';
+            if (value == '(') {
+                i++;
+                num = calculate(s);
+            }
+            if ((!Character.isDigit(value) && value != ' ') || i == s.length() - 1) {
+                int pre = 0;
+                switch (preOperator) {
+                    case '+':
+                        stack.push(num);
+                        break;
+                    case '-':
+                        stack.push(-num);
+                        break;
+                    case '*':
+                        pre = stack.pop();
+                        stack.push(pre * num);
+                        break;
+                    case '/':
+                        pre = stack.pop();
+                        stack.push(pre / num);
+                        break;
+                    default:
                 }
-                --i;
-
-                if(last == '+') st.push(temp);
-                else if(last == '-') st.push(-temp);
-                else st.push(res(last, st.pop(), temp));
-            } else {
-                last = array[i];
+                preOperator = value;
+                num = 0;
+            }
+            if (value == ')') {
+                break;
             }
         }
-        int ans = 0;
-        for(int num : st) ans += num;
-        return ans;
-    }
-
-    private int res(char op, int a, int b){
-        if(op == '*') return a * b;
-        else  return a / b;
+        int res = 0;
+        while (!stack.isEmpty()) {
+            res += stack.pop();
+        }
+        return res;
     }
 }
 
@@ -175,4 +193,38 @@ public class LeetCode224 {
 //
 //    }
 
-
+// 官方解法 https://leetcode-cn.com/problems/basic-calculator/solution/ji-ben-ji-suan-qi-by-leetcode-solution-jvir/
+//  public int calculate(String s) {
+//        Deque<Integer> ops = new LinkedList<Integer>();
+//        ops.push(1);
+//        int sign = 1;
+//
+//        int ret = 0;
+//        int n = s.length();
+//        int i = 0;
+//        while (i < n) {
+//            if (s.charAt(i) == ' ') {
+//                i++;
+//            } else if (s.charAt(i) == '+') {
+//                sign = ops.peek();
+//                i++;
+//            } else if (s.charAt(i) == '-') {
+//                sign = -ops.peek();
+//                i++;
+//            } else if (s.charAt(i) == '(') {
+//                ops.push(sign);
+//                i++;
+//            } else if (s.charAt(i) == ')') {
+//                ops.pop();
+//                i++;
+//            } else {
+//                long num = 0;
+//                while (i < n && Character.isDigit(s.charAt(i))) {
+//                    num = num * 10 + s.charAt(i) - '0';
+//                    i++;
+//                }
+//                ret += sign * num;
+//            }
+//        }
+//        return ret;
+//

@@ -5,6 +5,7 @@ import com.leetcode.hard.LeetCode42;
 import com.leetcode.medium.review.LeetCode40;
 import com.leetcode.medium.review.LeetCode556;
 import com.leetcode.medium.review.LeetCode8;
+import com.leetcode.medium.review.LeetCode934;
 
 import java.util.*;
 
@@ -229,10 +230,10 @@ public class Main {
         // node3.neighbors.add(node2);node3.neighbors.add(node4);
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
         int[][] heights = new int[][]{
-                {1, 0},
-                {2, 3},
-                {3, 1},
-                {3, 2},
+                {0, 1, 0},
+                {0, 0, 0},
+                {0, 0, 1},
+
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
         int[] arr2 = new int[]{1,1,1,1,1};
@@ -240,8 +241,8 @@ public class Main {
 
         String[] words = new String[]{"apple", "pleas", "please"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode42 t = new LeetCode42();
-        System.out.println("" + t.trap(arr1));
+        LeetCode934 t = new LeetCode934();
+        System.out.println("" + t.shortestBridge(heights));
     }
 
     public static void printIndent(int n) {

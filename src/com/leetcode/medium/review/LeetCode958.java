@@ -45,7 +45,23 @@ public class LeetCode958 {
     }
 }
 
-
+// 当且仅当存在两个相邻节点：前一个为null，后一个不为null时，才不是不是完全二叉树。
+// public boolean isCompleteTree(TreeNode root) {
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        TreeNode prev = root;
+//        queue.add(root);
+//        while (!queue.isEmpty()) {
+//            TreeNode node = queue.remove();
+//            if (prev == null && node != null)
+//                return false;
+//            if (node != null) {
+//                queue.add(node.left);
+//                queue.add(node.right);
+//            }
+//            prev = node;
+//        }
+//        return true;
+//
 
 
     // int TreeDepth(TreeNode* pRoot)

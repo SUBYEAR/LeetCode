@@ -34,16 +34,4 @@ public class LeetCode1017 { // 问题的核心是理解进制数其实是在每�
         }
         return res.reverse().toString();
     }
-
-    int getDigits(int N) {
-        int i = 0;
-        int sum = 0;
-
-        while (sum < N) {
-            sum += Math.pow(4, i);
-            ++i;
-        }
-
-        return i;
-    }
 }
