@@ -32,11 +32,11 @@ public class LeetCode297 {
 
     String buildSerialize(TreeNode root, String str) {
         if (root == null) {
-            str += "None";
+            str += "None, ";
         } else {
             str += root.val + ",";
-            str += buildSerialize(root.left, str);
-            str += buildSerialize(root.right, str);
+            str = buildSerialize(root.left, str);
+            str = buildSerialize(root.right, str);
         }
         return str;
     }
@@ -97,7 +97,7 @@ public class LeetCode297 {
                 parents.add(cur);
             }
             isLeft = !isLeft;
-            if (isLeft) {
+            if (isLeft) { // 注意这里获取获取父节点的处理很巧妙
                 parent = parents.peek();
                 parents.poll();
             }

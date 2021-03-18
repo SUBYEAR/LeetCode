@@ -62,24 +62,3 @@ public class LeetCode958 {
 //        }
 //        return true;
 //
-
-
-    // int TreeDepth(TreeNode* pRoot)
-    // {
-    // queue<TreeNode*> q;
-    // if(!pRoot) return 0;
-    // q.push(pRoot);
-    // int level=0;
-    // while(!q.empty()){
-    // int len=q.size();
-    // level++;
-    // while(len--){
-    // TreeNode* tem=q.front();
-    // q.pop();
-    // if(tem->left) q.push(tem->left);
-    // if(tem->right) q.push(tem->right);
-    // }
-    // }
-    // return level;
-    // }
-

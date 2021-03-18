@@ -13,6 +13,8 @@ package com.leetcode.hard;
  */
 public class LeetCode546 {
     public int removeBoxes(int[] boxes) {
+        // 用 f(l, r, k) 表示移除区间 [l, r]的元素加上该区间右边等于 a_r的 k 个元素组成的这个序列的最大积分
+
         int[][][] dp = new int[100][100][100];
         return calculatePoints(boxes, dp, 0, boxes.length - 1, 0);
     }

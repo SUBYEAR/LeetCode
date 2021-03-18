@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.easy;
 
 /**
  * 给定一个非负整数数组 A， A 中一半整数是奇数，一半整数是偶数。
