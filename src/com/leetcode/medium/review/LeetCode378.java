@@ -90,8 +90,8 @@ public class LeetCode378 {
         return left;
     }
 
-    // 设当前位置为 matrix[i][j]。若  midmatrix[i][j]≤mid，则将当前所在列的不大于 mid 的数的数量（即i+1）累加到答案中，并向右移动，否则向上移动；
-    // 不断移动直到走出格子为止
+    // 设当前位置为 matrix[i][j]。若  midmatrix[i][j]≤mid，则将当前所在列的不大于 mid 的数的数量（即i+1）累加到答案中
+    // 并向右移动，否则向上移动；不断移动直到走出格子为止
     public boolean check(int[][] matrix, int mid, int k, int n) {
         int i = n - 1;
         int j = 0;
