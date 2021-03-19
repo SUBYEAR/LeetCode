@@ -16,9 +16,9 @@ import java.util.Arrays;
  * "bcde" 是答案，因为它在相同长度的字符串 "bdde" 出现之前。
  * "deb" 不是一个更短的答案，因为在窗口中必须按顺序出现 T 中的元素。
  *
- * 遍历 T，维护 cur 数组，在遍历到 T[j] 时，让 cur[e] = s，使其满足 T[:j] 为 S[s: e+1] 的子序列。在找到包含 T[:j] 的窗口的情况下，定义 new 来找到包含 T[:j+1] 的窗口。
- *
- * 在 Python 实现中，定义的是 cur 和 new 数组，在 Java 实现中，定义的是 dp[j] 和 dp[~j] 数组，这两个数组目的是一样的，都是用来保存动态规划最后两行的数据。
+ * 遍历 T，维护 cur 数组，在遍历到 T[j] 时，让 cur[e] = s，使其满足 T[:j] 为 S[s: e+1] 的子序列。在找到包含 T[:j] 的窗口的
+ * 情况下，定义 new 来找到包含 T[:j+1] 的窗口。定义的是 dp[j] 和 dp[~j] 数组，这两个数组目的是一样的，都是用来保存动态
+ * 规划最后两行的数据。
  *
  * 最后，遍历所有窗口找到最小窗口作为答案。。
  * 来源：力扣（LeetCode）
@@ -63,6 +63,58 @@ public class LeetCode727 {
             }
         }
         return end < S.length() ? S.substring(start, end + 1) : "";
+    }
 
+    public  static final String EMPTY = "";
+    public String minWidow_2(String S, String T) {
+        if (S == null || S.length() == 0 || T.length() == 0) {
+            return EMPTY;
+        }
+
+        int n = S.length(), m = T.length();
+        int i = 0,          j = 0;
+        int left = 0, right = 0;
+        int minLen = Integer.MAX_VALUE;
+        String res = "";
+
+        while (i < n) {
+            // 正向匹配找到T中最后一个字符
+            while (i < n && j < m) {
+                if (S.charAt(i) == T.charAt(j)) {
+                    i++;
+                    j++;
+                } else {
+                    i++;
+                }
+
+                if (j < m) { // 当前起点之后再匹配不到T了
+                    break;
+                }
+
+                // 逆向缩小窗口
+                right = i- 1;
+                left = i- 1;
+                while (left >= 0 && j >= 0) {
+                    if (S.charAt(left) == T.charAt(j)) {
+                        left--;
+                        j--;
+                    } else {
+                        left--;
+                    }
+                }
+                left++;
+
+                // 更新窗口长度
+                if (right - left + 1 < minLen) {
+                    minLen = right - left + 1;
+                    res = S.substring(left, left + minLen);
+                }
+
+                // 下一个可能的窗口起点
+                i = left + 1;
+                j = 0;
+            }
+        }
+        return res;
     }
 }

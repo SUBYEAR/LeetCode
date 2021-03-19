@@ -22,7 +22,7 @@ public class LeetCode332 {
     public List<String> findItinerary(List<List<String>> tickets) {
         for (List<String> ticket : tickets) {
             String src = ticket.get(0), dst = ticket.get(1);
-            if (!map.containsKey(src)) {
+            if (!map.containsKey(src)) { // 优先级队列保证了题目的自然顺序
                 map.put(src, new PriorityQueue<String>());
             }
             map.get(src).offer(dst);
@@ -43,10 +43,57 @@ public class LeetCode332 {
 而从它的「死胡同」分支出发进行深度优先搜索将不会搜回到当前节点。也就是说当前节点的死胡同分支将会优先于其他非「死胡同」分支入栈。
  */
     public void dfs(String curr) {
+        // 可以让死胡同节点先入栈的原因是这个节点不会作为出发点那么这个map中就不含有它，于是它会最先跳出循环入栈
         while (map.containsKey(curr) && map.get(curr).size() > 0) {
             String tmp = map.get(curr).poll();
             dfs(tmp);
         }
         itinerary.add(curr);
+    }
+
+    // 回溯解法
+    List<String> res = new ArrayList<>();
+    public List<String> findItinerary_backtrack(List<List<String>> tickets) {
+        //from,             dest,    number
+        Map<String, TreeMap<String, Integer>> map = new HashMap<>();
+        for (List<String> ticket : tickets) {
+            String from = ticket.get(0);
+            String to = ticket.get(1);
+
+            map.putIfAbsent(from, new TreeMap<>());
+            TreeMap<String, Integer> treeMap = map.get(from);
+            treeMap.put(to, treeMap.getOrDefault(to, 0) + 1);
+        }
+
+        res.add("JFK");
+        backtrack(tickets, map, 0);
+
+        return res;
+    }
+
+    private boolean backtrack(List<List<String>> tickets, Map<String, TreeMap<String, Integer>> map, int progress) {
+        if (progress == tickets.size()) {
+            return true;
+        }
+
+        TreeMap<String, Integer> tos = map.get(res.get(res.size() - 1));
+        if (tos == null || tos.isEmpty() || tos.size() == 0)
+            return false;
+
+        for (String str : tos.keySet()) {
+            if (tos.get(str) == 0)
+                continue;
+
+            res.add(str);
+            tos.put(str, tos.get(str) - 1);
+
+            if (backtrack(tickets, map, progress + 1))
+                return true;
+
+            res.remove(res.size() - 1);
+            tos.put(str, tos.get(str) + 1);
+        }
+
+        return false;
     }
 }
