@@ -20,7 +20,7 @@ public class LeetCode992 {
         return atMostKDistinct(A, K) - atMostKDistinct(A, K - 1);
     }
 
-    private int atMostKDistinct(int[] A, int K) {
+    private int atMostKDistinct(int[] A, int K) { // 最多存在 KK 个不同整数的子区间的个数
         int len = A.length;
         int[] freq = new int[len + 1];
 

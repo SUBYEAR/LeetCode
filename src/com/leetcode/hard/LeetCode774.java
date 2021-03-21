@@ -22,14 +22,16 @@ public class LeetCode774 {
 
         double[][] dp = new double[N-1][K+1];
         //dp[i][j] = answer for deltas[:i+1] when adding j gas stations
-        for (int i = 0; i <= K; ++i)
-            dp[0][i] = deltas[0] / (i+1);
+        for (int i = 0; i <= K; ++i) {
+            dp[0][i] = deltas[0] / (i + 1);
+        }
 
-        for (int p = 1; p < N-1; ++p)
+        for (int p = 1; p < N - 1; ++p)
             for (int k = 0; k <= K; ++k) {
                 double bns = 999999999;
-                for (int x = 0; x <= k; ++x)
-                    bns = Math.min(bns, Math.max(deltas[p] / (x+1), dp[p-1][k-x]));
+                for (int x = 0; x <= k; ++x) { // 要么新增的x个加油站设在当前这个区间段，要么设置在前面
+                    bns = Math.min(bns, Math.max(deltas[p] / (x + 1), dp[p - 1][k - x]));
+                }
                 dp[p][k] = bns;
             }
 

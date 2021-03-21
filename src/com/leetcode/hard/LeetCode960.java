@@ -26,7 +26,7 @@ public class LeetCode960 {
             search: for (int j = i+1; j < W; ++j) {
                 for (String row: A)
                     if (row.charAt(i) > row.charAt(j))
-                        continue search;
+                        continue search; // 这里的继续和下面的break语句有相同的效果
 
                 dp[i] = Math.max(dp[i], 1 + dp[j]);
             }
