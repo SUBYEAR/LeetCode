@@ -1,7 +1,11 @@
 package com.leetcode;
 
+import com.leetcode.easy.LeetCode191;
+import com.leetcode.easy.LeetCode832;
 import com.leetcode.hard.LeetCode115;
 import com.leetcode.hard.LeetCode42;
+import com.leetcode.hard.suggestion.LeetCode815;
+import com.leetcode.medium.LeetCode1023;
 import com.leetcode.medium.review.LeetCode40;
 import com.leetcode.medium.review.LeetCode556;
 import com.leetcode.medium.review.LeetCode8;
@@ -230,19 +234,33 @@ public class Main {
         // node3.neighbors.add(node2);node3.neighbors.add(node4);
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
         int[][] heights = new int[][]{
-                {0, 1, 0},
-                {0, 0, 0},
-                {0, 0, 1},
-
+//                {1, 2, 7},
+//                {3, 6, 7},
+//                {7, 12, 3},
+//                {4, 5, 15},
+//                {6, 1,2},
+//                {15,19,20},
+//                {9,12,13},
+                {10, 4, 2,7,1},
+                {4, 3,5,6,2},
+                {2, 6,8,9,7},
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,1,1,1,1};
+        int[] arr2 = new int[]{1,2,7};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
-        String[] words = new String[]{"apple", "pleas", "please"};
+        String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode934 t = new LeetCode934();
-        System.out.println("" + t.shortestBridge(heights));
+        LeetCode815 t = new LeetCode815();
+        System.out.println(t.numBusesToDestination(heights, 1, 8));
+    }
+
+    public static void build(int[] arr) {
+        int len = arr.length;
+        for (int i = 1; i < len; i++) {
+            System.out.println("from:" + arr[i - 1] + ", to:" + arr[i]);
+        }
+        System.out.println("from:" + arr[len - 1] + ", to:" + arr[0]);
     }
 
     public static void printIndent(int n) {
