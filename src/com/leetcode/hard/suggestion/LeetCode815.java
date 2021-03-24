@@ -1,6 +1,9 @@
 package com.leetcode.hard.suggestion;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 给你一个数组 routes ，表示一系列公交线路，其中每个 routes[i] 表示一条公交线路，第 i 辆公交车将会在上面循环行驶。
@@ -23,62 +26,125 @@ import java.util.*;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode815 {
-    public int numBusesToDestination(int[][] routes, int source, int target) {
-        Map<Integer, Set<Integer>> graph = new HashMap<>();
-        int startRow = 0, endRow = 0;
-        int m = routes.length, n = routes[0].length;
-
-        for (int row = 0; row < m; row++) {
-            for (int i = 0; i < n; i++) {
-                if (routes[row][i] == source) {
-                    startRow = row;
-                }
-                if (routes[row][i] == target) {
-                    endRow = row;
-                }
-                buildEdges(graph, i == 0 ? routes[row][n - 1] : routes[row][i - 1], routes[row][i]);
+    class Solution {
+        public int numBusesToDestination(int[][] routes, int source, int target) { // 超时解法
+            if (source == target) {
+                return 0;
             }
-        }
-        if (startRow == endRow) {
-            return 0;
-        }
-        Set<Integer> visit = new HashSet<>();
-        Queue<Integer> q = new LinkedList<>();
-        for (int sta : routes[startRow]) {
-            q.offer(sta);
-            visit.add(sta);
-        }
-        int res = 1;
-        while (!q.isEmpty()) {
-            res++;
-            while (q.size() > 0) {
-                int cur = q.poll();
-                System.out.println("当前车站是：" + cur);
 
-                if (cur == target) {
-                    return res;
+            int m = routes.length;
+            ArrayList<Integer>[] graph = new ArrayList[m];
+            for (int i = 0; i < graph.length; i++) {
+                graph[i] = new ArrayList<>();
+            }
+            Set<Integer> start = new HashSet<>(), end = new HashSet<>();
+            for (int row = 0; row < m; row++) {
+                Set<Integer> routeSet = Arrays.stream(routes[row]).boxed().collect(Collectors.toSet());
+                if (routeSet.contains(source)) {
+                    start.add(row);
+                }
+                if (routeSet.contains(target)) {
+                    end.add(row);
                 }
 
-                for (int next : graph.get(cur)) {
-                    if (visit.contains(next)) {
-                        continue;
+                for (int j = row + 1; j < m; j++) {
+                    Set<Integer> routeSet1 = Arrays.stream(routes[row]).boxed().collect(Collectors.toSet());
+                    Set<Integer> routeSet2 = Arrays.stream(routes[j]).boxed().collect(Collectors.toSet());
+                    routeSet1.retainAll(routeSet2);
+                    if (!routeSet1.isEmpty()) {
+                        graph[row].add(j);
+                        graph[j].add(row);
                     }
-                    visit.add(next);
-                    q.offer(next);
                 }
             }
 
+            int res = Integer.MAX_VALUE;
+            for (int startRow : start) {
+                int level = 0;
+                boolean[] visit = new boolean[m];
+                Queue<Integer> q = new LinkedList<>();
+                q.offer(startRow);
+                visit[startRow] = true;
+
+                while (!q.isEmpty()) {
+                    int size = q.size();
+                    level++;
+                    while (size-- > 0) {
+                        int cur = q.poll();
+                        if (end.contains(cur)) {
+                            res = Math.min(res, level);
+                        }
+
+                        for (int next : graph[cur]) {
+                            if (visit[next]) {
+                                continue;
+                            }
+                            visit[next] = true;
+                            q.offer(next);
+                        }
+                    }
+                }
+            }
+            return res == Integer.MAX_VALUE ? -1 : res;
         }
+    }
+
+    public int numBusesToDestination(int[][] routes, int S, int T) { // 官方解法
+        if (S==T) return 0;
+        int N = routes.length;
+
+        List<List<Integer>> graph = new ArrayList();
+        for (int i = 0; i < N; ++i) {
+            Arrays.sort(routes[i]);
+            graph.add(new ArrayList());
+        }
+        Set<Integer> seen = new HashSet();
+        Set<Integer> targets = new HashSet();
+        Queue<Point> queue = new ArrayDeque();
+
+        // Build the graph.  Two buses are connected if
+        // they share at least one bus stop.
+        for (int i = 0; i < N; ++i)
+            for (int j = i+1; j < N; ++j)
+                if (intersect(routes[i], routes[j])) {
+                    graph.get(i).add(j);
+                    graph.get(j).add(i);
+                }
+
+        // Initialize seen, queue, targets.
+        // seen represents whether a node has ever been enqueued to queue.
+        // queue handles our breadth first search.
+        // targets is the set of goal states we have.
+        for (int i = 0; i < N; ++i) {
+            if (Arrays.binarySearch(routes[i], S) >= 0) {
+                seen.add(i);
+                queue.offer(new Point(i, 0));
+            }
+            if (Arrays.binarySearch(routes[i], T) >= 0)
+                targets.add(i);
+        }
+
+        while (!queue.isEmpty()) {
+            Point info = queue.poll();
+            int node = info.x, depth = info.y;
+            if (targets.contains(node)) return depth+1;
+            for (Integer nei: graph.get(node)) {
+                if (!seen.contains(nei)) {
+                    seen.add(nei);
+                    queue.offer(new Point(nei, depth+1));
+                }
+            }
+        }
+
         return -1;
     }
 
-    private void buildEdges(Map<Integer, Set<Integer>> graph, int from, int to) {
-        Set<Integer> list1 = graph.getOrDefault(from, new HashSet<>());
-        list1.add(to);
-        graph.put(from, list1);
-
-        Set<Integer> list2 = graph.getOrDefault(to, new HashSet<>());
-        list2.add(from);
-        graph.put(to, list2);
+    public boolean intersect(int[] A, int[] B) {
+        int i = 0, j = 0;
+        while (i < A.length && j < B.length) {
+            if (A[i] == B[j]) return true;
+            if (A[i] < B[j]) i++; else j++;
+        }
+        return false;
     }
 }
