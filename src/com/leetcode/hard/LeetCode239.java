@@ -21,7 +21,7 @@ public class LeetCode239 {
         int[] res = new int[len - k + 1];
         LinkedList<Integer> qmax = new LinkedList<>();
         int index = 0;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len; i++) { // 还是一个单调递减的栈，但是用队列存在，这样可以访问到队头的最大值
             while (!qmax.isEmpty() && nums[qmax.peekLast()] <= nums[i]) {
                 qmax.pollLast();  // 保证队列头记录最大值的下标
             }

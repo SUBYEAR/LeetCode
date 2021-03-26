@@ -95,9 +95,11 @@ public class LeetCode126 {
             } else { // 该点不为终点 继续搜索
                 for (int i = 0; i < edges[last].size(); i++) {
                     int to = edges[last].get(i);
-                    // 此处<=目的在于把代价相同的不同路径全部保留下来,因为cost数组的初始值是无限大，如果大于当前值说明还没有
-                    // 没遍历过
-                    if (cost[last] + 1 <= cost[to]) {
+                    // 此处<=目的在于把代价相同的不同路径全部保留下来,因为cost[to]如果已经被其他点遍历到被赋值了，但是是一个比
+                    // 较大的值，而last是当前点，从当前点加1就可以到达to这个点了，如果这个条路径的代价更新，应该把cost[to]更新
+
+                    // 这里的距离比较判断其实是一个模板形式 if(当前的距离+1 <= 要达到的点距) {那么更新距离，且添加要达到的点到队列}
+                    if (cost[last] + 1 <= cost[to]) { // 用距离判断是否加入队列，比较常用的是用visit属性来判断
                         cost[to] = cost[last] + 1;
                         // 把to加入路径中
                         ArrayList<Integer> tmp = new ArrayList<>(now);

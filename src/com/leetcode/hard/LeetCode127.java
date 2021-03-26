@@ -40,7 +40,7 @@ public class LeetCode127 {
         Map<String, Boolean> visit = new HashMap<>();
         visit.put(beginWord, true);
         while (!queue.isEmpty()) {
-            Pair<String, Integer> cur = queue.remove();
+            Pair<String, Integer> cur = queue.remove(); // 这里用到BFS求最短距离时就把距离作为Node的一个属性
             int level = cur.getValue();
             String key = cur.getKey();
 

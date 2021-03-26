@@ -6,6 +6,7 @@ import com.leetcode.hard.LeetCode115;
 import com.leetcode.hard.LeetCode42;
 import com.leetcode.hard.suggestion.LeetCode815;
 import com.leetcode.medium.LeetCode1023;
+import com.leetcode.medium.LeetCode1031;
 import com.leetcode.medium.review.LeetCode40;
 import com.leetcode.medium.review.LeetCode556;
 import com.leetcode.medium.review.LeetCode8;
@@ -246,13 +247,13 @@ public class Main {
                 {2, 6,8,9,7},
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,2,7};
+        int[] arr2 = new int[]{2,2};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode815 t = new LeetCode815();
-        System.out.println(t.numBusesToDestination(heights, 1, 8));
+        LeetCode1031 t = new LeetCode1031();
+        System.out.println(t.maxSumTwoNoOverlap(arr2, 1, 1));
     }
 
     public static void build(int[] arr) {

@@ -92,8 +92,9 @@ public class LeetCode727 {
                 }
 
                 // 逆向缩小窗口
-                right = i- 1;
-                left = i- 1;
+                right = i - 1;
+                left = i - 1;
+                j = m - 1;
                 while (left >= 0 && j >= 0) {
                     if (S.charAt(left) == T.charAt(j)) {
                         left--;
