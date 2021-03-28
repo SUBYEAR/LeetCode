@@ -7,6 +7,7 @@ import com.leetcode.hard.LeetCode42;
 import com.leetcode.hard.suggestion.LeetCode815;
 import com.leetcode.medium.LeetCode1023;
 import com.leetcode.medium.LeetCode1031;
+import com.leetcode.medium.LeetCode1641;
 import com.leetcode.medium.review.LeetCode40;
 import com.leetcode.medium.review.LeetCode556;
 import com.leetcode.medium.review.LeetCode8;
@@ -252,8 +253,8 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode1031 t = new LeetCode1031();
-        System.out.println(t.maxSumTwoNoOverlap(arr2, 1, 1));
+        Test2 t = new Test2();
+        System.out.println(t.encodeString("2223sss6123456"));
     }
 
     public static void build(int[] arr) {
