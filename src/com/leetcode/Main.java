@@ -4,10 +4,12 @@ import com.leetcode.easy.LeetCode191;
 import com.leetcode.easy.LeetCode832;
 import com.leetcode.hard.LeetCode115;
 import com.leetcode.hard.LeetCode42;
+import com.leetcode.hard.LeetCode44;
 import com.leetcode.hard.suggestion.LeetCode815;
 import com.leetcode.medium.LeetCode1023;
 import com.leetcode.medium.LeetCode1031;
 import com.leetcode.medium.LeetCode1641;
+import com.leetcode.medium.LeetCode78;
 import com.leetcode.medium.review.LeetCode40;
 import com.leetcode.medium.review.LeetCode556;
 import com.leetcode.medium.review.LeetCode8;
@@ -248,13 +250,13 @@ public class Main {
                 {2, 6,8,9,7},
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{2,2};
+        int[] arr2 = new int[]{1,2,3};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        Test2 t = new Test2();
-        System.out.println(t.encodeString("2223sss6123456"));
+        LeetCode78 t = new LeetCode78();
+        System.out.println(t.subsets(arr2));
     }
 
     public static void build(int[] arr) {
