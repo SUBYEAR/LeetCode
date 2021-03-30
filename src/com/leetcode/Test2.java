@@ -5,57 +5,50 @@ import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.Stream;
 
 public class Test2 {
-    List<String> res = new LinkedList<String>();
-
+    int flag = 0;
+    int allLength = 0;
     public int encodeString(String s) {
         if (s.length() < 2) {
             return -1;
         }
-        StringBuilder path = new StringBuilder();
-        boolean[] visited = new boolean[s.length()];
-        backtrack(s, 0, path);
-        if (res.size() == 0) {
-            return -1;
+
+        int len = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
+                break;
+            }
+            len = len * 10 + s.charAt(i) - '0';
+            if (i + len + 1 <= s.length()) {
+                getSubLength(s, i + len + 1, len);
+            }
         }
 
-        return res.size() < 2 ? res.get(0).length() :  -1;
-
+        return flag == 1 ? allLength : -1;
     }
 
-    boolean backtrack(String str, int start, StringBuilder path) {
-        if (start >= str.length()) {
-            System.out.println("####终止条件：" + path);
-            res.add(path.toString());
-            return true;
+    void getSubLength(String s, int start, int count) {
+        if (start == s.length()) {
+            flag++;
+            allLength += count;
+            return;
         }
-        boolean b = false;
-        for (int i = start; i < str.length(); i++) {
-            int j = i;
-            int num = 0;
-            while (Character.isDigit(str.charAt(j))) {
-                num = num * 10 + str.charAt(j) - '0';
-                if (j + 1 + num > str.length()) {
-                    return false;
-                }
 
-                if (j + 1 + num < str.length() && ((str.charAt(j + 1 + num) == '0') || !Character.isDigit(str.charAt(j + 1 + num)))) {
-                    return false;
-                }
+        if (s.charAt(start) == '0') {
+            return;
+        }
 
-                String substring = str.substring(j + 1, j + 1 + num);
-                path.append(substring);
-                System.out.println("递归前：" + substring + ". path: " + path);
-                b = backtrack(str, j + 1 + num, path);
-                path.delete(path.length() - num, path.length());
-                System.out.println("递归后"  + ". path: " + path);
-
-                j++;
+        int length = 0;
+        for (int i = start; i < s.length(); i++) {
+            if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
+                break;
             }
-            i += num;
-            if (b) return b;
+            length = length * 10 + s.charAt(i) - '0';
+            if (i + length + 1 <= s.length()) {
+                getSubLength(s, i + length + 1, count + length);
+            }
         }
-        return true;
     }
 }

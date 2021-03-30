@@ -1,5 +1,6 @@
 package com.leetcode;
 
+import com.leetcode.easy.LeetCode190;
 import com.leetcode.easy.LeetCode191;
 import com.leetcode.easy.LeetCode832;
 import com.leetcode.hard.LeetCode115;
@@ -10,10 +11,7 @@ import com.leetcode.medium.LeetCode1023;
 import com.leetcode.medium.LeetCode1031;
 import com.leetcode.medium.LeetCode1641;
 import com.leetcode.medium.LeetCode78;
-import com.leetcode.medium.review.LeetCode40;
-import com.leetcode.medium.review.LeetCode556;
-import com.leetcode.medium.review.LeetCode8;
-import com.leetcode.medium.review.LeetCode934;
+import com.leetcode.medium.review.*;
 
 import java.util.*;
 
@@ -195,20 +193,12 @@ public class Main {
         // n5.left = n7;
         // n5.right = n8;
         //
-//         TreeNode nn1 = new TreeNode(1);
-//         TreeNode nn2 = new TreeNode(2);
-        // TreeNode nn3 = new TreeNode(3);
-        // TreeNode nn4 = new TreeNode(4);
-        // TreeNode nn5 = new TreeNode(5);
-        // TreeNode nn6 = new TreeNode(6);
-        // TreeNode nn7 = new TreeNode(7);
-        // TreeNode nn8 = new TreeNode(8);
-        // nn1.left = nn3;
-        // nn1.right = nn2;
-        // nn2.left = nn4;
-        // nn2.right = nn5;
-        // nn3.right = nn6;
-        // nn5.left = nn8;
+         TreeNode nn1 = new TreeNode(3), nn2 = new TreeNode(0), nn3 = new TreeNode(4);
+         TreeNode nn4 = new TreeNode(2), nn5 = new TreeNode(1);
+         nn1.left = nn2; nn1.right = nn3;
+         nn2.right = nn4;
+         nn4.left = nn5;
+
         // nn5.right = nn7;
         //Test2 test = new Test2();
         //int[]  arr1 = new int[] {2,3,1,3,2,4,6,7,9,2,19};
@@ -255,8 +245,8 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode78 t = new LeetCode78();
-        System.out.println(t.subsets(arr2));
+        LeetCode669 t = new LeetCode669();
+        System.out.println(t.trimBST(nn1, 1, 3));
     }
 
     public static void build(int[] arr) {
