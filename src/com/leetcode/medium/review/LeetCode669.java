@@ -18,32 +18,54 @@ import java.util.LinkedList;
  */
 
 public class LeetCode669 {
+    TreeNode dummyRoot = null;
+
     public TreeNode trimBST(TreeNode root, int low, int high) {
-        TreeNode temp = root;
+        int rootVal = root.val;
+        TreeNode pre = new TreeNode(-1);
+        pre.right = root;
+        dummyRoot = pre;
         Deque<TreeNode> stack = new LinkedList<>();
         while (!stack.isEmpty() || root != null) {
             while (root != null) {
                 int val = root.val;
                 if (val < low) {
-                    if (!stack.isEmpty()) {
-                        stack.peek().left = root.right;
-                    }
+                    pre.left = root.right;
                     root = root.right;
                 } else if (val > high) {
-                    if (!stack.isEmpty()) {
-                        stack.peek().right = root.left;
-                    }
+                    pre.right = root.left;
                     root = root.left;
                 } else {
                     stack.push(root);
+                    pre = root;
                     root = root.left;
                 }
             }
             if (!stack.isEmpty()) {
                 root = stack.pop();
+                pre = root;
                 root = root.right;
             }
         }
-        return temp;
+        int val = dummyRoot.right == null ? -1 : dummyRoot.right.val;
+        if (val >= low && val <= high) {
+            return dummyRoot.right;
+        } else {
+            return dummyRoot.left;
+        }
     }
 }
+
+// 官方解法 递归版本
+// class Solution {
+//    public TreeNode trimBST(TreeNode root, int L, int R) {
+//        if (root == null) return root;
+//        if (root.val > R) return trimBST(root.left, L, R);
+//        if (root.val < L) return trimBST(root.right, L, R);
+//
+//        root.left = trimBST(root.left, L, R);
+//        root.right = trimBST(root.right, L, R);
+//        return root;
+//    }
+//}
+//
