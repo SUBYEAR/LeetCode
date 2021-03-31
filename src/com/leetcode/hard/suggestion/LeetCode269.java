@@ -68,7 +68,7 @@ public class LeetCode269 {
                     degrees[val - 'a']++;
                 }
             }
-            //创建StringBuilder保存拓扑排序
+            //创建StringBuilder保存拓扑排序,拓扑排序的关键是在邻接表的基础上为每一个增加节点增加一个入度属性，
             StringBuilder sb = new StringBuilder();
             //创建一个Queue保存入度为0的节点
             Queue<Character> list = new LinkedList<>();

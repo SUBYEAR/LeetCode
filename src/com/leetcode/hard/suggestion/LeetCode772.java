@@ -32,7 +32,7 @@ public class LeetCode772 {
                 num = num * 10 + (c - '0');
             }
             if (c == '(') {
-                index++;//index指针指到下一个字符
+                index++; // index指针指到下一个字符
                 num = cal(ch);
             }
             //当遇到了新的运算符，就要对上一个运算符sign和累计的数字num作运算
@@ -41,7 +41,6 @@ public class LeetCode772 {
             if (!Character.isDigit(c) && c != ' ' || index == ch.length - 1) {
                 int pre = 0;
                 switch (sign) {
-
                     case '+':
                         stack.push(num);
                         break;
@@ -69,5 +68,4 @@ public class LeetCode772 {
         }
         return res;
     }
-
 }

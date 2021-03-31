@@ -86,35 +86,35 @@ public class LeetCode727 {
                 } else {
                     i++;
                 }
-
-                if (j < m) { // 当前起点之后再匹配不到T了
-                    break;
-                }
-
-                // 逆向缩小窗口
-                right = i - 1;
-                left = i - 1;
-                j = m - 1;
-                while (left >= 0 && j >= 0) {
-                    if (S.charAt(left) == T.charAt(j)) {
-                        left--;
-                        j--;
-                    } else {
-                        left--;
-                    }
-                }
-                left++;
-
-                // 更新窗口长度
-                if (right - left + 1 < minLen) {
-                    minLen = right - left + 1;
-                    res = S.substring(left, left + minLen);
-                }
-
-                // 下一个可能的窗口起点
-                i = left + 1;
-                j = 0;
             }
+
+            if (j < m) { // 当前起点之后再匹配不到T了
+                break;
+            }
+
+            // 逆向缩小窗口
+            right = i - 1;
+            left = i - 1;
+            j = m - 1;
+            while (left >= 0 && j >= 0) {
+                if (S.charAt(left) == T.charAt(j)) {
+                    left--;
+                    j--;
+                } else {
+                    left--;
+                }
+            }
+            left++;
+
+            // 更新窗口长度
+            if (right - left + 1 < minLen) {
+                minLen = right - left + 1;
+                res = S.substring(left, left + minLen);
+            }
+
+            // 下一个可能的窗口起点
+            i = left + 1;
+            j = 0;
         }
         return res;
     }

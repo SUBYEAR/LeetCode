@@ -8,8 +8,9 @@ public class ListNode {
     public static  void  printList(ListNode node) {
           ListNode tmp = node;
           while (tmp != null) {
-              System.out.println(tmp.val + "--->");
+              System.out.print(tmp.val + "--->");
               tmp = tmp.next;
           }
+        System.out.println();
     }
 }

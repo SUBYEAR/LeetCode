@@ -6,6 +6,7 @@ import com.leetcode.easy.LeetCode832;
 import com.leetcode.hard.LeetCode115;
 import com.leetcode.hard.LeetCode42;
 import com.leetcode.hard.LeetCode44;
+import com.leetcode.hard.LeetCode99;
 import com.leetcode.hard.suggestion.LeetCode815;
 import com.leetcode.medium.*;
 import com.leetcode.medium.review.*;
@@ -190,11 +191,10 @@ public class Main {
         // n5.left = n7;
         // n5.right = n8;
         //
-         TreeNode nn1 = new TreeNode(3), nn2 = new TreeNode(0), nn3 = new TreeNode(4);
-         TreeNode nn4 = new TreeNode(2), nn5 = new TreeNode(1);
-         nn1.left = nn2; nn1.right = nn3;
-         nn2.right = nn4;
-         nn4.left = nn5;
+         TreeNode nn1 = new TreeNode(1), nn2 = new TreeNode(3), nn3 = new TreeNode(9);
+         TreeNode nn4 = new TreeNode(-2147483648), nn5 = new TreeNode(2);
+         nn1.left = nn2; /*nn1.right = nn3;*/
+         nn2.right = nn5; /*nn2.right = nn5;*/
 
         // nn5.right = nn7;
         //Test2 test = new Test2();
@@ -237,13 +237,14 @@ public class Main {
                 {23, 30,34,60},
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,2,3};
+        int[] arr2 = new int[]{1,2,2};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        SwordPointAtOffer32 t = new SwordPointAtOffer32();
-        System.out.println(t.levelOrder(nn1));
+        LeetCode99 t = new LeetCode99();
+        t.recoverTree(nn1);
+
     }
 
     public static void build(int[] arr) {
