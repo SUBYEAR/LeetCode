@@ -160,7 +160,7 @@ public class LeetCode65 {
 //        STATE_EXP,
 //        STATE_EXP_SIGN,
 //        STATE_EXP_NUMBER,
-//        STATE_END,
+//        STATE_END, // 这个end状态其实是没用的
 //    }
 //
 //    enum CharType {

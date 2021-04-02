@@ -1,14 +1,5 @@
 package com.leetcode;
 
-import com.leetcode.easy.LeetCode190;
-import com.leetcode.easy.LeetCode191;
-import com.leetcode.easy.LeetCode832;
-import com.leetcode.hard.LeetCode115;
-import com.leetcode.hard.LeetCode42;
-import com.leetcode.hard.LeetCode44;
-import com.leetcode.hard.LeetCode99;
-import com.leetcode.hard.suggestion.LeetCode815;
-import com.leetcode.medium.*;
 import com.leetcode.medium.review.*;
 
 import java.util.*;
@@ -242,8 +233,8 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode99 t = new LeetCode99();
-        t.recoverTree(nn1);
+        LeetCode784 t = new LeetCode784();
+        System.out.println(t.letterCasePermutation("C"));
 
     }
 

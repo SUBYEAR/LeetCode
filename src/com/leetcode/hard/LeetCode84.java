@@ -27,7 +27,7 @@ public class LeetCode84 {
                 int left = stack.size() > 0 ? stack.peek(): -1;
                 result = Math.max(result, h * (index - left - 1));
             }
-            stack.push(index);
+            stack.push(index); // 这里是递增栈，借雨伞是递减栈
         }
         return result;
     }
