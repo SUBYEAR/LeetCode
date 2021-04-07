@@ -1,8 +1,9 @@
 package com.leetcode.hard.suggestion;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.Queue;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**

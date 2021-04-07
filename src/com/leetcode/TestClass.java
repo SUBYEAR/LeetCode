@@ -1,4 +1,3 @@
-import com.leetcode.easy.LeetCode724;
 import com.leetcode.easy.LeetCode896;
 
 import java.util.List;

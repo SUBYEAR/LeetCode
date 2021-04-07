@@ -1,12 +1,6 @@
 package com.leetcode;
 
 
-import java.awt.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.stream.Stream;
-
 public class Test2 {
     int flag = 0;
     int allLength = 0;

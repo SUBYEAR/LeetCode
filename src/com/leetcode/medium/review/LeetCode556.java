@@ -4,12 +4,6 @@
 
 package com.leetcode.medium.review;
 
-import com.leetcode.Permutation;
-
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * 给定一个32位正整数 n，你需要找到最小的32位整数，其与 n 中存在的位数完全相同，并且其值大于n。如果不存在这样的32位整数，则返回-1。
  * 示例 1:

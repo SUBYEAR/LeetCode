@@ -1,7 +1,5 @@
 package com.leetcode.easy;
 
-import com.sun.deploy.util.StringUtils;
-
 /**
  * 颠倒给定的 32 位无符号整数的二进制位。
  * 提示：

@@ -1,7 +1,9 @@
 package com.leetcode.hard;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 外国友人仿照中国字谜设计了一个英文版猜字谜小游戏，请你来猜猜看吧。

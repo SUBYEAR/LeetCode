@@ -1,6 +1,7 @@
 package com.leetcode;
 
-import com.leetcode.medium.review.*;
+import com.leetcode.medium.LeetCode781;
+import com.leetcode.medium.LeetCode80;
 
 import java.util.*;
 
@@ -228,13 +229,14 @@ public class Main {
                 {23, 30,34,60},
         };
         Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,2,2};
+        int[] arr2 = new int[]{1,1,1,2,2,6,7,7,7,7,7,7,7,7,7};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode784 t = new LeetCode784();
-        System.out.println(t.letterCasePermutation("C"));
+        LeetCode80 t = new LeetCode80();
+        System.out.println(t.removeDuplicates2(arr2));
+        for (int n : arr2) System.out.print(n + " ");
 
     }
 

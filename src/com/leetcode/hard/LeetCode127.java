@@ -1,7 +1,5 @@
 package com.leetcode.hard;
 
-import javafx.util.Pair;
-
 import java.util.*;
 /*
 给定两个单词（beginWord 和 endWord）和一个字典，找到从 beginWord 到 endWord 的最短转换序列的长度。转换需遵循如下规则：
@@ -35,12 +33,12 @@ public class LeetCode127 {
             }
         });
 
-        Queue<Pair<String, Integer>> queue = new LinkedList<>(); // 节点带了长度信息
-        queue.add(new Pair(beginWord, 1));
+        Queue<PairNode> queue = new LinkedList<>(); // 节点带了长度信息
+        queue.add(new PairNode(beginWord, 1));
         Map<String, Boolean> visit = new HashMap<>();
         visit.put(beginWord, true);
         while (!queue.isEmpty()) {
-            Pair<String, Integer> cur = queue.remove(); // 这里用到BFS求最短距离时就把距离作为Node的一个属性
+            PairNode cur = queue.remove(); // 这里用到BFS求最短距离时就把距离作为Node的一个属性
             int level = cur.getValue();
             String key = cur.getKey();
 
@@ -54,7 +52,7 @@ public class LeetCode127 {
 
                     if (!visit.getOrDefault(adjacent,false)) {
                         visit.put(adjacent, true);
-                        queue.add(new Pair(adjacent, level + 1));
+                        queue.add(new PairNode(adjacent, level + 1));
 
                     }
                 }
@@ -63,5 +61,23 @@ public class LeetCode127 {
         }
 
         return 0;
+    }
+
+    private class PairNode {
+        String key;
+        Integer value;
+
+        public PairNode(String key, Integer value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        public String getKey() {
+            return key;
+        }
     }
 }

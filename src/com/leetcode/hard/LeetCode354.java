@@ -1,6 +1,6 @@
 package com.leetcode.hard;
 
-import java.util.*;
+import java.util.Arrays;
 
 /**
  * 给你一个二维整数数组 envelopes ，其中 envelopes[i] = [wi, hi] ，表示第 i 个信封的宽度和高度。

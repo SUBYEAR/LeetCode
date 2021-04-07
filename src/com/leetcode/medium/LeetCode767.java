@@ -1,6 +1,5 @@
 package com.leetcode.medium;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**

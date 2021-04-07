@@ -2,7 +2,8 @@ package com.leetcode.hard;
 
 import com.leetcode.TreeNode;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * 给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。

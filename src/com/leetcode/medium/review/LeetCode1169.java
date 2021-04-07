@@ -4,11 +4,7 @@
 
 package com.leetcode.medium.review;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 如果出现下述两种情况，交易 可能无效：

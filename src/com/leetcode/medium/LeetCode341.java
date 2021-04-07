@@ -1,8 +1,5 @@
 package com.leetcode.medium;
 
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * 给你一个嵌套的整型列表。请你设计一个迭代器，使其能够遍历这个整型列表中的所有整数。
  *

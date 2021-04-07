@@ -1,7 +1,5 @@
 package com.leetcode.medium.review;
 
-import com.sun.scenario.effect.Brightpass;
-
 public class LeetCode264 {
     public int nthUglyNumber(int n) {
         int[] res = new int[1690];
