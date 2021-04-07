@@ -44,8 +44,9 @@ public class LeetCode159 {
 
             while (right < n) {
                 // slidewindow contains less than 3 characters
-                if (hashmap.size() < 3)
+                if (hashmap.size() < 3) {
                     hashmap.put(s.charAt(right), right++);
+                }
 
                 // slidewindow contains 3 characters
                 if (hashmap.size() == 3) {

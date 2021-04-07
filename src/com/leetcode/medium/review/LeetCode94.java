@@ -37,7 +37,7 @@ public class LeetCode94 {
 //       然后访问 x 的右孩子，即 x=x.right。
 // 3. 重复上述操作，直至访问完整棵树。
 
-class Solution {
+//class Solution {
 //    public List<Integer> inorderTraversal(TreeNode root) {
 //        List<Integer> res = new ArrayList<Integer>();
 //        TreeNode predecessor = null;
@@ -69,4 +69,4 @@ class Solution {
 //        }
 //        return res;
 //    }
-}
+//}

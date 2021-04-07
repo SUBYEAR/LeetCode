@@ -43,6 +43,6 @@ public class LeetCode220 {
     // Get the ID of the bucket from element value x and bucket width w
     // In Java, `-3 / 5 = 0` and but we need `-3 / 5 = -1`.
     private long getId(long x, long w) {
-        return x < 0 ? (x + 1) / w - 1 : x / w;
+        return x < 0 ? (x + 1) / w - 1 : x / w; // 或者试一试Math.floorDiv()函数
     }
 }
