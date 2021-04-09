@@ -27,6 +27,9 @@ import java.util.LinkedList;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode331 {
+    // 二叉树的建立也伴随着槽位数量的变化。每当遇到一个节点时：
+    //如果遇到了空节点，则要消耗一个槽位；
+    //如果遇到了非空节点，则除了消耗一个槽位外，还要再补充两个槽位。
     public boolean isValidSerialization(String preorder) {
         int n = preorder.length();
         int i = 0;
@@ -64,14 +67,14 @@ public class LeetCode331 {
 // int pos = 0;
 //    public boolean isValidSerialization(String preorder) {
 //        pos = 0;
-//        return dfs(preorder) && pos >= preorder.length();
+//        return dfs(preorder) && pos >= preorder.length(); // 成功建树且序列无多余节点才算合格
 //    }
 //
 //    public boolean dfs(String preorder) {
-//        if (pos >= preorder.length()) {
+//        if (pos >= preorder.length()) { // 递归有两个出口，越界返回false, s[pos] =='#'代表空节点，自然为true
 //            return false;
 //        }
-//        if (preorder.charAt(pos) == '#') {
+//        if (preorder.charAt(pos) == '#') { // 关键就是这两个if的递归终止条件判断
 //            pos += 2;
 //            return true;
 //        }

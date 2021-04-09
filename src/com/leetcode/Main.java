@@ -1,7 +1,9 @@
 package com.leetcode;
 
 import com.leetcode.medium.LeetCode781;
+import com.leetcode.medium.LeetCode797;
 import com.leetcode.medium.LeetCode80;
+import com.leetcode.medium.review.LeetCode669;
 
 import java.util.*;
 
@@ -216,28 +218,18 @@ public class Main {
         // node2.neighbors.add(node1);node2.neighbors.add(node3);
         // node3.neighbors.add(node2);node3.neighbors.add(node4);
         // node4.neighbors.add(node1);node4.neighbors.add(node3);
-        int[][] heights = new int[][]{
-//                {1, 2, 7},
-//                {3, 6, 7},
-//                {7, 12, 3},
-//                {4, 5, 15},
-//                {6, 1,2},
-//                {15,19,20},
-//                {9,12,13},
-                {1, 3, 5,7},
-                {10, 11,16,20},
-                {23, 30,34,60},
-        };
-        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
+        int[][] heights = new int[4][];
+        heights[0] = new int[] {1,2};
+        heights[1] = new int[] {3};
+        heights[2] = new int[] {3};
+//        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
         int[] arr2 = new int[]{1,1,1,2,2,6,7,7,7,7,7,7,7,7,7};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode80 t = new LeetCode80();
-        System.out.println(t.removeDuplicates2(arr2));
-        for (int n : arr2) System.out.print(n + " ");
-
+        LeetCode797 t = new LeetCode797();
+        System.out.println(t.allPathsSourceTarget(heights));
     }
 
     public static void build(int[] arr) {
