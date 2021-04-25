@@ -1,9 +1,7 @@
 package com.leetcode;
 
-import com.leetcode.medium.LeetCode781;
-import com.leetcode.medium.LeetCode797;
-import com.leetcode.medium.LeetCode80;
-import com.leetcode.medium.review.LeetCode669;
+import com.leetcode.medium.LeetCode1545;
+import com.leetcode.medium.review.LeetCode368;
 
 import java.util.*;
 
@@ -185,10 +183,13 @@ public class Main {
         // n5.left = n7;
         // n5.right = n8;
         //
-         TreeNode nn1 = new TreeNode(1), nn2 = new TreeNode(3), nn3 = new TreeNode(9);
-         TreeNode nn4 = new TreeNode(-2147483648), nn5 = new TreeNode(2);
-         nn1.left = nn2; /*nn1.right = nn3;*/
-         nn2.right = nn5; /*nn2.right = nn5;*/
+         TreeNode nn1 = new TreeNode(3), nn2 = new TreeNode(5), nn3 = new TreeNode(1);
+         TreeNode nn4 = new TreeNode(6), nn5 = new TreeNode(2), nn6 = new TreeNode(0);
+         TreeNode nn7 = new TreeNode(8), nn8 = new TreeNode(7), nn9 = new TreeNode(4);
+         nn1.left = nn2; nn1.right = nn3;
+         nn2.left = nn4; nn2.right = nn5;
+         nn3.left = nn6; nn3.right = nn7;
+         nn5.left = nn8; nn5.right = nn9;
 
         // nn5.right = nn7;
         //Test2 test = new Test2();
@@ -223,13 +224,18 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,1,1,2,2,6,7,7,7,7,7,7,7,7,7};
+        int[] arr2 = new int[]{1,3,5,7,966,32,64,240,10};
         int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
+
+        int[][] matrix = new int[][] {
+                {2,2,-1},
+//                {0,-2,3},
+        };
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode797 t = new LeetCode797();
-        System.out.println(t.allPathsSourceTarget(heights));
+        LeetCode1545 t = new LeetCode1545();
+        System.out.println(t.findKthBit(4,11));
     }
 
     public static void build(int[] arr) {
