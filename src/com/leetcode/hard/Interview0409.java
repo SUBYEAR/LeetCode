@@ -49,8 +49,13 @@ public class Interview0409 {
 // 首先根节点是固定的，固定了根节点后下一步就有两个选择，走左边或者右边（前提是有两个非空子节点），即对于根节点来说，
 // 它的下一步的选择用一个集合来表示的话，集合的内容就是他的非空子节点。然后第二步，任意选择一个子节点作为第二步的走法，
 // 那对于这个结点，它的下一步的选择内容可以这么求：还记得上面说的那个选择集合吗，在该集合中删掉刚才选的那个结点，
-// 然后将该结点的非空子节点加入到集合中去，所得到的新的结合就是被选择的节点的下一步走法的选择集合！一次类推，
-// 没选择一个节点就对选择结合做删除该结点并添加该结点的非空子节点的操作，直到选择集合为空，即没有选择了，
+// 然后将该结点的非空子节点加入到集合中去，所得到的新的集合就是被选择的节点的下一步走法的选择集合！
+
+// 以此类推
+// 每选择一个节点就对选择集合做删除该结点并添加该结点的非空子节点的操作，
+
+// 直到选择集合为空，即没有选择了，
+
 // 那么就产生了一条满足要求的路径，将它添加到路径集合中，最后该集合中就是满足题意的所有路径的总和。
     private void dfs(List<TreeNode> content, List<Integer> path) {
         if(content.isEmpty()) {
@@ -59,7 +64,7 @@ public class Interview0409 {
         }
 
         List<TreeNode> temp = new ArrayList<>(content);
-        for(int i = 0; i < content.size(); i++) {
+        for(int i = 0; i < content.size(); i++) { // 注意循环的起始条件
             TreeNode node = content.get(i);
             path.add(node.val);
             content.remove(i);
@@ -67,7 +72,7 @@ public class Interview0409 {
             if(node.right != null) content.add(node.right);
             dfs(content, path);
             path.remove(path.size()-1);
-            content = new ArrayList<>(temp);
+            content = new ArrayList<>(temp); // 这一行很关键
         }
     }
 }

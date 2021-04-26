@@ -62,6 +62,7 @@ public class LeetCode1231 {
                 nowSum = 0;
             }
         }
+        // 一定要是大于等于k + 1才知道是目标值还可以再小一点，如果是大于等于K的话那么有可能是目标值就不能缩小范围了
         return num >= k + 1;
     }
 }

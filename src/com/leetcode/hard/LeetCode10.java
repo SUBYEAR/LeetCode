@@ -6,7 +6,17 @@ package com.leetcode.hard;
 
 /**
  * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+ * 提示：
  *
+ * 0 <= s.length <= 20
+ * 0 <= p.length <= 30
+ * s 可能为空，且只包含从 a-z 的小写字母。
+ * p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
+ * 保证每次出现字符 * 时，前面都匹配到有效的字符
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/regular-expression-matching
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @since 2020-06-20
  */
 public class LeetCode10 {
@@ -83,6 +93,11 @@ public class LeetCode10 {
                             if (nowpLast == nows || nowpLast == '.') {
                                 dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
                             }
+
+                            // dp[i][j] = dp[i-1][j] // 多个字符匹配的情况, 就是去掉s中的一个字符后看是不是还能匹配上带*的情形
+                            //or dp[i][j] = dp[i][j-1] // 单个字符匹配的情况, 就是去掉 * 的那部分
+                            //or dp[i][j] = dp[i][j-2] // 没有匹配的情况
+
                             // 不论p[j-2]是否等于s[i-1]都可以删除掉j-1和j-2处字符：
                             dp[i][j] = dp[i][j] || dp[i][j - 2];
                         }

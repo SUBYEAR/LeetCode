@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.meaningful;
 
 /**
  * 面试题 16.18. 模式匹配
