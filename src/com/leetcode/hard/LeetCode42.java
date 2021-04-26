@@ -21,7 +21,7 @@ public class LeetCode42 {
                 int h = Math.min(height[i], height[s.peek()]) - height[top];
                 res += h * dis;
             }
-            s.push(i); // 当前的条形块小于或等于栈顶的条形块，我们将条形块的索引入栈
+            s.push(i); // 当前的条形块小于或等于栈顶的条形块，我们将条形块的索引入栈 递减栈
         }
 
         return res;

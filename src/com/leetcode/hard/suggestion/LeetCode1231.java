@@ -31,7 +31,7 @@ package com.leetcode.hard.suggestion;
  * 链接：https://leetcode-cn.com/problems/divide-chocolate
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1231 {
+public class LeetCode1231 { // 与1101题对比区别
     public int maximizeSweetness(int[] sweetness, int K) {
         int sum = 0, ans = 0;
         for (int i = 0; i < sweetness.length; i++) {

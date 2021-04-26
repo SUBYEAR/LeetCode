@@ -2,9 +2,9 @@ package com.leetcode.hard;
 
 import java.util.Stack;
 /**
-给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
-
-求在该柱状图中，能够勾勒出来的矩形的最大面积。
+ * 给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+ *
+ * 求在该柱状图中，能够勾勒出来的矩形的最大面积。
  */
 public class LeetCode84 {
     int largestRectangleArea(int[] heights) {
@@ -24,10 +24,10 @@ public class LeetCode84 {
             while (!stack.isEmpty() && arr[stack.peek()] >= arr[index]) {
                 int h = arr[stack.peek()];
                 stack.pop();
-                int left = stack.size() > 0 ? stack.peek(): -1;
+                int left = stack.size() > 0 ? stack.peek(): -1; // 接雨水的栈为空时没有左边界了要break，而这里可以继续计算
                 result = Math.max(result, h * (index - left - 1));
             }
-            stack.push(index); // 这里是递增栈，借雨伞是递减栈
+            stack.push(index); // 这里是递增栈，接雨水是递减栈
         }
         return result;
     }
