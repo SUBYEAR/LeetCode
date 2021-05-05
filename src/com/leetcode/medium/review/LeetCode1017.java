@@ -13,7 +13,7 @@ package com.leetcode.medium.review;
  */
 public class LeetCode1017 { // 问题的核心是理解进制数其实是在每一位上放置余数
     // java使用的是truncate 除法https://segmentfault.com/a/1190000015581794?utm_source=sf-related
-    // 即商向0取整，余数和被除数符合一致，那么这样就会导致除-2时余数可能是-1，进制表示其实是要想将余数-1转换成1
+    // 即商向0取整，余数和被除数符号一致，那么这样就会导致除-2时余数可能是-1，进制表示其实是要想将余数-1转换成1
     // 考虑将余数再减去-2，其实也就是商加一
     public String baseNeg2(int N) {
         if (N < 2) {

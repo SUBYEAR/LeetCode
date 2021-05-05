@@ -97,7 +97,7 @@ public class LeetCode297 {
                 parents.add(cur);
             }
             isLeft = !isLeft;
-            if (isLeft) { // 注意这里获取获取父节点的处理很巧妙
+            if (isLeft) { // 注意这里获取获取父节点的处理很巧妙，因为这里是一颗带有null节点的满二叉树
                 parent = parents.peek();
                 parents.poll();
             }

@@ -19,7 +19,7 @@ package com.leetcode.hard;
  */
 public class LeetCode940 {
     // 回溯会超时，使用动态规划
-    int mod = 1_000_000_007;
+    private final int MOD = 1_000_000_007;
     public int distinctSubseqII(String S) {
         int n = S.length();
         int[][] dp = new int[n][27]; // dp[i][j] 表示S[0...i]中以字母j(j的取值范围是a~z)结尾的数量
@@ -32,7 +32,7 @@ public class LeetCode940 {
                 dp[i][k] = dp[j][k];
             }
 
-            dp[i][S.charAt(i) - 'a'] = (dp[i - 1][26] + 1) % mod;
+            dp[i][S.charAt(i) - 'a'] = (dp[i - 1][26] + 1) % MOD;
             dp[i][26] = getCount(dp[i]);
 
         }
@@ -42,7 +42,7 @@ public class LeetCode940 {
     int getCount(int[] arr) {
         int ans = 0;
         for (int i = 0; i < arr.length - 1; i++) {
-            ans = (ans + arr[i]) % mod;
+            ans = (ans + arr[i]) % MOD;
         }
         return ans;
     }

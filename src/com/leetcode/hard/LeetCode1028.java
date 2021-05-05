@@ -133,7 +133,7 @@ public class LeetCode1028 {
                     path.peek().left = node;
                 }
             } else {
-                while (level != path.size()) {
+                while (level != path.size()) { // 注意这里的循环条件其实是使用到了题目中的约束条件：如果节点只有一个子节点，那么保证该子节点为左子节点
                     path.pop();
                 }
                 path.peek().right = node;

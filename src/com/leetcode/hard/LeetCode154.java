@@ -24,6 +24,8 @@ public class LeetCode154 {
     }
 }
 
+// 数组中的最后一个元素 x：在最小值右侧的元素（不包括最后一个元素本身），它们的值一定都严格小于 x；
+// 而在最小值左侧的元素，它们的值一定都严格大于 x。因此，我们可以根据这一条性质，通过二分查找的方法找出最小值
 //     public int findMin(int[] nums) {
 //        int low = 0;
 //        int high = nums.length - 1;

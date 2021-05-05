@@ -28,7 +28,7 @@ public class LeetCode1579 {
         }
 
         // 公共边
-        for (int[] edge : edges) {
+        for (int[] edge : edges) { // 注意这里优先处理公共边时要单独在一个循环中处理。
             if (edge[0] == 3) {
                 if (u1.connected(edge[1], edge[2])) { // Alice 中已经有这条边了那么可以将这条边变成Bob的独占边
                     ++res;

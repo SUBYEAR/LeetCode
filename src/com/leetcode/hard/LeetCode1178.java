@@ -15,6 +15,15 @@ import java.util.Map;
  * 返回一个答案数组 answer，数组中的每个元素 answer[i] 是在给出的单词列表 words 中可以作为字谜迷面 puzzles[i] 
  * 所对应的谜底的单词数目。
  *
+ * 提示：
+ *
+ * 1 <= words.length <= 10^5
+ * 4 <= words[i].length <= 50
+ * 1 <= puzzles.length <= 10^4
+ * puzzles[i].length == 7
+ * words[i][j], puzzles[i][j] 都是小写英文字母。
+ * 每个 puzzles[i] 所包含的字符都不重复。
+ *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/number-of-valid-words-for-each-puzzle
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。

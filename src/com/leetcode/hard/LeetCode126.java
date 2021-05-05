@@ -35,7 +35,7 @@ public class LeetCode126 {
 
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         int id = 0;
-        // 将wordList所有单词加入wordId中 相同的只保留一个 // 并为每一个单词分配一个id
+        // 将wordList所有单词加入wordId中 相同的只保留一个，并为每一个单词分配一个id
         for (String word : wordList) {
             if (!wordId.containsKey(word)) {
                 wordId.put(word, id++);
