@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.bitwise;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,3 +105,32 @@ public class LeetCode784 {
 //            finalans.add(sb.toString());
 //        return finalans;
 //    }
+
+// 回溯解法
+// public class Solution {
+//
+//    public List<String> letterCasePermutation(String S) {
+//        List<String> res = new ArrayList<>();
+//        char[] charArray = S.toCharArray();
+//        dfs(charArray, 0, res);
+//        return res;
+//    }
+//
+//    private void dfs(char[] charArray, int index, List<String> res) {
+//        if (index == charArray.length) {
+//            res.add(new String(charArray));
+//            return;
+//        }
+//
+//        dfs(charArray, index + 1, res);
+//        if (Character.isLetter(charArray[index])) {
+//            charArray[index] ^= 1 << 5;
+//            dfs(charArray, index + 1, res);
+//        }
+//    }
+//}
+//
+//作者：liweiwei1419
+//链接：https://leetcode-cn.com/problems/letter-case-permutation/solution/shen-du-you-xian-bian-li-hui-su-suan-fa-python-dai/
+//来源：力扣（LeetCode）
+//著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

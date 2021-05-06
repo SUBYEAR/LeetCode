@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.bfs;
 
 import com.leetcode.TreeNode;
 
@@ -23,7 +23,7 @@ public class LeetCode863 {
     public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
         dfs(root, null);
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(null);
+        q.add(null); // null 可以看作是一个标记
         q.add(target);
 
         Set<TreeNode> seen = new HashSet<>();

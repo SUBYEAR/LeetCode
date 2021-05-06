@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.monostack;
 
 import java.util.Stack;
 
@@ -65,14 +65,14 @@ public class LeetCode907 {
 
     public int sumSubarrayMins2(int[] A) {
         int length = A.length;
-        int[] left = new int[length];
+        int[] left = new int[length]; // left数组的含义是向左方向第一个比A[i]小的元素的下标
         int[] right = new int[length];
         left[0] = -1;
         right[length - 1] = length;
         for (int i = 0; i < length; i++) {
             int l = i - 1;
-            while (l >= 0 && A[l] > A[i]) {
-                l = left[l];
+            while (l >= 0 && A[l] > A[i]) { // A[l]比A[i]大，尝试下一个比A[l]小的元素和A[i]进行比较
+                l = left[l]; // 所以l的更新方向为l = left[l]
             }
             left[i] = l;
         }

@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.linkedlist;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -73,10 +73,10 @@ public class LeetCode146 {
 //}
 
 // LRU 缓存机制可以通过哈希表辅以双向链表实现，我们用一个哈希表和一个双向链表维护所有在缓存中的键值对。
-//双向链表按照被使用的顺序存储了这些键值对，靠近头部的键值对是最近使用的，而靠近尾部的键值对是最久未使用的。
-//哈希表即为普通的哈希映射（HashMap），通过缓存数据的键映射到其在双向链表中的位置。
+// 双向链表按照被使用的顺序存储了这些键值对，靠近头部的键值对是最近使用的，而靠近尾部的键值对是最久未使用的。
+// 哈希表即为普通的哈希映射（HashMap），通过缓存数据的键映射到其在双向链表中的位置。
 
-//public class LRUCache {
+// public class LRUCache {
 //    class DLinkedNode {
 //        int key;
 //        int value;

@@ -23,17 +23,20 @@ import java.util.Map;
  * 我们用 count[i, j] 来记录 row[i] = row[j] = 1 的次数。当我们处理新的一行时，对于每一对 new_row[i] = new_row[j] = 1，我们添加 count[i, j] 到答案中，然后 count[i, j]++。
  *
  */
-public class LeetCode750 {
-    public int countCornerRectangles(int[][] grid) {
+public class LeetCode750_S {
+    public int countCornerRectangles(int[][] grid) { // 有点类似前缀和的思想
         Map<Integer, Integer> count = new HashMap();
         int ans = 0;
         for (int[] row: grid) {
-            for (int c1 = 0; c1 < row.length; ++c1) if (row[c1] == 1) {
-                for (int c2 = c1+1; c2 < row.length; ++c2) if (row[c2] == 1) {
-                    int pos = c1 * 200 + c2;
-                    int c = count.getOrDefault(pos, 0);
-                    ans += c;
-                    count.put(pos, c+1);
+            for (int c1 = 0; c1 < row.length; ++c1) {
+                if (row[c1] == 1) {
+                    for (int c2 = c1 + 1; c2 < row.length; ++c2)
+                        if (row[c2] == 1) {
+                            int pos = c1 * 200 + c2;
+                            int c = count.getOrDefault(pos, 0);
+                            ans += c;
+                            count.put(pos, c + 1);
+                        }
                 }
             }
         }

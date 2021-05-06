@@ -22,7 +22,7 @@ public class LeetCode795 {
         return count(A, R) - count(A, L-1);
     }
 
-    public int count(int[] A, int bound) {
+    public int count(int[] A, int bound) { // 正难则反
         int ans = 0, cur = 0;
         for (int x: A) {
             cur = x <= bound ? cur + 1 : 0;
