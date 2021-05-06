@@ -9,7 +9,9 @@ package com.leetcode.medium.review;
  * 示例 1:
  * 输入: 12, 21
  * 输出: 21, -1
+ * <p>
  * 思路1: 数值转换成字符串，全排列后找到下一个数----超时
+ * <p>
  * 思路2: 我们需要从右往左找到第一对连续的数字 a[i] 和 a[i-1] 满足 a[i-1] < a[i]
  * 要重新排布 a[i-1] 到最右边的数字来得到下一个排列
  * 得到恰好大于当前数字的下一个排列，所以我们需要用恰好大于 a[i−1] 的数字去替换掉 a[i−1]，比方说我们让这个数字为 a[j]，交换这两个数
@@ -21,7 +23,7 @@ public class LeetCode556 {
     public int nextGreaterElement(int n) {
         char[] a = ("" + n).toCharArray();
         int i = a.length - 2;
-        while (i >= 0 && a[i + 1] <= a[i]) {
+        while (i >= 0 && a[i + 1] <= a[i]) { // 数组降序结束的地方
             i--;
         }
         if (i < 0) {

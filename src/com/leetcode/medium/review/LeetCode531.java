@@ -16,7 +16,7 @@ package com.leetcode.medium.review;
  *
  * 输出: 3
  * 解析: 全部三个'B'都是黑色孤独像素。
- *
+ * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/lonely-pixel-i
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
@@ -29,18 +29,19 @@ public class LeetCode531 {
         int[] countRow = new int[row];
         int[] countCol = new int[col];
 
-        for(int i = 0; i < row; i++)
-            for(int j = 0; j < col; j++){
-                if(picture[i][j] == 'B'){
+        for (int i = 0; i < row; i++)
+            for (int j = 0; j < col; j++) {
+                if (picture[i][j] == 'B') {
                     countRow[i]++;
                     countCol[j]++;
                 }
             }
 
-        for(int i = 0; i < row; i++){
-            for(int j = 0; j < col; j++){
-                if(picture[i][j] == 'B' && countCol[j] == 1 && countRow[i] == 1)
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (picture[i][j] == 'B' && countCol[j] == 1 && countRow[i] == 1) {
                     res++;
+                }
             }
         }
 
