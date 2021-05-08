@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.backtrack;
 
 import java.util.Arrays;
 import java.util.LinkedList;

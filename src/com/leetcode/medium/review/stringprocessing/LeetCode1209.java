@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.stringprocessing;
 
 import com.sun.jmx.remote.internal.ArrayQueue;
 
@@ -57,4 +57,27 @@ public class LeetCode1209 {
 
         return stack.toString();
     }
+
+    public String removeDuplicates_stack(String s, int k) {
+        StringBuilder sb = new StringBuilder(s);
+        Stack<Integer> counts = new Stack<>();
+        for (int i = 0; i < sb.length(); ++i) {
+            if (i == 0 || sb.charAt(i) != sb.charAt(i - 1)) {
+                counts.push(1);
+            } else {
+                int incremented = counts.pop() + 1;
+                if (incremented == k) {
+                    sb.delete(i - k + 1, i + 1);
+                    i = i - k;
+                } else {
+                    counts.push(incremented);
+                }
+            }
+        }
+        return sb.toString();
+    }
+//        作者：LeetCode
+//        链接：https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string-ii/solution/shan-chu-zi-fu-chuan-zhong-de-suo-you-xiang-lin--4/
+//        来源：力扣（LeetCode）
+//        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 }

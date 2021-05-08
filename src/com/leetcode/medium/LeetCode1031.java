@@ -55,4 +55,29 @@ public class LeetCode1031 {
         }
         return arrL;
     }
+
+    public int maxSumTwoNoOverlap_(int[] A, int l, int m) {
+        int n = A.length;
+        int[] sum = new int[n + 1];
+        for (int i = 1; i <= n; i ++) sum[i] = sum[i - 1] + A[i - 1];
+
+        int res = 0;
+        for (int i = 1, j = l + 1, left = 0; j + m - 1 <= n; i ++, j ++)
+        {
+            left = Math.max(left, sum[i + l - 1] - sum[i - 1]);
+            res = Math.max(left + sum[j + m - 1] - sum[j - 1], res);
+        }
+
+        for (int i = 1, j = m + 1, left = 0; j + l - 1 <= n; i ++, j ++)
+        {
+            left = Math.max(left, sum[i + m - 1] - sum[i - 1]);
+            res = Math.max(left + sum[j + l - 1] - sum[j - 1], res);
+        }
+        return res;
+    }
+
+//    作者：schinapy
+//    链接：https://leetcode-cn.com/problems/maximum-sum-of-two-non-overlapping-subarrays/solution/qian-zhui-he-hua-dong-chuang-kou-zuo-liang-bian-by/
+//    来源：力扣（LeetCode）
+//    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 }

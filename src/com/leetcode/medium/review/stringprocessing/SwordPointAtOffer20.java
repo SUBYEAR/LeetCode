@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.stringprocessing;
 
 /**
  * 剑指 Offer 20. 表示数值的字符串

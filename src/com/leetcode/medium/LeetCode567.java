@@ -1,5 +1,12 @@
 package com.leetcode.medium;
 
+/**
+ * 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
+ *
+ * 换句话说，第一个字符串的排列之一是第二个字符串的 子串 。
+ *
+ * 这一题和{@link com.leetcode.medium.LeetCode1813#areSentencesSimilar(String, String)}一样可以使用双指针匹配
+ */
 public class LeetCode567 {
     public boolean checkInclusion(String s1, String s2) {
         if (s1.length() > s2.length()) {

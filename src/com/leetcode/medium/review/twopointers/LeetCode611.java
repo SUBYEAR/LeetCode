@@ -1,10 +1,10 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.twopointers;
 
 import java.util.LinkedList;
 import java.util.List;
 
-/*
-给定一个包含非负整数的数组，你的任务是统计其中可以组成三角形三条边的三元组个数。
+/**
+ * 给定一个包含非负整数的数组，你的任务是统计其中可以组成三角形三条边的三元组个数。
  */
 public class LeetCode611 {
     List<List<Integer>> res = new LinkedList<>();
