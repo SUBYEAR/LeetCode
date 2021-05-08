@@ -24,11 +24,10 @@ import java.util.Set;
  * 链接：https://leetcode-cn.com/problems/split-array-into-consecutive-subsequences
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode659 {
+public class LeetCode659_W {
     // 当 x 在数组中时，如果存在一个子序列以 x−1 结尾，长度为 k，则可以将 x 加入该子序列中，得到长度为 k+1 的子序列。
-    // 如果不存在以 x−1 结尾的子序列，则必须新建一个只包含 x 的子序列，长度为 1。
-    // 当 x 在数组中时，如果存在多个子序列以 x−1 结尾，应该将 x 加入其中的哪一个子序列？由于题目要求每个子序列的长度至少为 3，
-    // 显然应该让最短的子序列尽可能长，因此应该将 xx 加入其中最短的子序列。基于上述分析，可以使用哈希表和最小堆进行实现。
+    // 应该将 x 加入其中的哪一个子序列？由于题目要求每个子序列的长度至少为 3，显然应该让最短的子序列尽可能长，因此应该将 x 加入其中最短的子序列。
+    // 基于上述分析，可以使用哈希表和最小堆进行实现。
     public boolean isPossible(int[] nums) {
         Map<Integer, PriorityQueue<Integer>> map = new HashMap<>();
         for (int num : nums) {
@@ -41,7 +40,7 @@ public class LeetCode659 {
                     map.remove(num - 1);
                 }
                 map.get(num).offer(preLength + 1);
-            } else {
+            } else { // 如果不存在以 x−1 结尾的子序列，则必须新建一个只包含 x 的子序列，长度为 1。
                 map.get(num).offer(1);
             }
         }
