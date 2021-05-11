@@ -49,7 +49,7 @@ public class LeetCode93_W {
         for (int j = 0; j < maxLen && i + j < chars.length; j++) {
             // 取三位数时，需要判断是否超出255
             if (j == 2 && (chars[i] - '0') * 100 + (chars[i + 1] - '0') * 10 + chars[i + 2] - '0' > 255) {
-                continue;
+                continue; // 这里用break 和continue效果一样，一般情况都用break
             }
             for (int k = 0; k <= j; k++) {
                 sb.append(chars[i + k]);
@@ -111,7 +111,7 @@ public class LeetCode93_W {
 //                 segments[segId] = addr;
 //                 dfs(s, segId + 1, segEnd + 1);
 //             } else {
-//                 break;
+//                 break; // 这里用break是因为继续循环的话addr的值更加比255大，所以不用继续在选择列表中向后尝试了
 //             }
 //         }
 //     }

@@ -64,7 +64,7 @@ public class LeetCode94 {
 //                }
 //            } else { // 如果没有左孩子，则直接访问右孩子
 //                res.add(root.val);
-//                root = root.right;
+//                root = root.right; // 前面设置了predecessor.right = root在这里起作用了就会又回到root节点
 //            }
 //        }
 //        return res;

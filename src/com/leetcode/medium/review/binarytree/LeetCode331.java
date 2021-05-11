@@ -28,8 +28,8 @@ import java.util.LinkedList;
  */
 public class LeetCode331 {
     // 二叉树的建立也伴随着槽位数量的变化。每当遇到一个节点时：
-    //如果遇到了空节点，则要消耗一个槽位；
-    //如果遇到了非空节点，则除了消耗一个槽位外，还要再补充两个槽位。
+    // 如果遇到了空节点，则要消耗一个槽位；
+    // 如果遇到了非空节点，则除了消耗一个槽位外，还要再补充两个槽位。
     public boolean isValidSerialization(String preorder) {
         int n = preorder.length();
         int i = 0;

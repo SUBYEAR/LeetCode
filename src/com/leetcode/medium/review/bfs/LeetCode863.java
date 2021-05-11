@@ -23,7 +23,7 @@ public class LeetCode863 {
     public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
         dfs(root, null);
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(null); // null 可以看作是一个标记
+        q.add(null); // null 可以看作是一个标记，注意null加在target前和target后的处理是有区别的
         q.add(target);
 
         Set<TreeNode> seen = new HashSet<>();

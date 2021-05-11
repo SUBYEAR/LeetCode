@@ -98,8 +98,8 @@ public class LeetCode1102 {
 //                int nextX = node.xIndex+directors[i][0];
 //                int nextY = node.yIndex+directors[i][1];
 //                //超出数字越界，或未被染色
-//                if(nextX<0||nextX>=rows||nextY<0||nextY>=cols ||!used[nextX][nextY]) // 注意这里used数组是必须的
-//                {
+//                if(nextX<0||nextX>=rows||nextY<0||nextY>=cols ||!used[nextX][nextY])
+//                {  // 注意这里used数组是必须的，即从队列中拿出来的点才能进行union操作
 //                    continue;
 //                }
 //                dsu.union(nextX*cols+nextY,node.xIndex*cols+node.yIndex);

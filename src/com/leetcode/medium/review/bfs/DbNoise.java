@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 功能描述
+ * 功能描述 bfs中在选择列表中更新队列的时候有三种判断条件：(1)访问标记法；(2)距离比较法；(3)源数组给定值可访问性约束法
  *
  * @since 2020-04-26
  */
@@ -66,11 +66,11 @@ public class DbNoise {
     int getIndexForDb(int noiseIndex, int[][] noiseMap, Queue noiseQueue, int[][] noise, int maxDb) {
         int length = noise.length;
         for (int i = noiseIndex; i < length; i++) {
-            if (noise[i][2] != maxDb) {
+            if (noise[i][2] != maxDb) { // 噪音数组已经是按照降序排列了，如果不等肯定是下一个最大的噪音值，关键是因为maxDb是以减1的方式在减小
                 noiseIndex = i;
                 return noiseIndex;
             }
-            if (noiseMap[noise[i][0]][noise[i][1]] == 0) {
+            if (noiseMap[noise[i][0]][noise[i][1]] == 0) { // 最大的噪音值有多个加入到队列中
                 noiseQueue.add(new GridPoint(noise[i][0], noise[i][1]));
                 noiseMap[noise[i][0]][noise[i][1]] = maxDb;
             }

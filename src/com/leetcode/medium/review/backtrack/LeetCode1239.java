@@ -27,7 +27,7 @@ public class LeetCode1239 {
         res = Math.max(res, path.length());
         for (int i = start; i < arr.size(); i++) {
             String s = arr.get(i);
-            if (!isValid(s+path.toString())) {
+            if (!isValid(s+ path)) {
                 continue;
             }
             path.append(s);

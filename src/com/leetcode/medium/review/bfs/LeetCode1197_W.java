@@ -49,7 +49,7 @@ public class LeetCode1197_W {
                 int newX = curX + dir[0];
                 int newY = curY + dir[1];
                 int nextDist = curDist + 1; // 新的步数等于已走步数加一
-                if (mark[newX + 333][newY + 333]) {
+                if (mark[newX + 333][newY + 333]) { // 注意因为棋盘是无穷大所以这里没有边界判断
                     continue;
                 }
                 // 下一步走的方向一定是往目的地靠近
