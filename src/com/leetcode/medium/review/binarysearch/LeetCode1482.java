@@ -1,4 +1,4 @@
-package com.leetcode.medium.review.binarytree;
+package com.leetcode.medium.review.binarysearch;
 
 /**
  * 给你一个整数数组 bloomDay，以及两个整数 m 和 k 。
