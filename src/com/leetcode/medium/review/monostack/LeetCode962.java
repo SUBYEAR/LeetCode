@@ -42,7 +42,7 @@ public class LeetCode962 { //单调递减栈，遍历到当前元素比栈顶表
 // 然后，当我们写下一个索引 i 的时候，我们可以得到候选的宽度答案
 // i - min(indexes_previously_written) （如果这个值是正数的话）。 我们可以用一个变量 m 记录已经写下的最小索引。
 //         int N = A.length;
-//         Integer[] B = new Integer[N];
+//         Integer[] B = new Integer[N]; // 类似索引优先队列
 //         for (int i = 0; i < N; ++i)
 //             B[i] = i;
 //
@@ -51,7 +51,7 @@ public class LeetCode962 { //单调递减栈，遍历到当前元素比栈顶表
 //         int ans = 0;
 //         int m = N;
 //         for (int i: B) {
-//             ans = Math.max(ans, i - m);
+//             ans = Math.max(ans, i - m); // 最小值肯定不是坡度的结尾
 //             m = Math.min(m, i);
 //         }
 //

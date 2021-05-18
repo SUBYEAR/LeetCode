@@ -33,7 +33,7 @@ public class LeetCode1004 {
                 }
                 left++;
                 continue; // 这一题与424提有一个不一样的地方是此处的continue处理这里在更新结果时一定要保证0的数目是不大于K个
-                // 424题的替换字母可以是是任意字母被替换所以每一次都要更新结果res
+                // 424题的替换字母可以是是任意字母被替换所以每一次都要更新结果res,但无continue语句也可以过
             }
             res = Math.max(res, right - left);
         }
