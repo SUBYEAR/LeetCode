@@ -1,3 +1,5 @@
+package com.leetcode;
+
 import com.leetcode.easy.LeetCode896;
 
 import java.util.List;

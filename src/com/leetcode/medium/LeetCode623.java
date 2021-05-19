@@ -24,9 +24,9 @@ public class LeetCode623 {
             return new TreeNode(val, root, null);
         }
 
-        int level = 0;
-        Queue<HelperNode> q = new LinkedList<>();
-        q.add(new HelperNode(root, null, true));
+        int level = 1;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
         while (!q.isEmpty()) {
             int size = q.size();
             ++level;
@@ -34,42 +34,32 @@ public class LeetCode623 {
                 break;
             }
             while (size-- > 0) {
-                HelperNode cur = q.poll();
-                if (cur.node.left != null) {
-                    q.add(new HelperNode(cur.node.left, cur.node, true));
+                TreeNode cur = q.poll();
+                if (cur.left != null) {
+                    q.add(cur.left);
                 }
-                if (cur.node.right != null) {
-                    q.add(new HelperNode(cur.node.right, cur.node, false));
+                if (cur.right != null) {
+                    q.add(cur.right);
                 }
             }
         }
 
-        TreeNode lastParent = null;
-        for(HelperNode n : q) {
-            TreeNode insert = new TreeNode(val);
-            if (lastParent != n.parent) {
-                n.parent.left = insert;
-                n.parent.right = insert;
-            }
-            lastParent = n.parent;
-            if (n.left) {
-                insert.left = n.node;
-            } else {
-                insert.right = n.node;
-            }
+        for(TreeNode n : q) {
+            insert(n, val, true);
+            insert(n, val, false);
         }
         return root;
     }
 
-    private class HelperNode {
-        TreeNode node;
-        TreeNode parent;
-        boolean left;
-
-        public HelperNode(TreeNode node, TreeNode parent, boolean left) {
-            this.parent = parent;
-            this.node = node;
-            this.left = left;
+    private void insert(TreeNode n, int val, boolean isLeft) {
+        TreeNode insert = new TreeNode(val);
+        TreeNode tmp = isLeft ? n.left : n.right;
+        if (isLeft) {
+            n.left = insert;
+            insert.left = tmp;
+        } else {
+            n.right = insert;
+            insert.right = tmp;
         }
     }
 }

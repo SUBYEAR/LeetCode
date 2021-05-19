@@ -1,7 +1,7 @@
 package com.leetcode;
 
-import com.leetcode.medium.LeetCode1545;
-import com.leetcode.medium.LeetCode623;
+import com.leetcode.medium.LeetCode1738;
+import com.leetcode.medium.review.bitwise.LeetCode1442;
 
 
 import java.util.*;
@@ -226,17 +226,18 @@ public class Main {
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
         int[] arr2 = new int[]{1,3,5,7,966,32,64,240,10};
-        int[] arr1 = new int[]{2,1,0,1,3,2,1,2,1};
+        int[] arr1 = new int[]{7,11,12,9,5,2,7,17,22};
 
         int[][] matrix = new int[][] {
-                {2,2,-1},
+                {5,2},
+                {1,5},
 //                {0,-2,3},
         };
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode1545 t = new LeetCode1545();
-        System.out.println(t.findKthBit(4,11));
+        LeetCode1738 t = new LeetCode1738();
+        System.out.println(t.kthLargestValue(matrix, 1));
     }
 
     public static void build(int[] arr) {

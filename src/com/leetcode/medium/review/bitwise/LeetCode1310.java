@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.bitwise;
 
 /**
  * 有一个正整数数组 arr，现给你一个对应的查询数组 queries，其中 queries[i] = [Li, Ri]。

@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * 给你一个整数数组 nums ，返回 nums[i] XOR nums[j] 的最大运算结果，其中 0 ≤ i ≤ j < n 。
  */
-public class LeetCode421 {
+public class LeetCode421_W {
     // 将每一个数表示为一个长度为 31 位的二进制数，找出最大的 x，因此在枚举每一位时，我们先判断 x 的这一位是否能取到 1。
     // 如果能，我们取这一位为 1，否则我们取这一位为 0
     // 最高位的二进制位编号为 30

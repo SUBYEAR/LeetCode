@@ -36,7 +36,7 @@ public class LeetCode866 {
                 // If we didn't check for even-length palindromes:
                 // return N <= 11 ? min(x, 11) : x
             }
-            // 一个回文根可能对应两个回文串，例如 123321123321，1232112321 的回文根就都是 123123
+            // 一个回文根可能对应两个回文串，例如 123321，12321 的回文根就都是 123
             // Check for even-length palindromes
             for (int root = (int) Math.pow(10, L - 1); root < (int) Math.pow(10, L); ++root) {
                 StringBuilder sb = new StringBuilder(Integer.toString(root));
