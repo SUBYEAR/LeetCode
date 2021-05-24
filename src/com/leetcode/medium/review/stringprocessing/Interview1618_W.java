@@ -19,7 +19,7 @@ package com.leetcode.medium.review.stringprocessing;
  *
  * @since 2020-06-22
  */
-public class Interview1618 {
+public class Interview1618_W {
     public boolean patternMatching(String pattern, String value) {
         int count_a = 0, count_b = 0;
         for (char ch : pattern.toCharArray()) {

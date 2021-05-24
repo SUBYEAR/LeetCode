@@ -1,5 +1,9 @@
 package com.leetcode.medium;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * 给你一个二维矩阵 matrix 和一个整数 k ，矩阵大小为 m x n 由非负整数组成。
  *
@@ -23,14 +27,27 @@ public class LeetCode1738 {
             }
         }
 
-        int ans = Integer.MIN_VALUE;
+        ArrayList<Integer> list = new ArrayList<>();
         for (int b = 0; b < n; b++) {
             int ab = 0;
             for (int a = 0; a < m; a++) {
                 ab ^= pre[a][b + 1];
-                ans = Math.max(ans, ab);
+                list.add(ab);
             }
         }
-        return ans;
+        list.sort((o1, o2) -> o2 - o1);
+        return list.get(k - 1);
     }
 }
+
+// 或者考虑使用大小位k的数组维护第k大的数
+//            int add = 0;
+//            while (add < 4 && maxn[add] > nums[i]) { // 索引在前值越大
+//                add++;
+//            }
+//            if (add < 4) {
+//                for (int j = 3; j > add; j--) {
+//                    maxn[j] = maxn[j - 1]; // 整体后移出一个空位插入值
+//                }
+//                maxn[add] = nums[i];
+//            }
