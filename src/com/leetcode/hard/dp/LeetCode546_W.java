@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 /**
  * 给出一些不同颜色的盒子，盒子的颜色由数字表示，即不同的数字表示不同的颜色。

@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 /**
  *使用下面描述的算法可以扰乱字符串 s 得到字符串 t ：

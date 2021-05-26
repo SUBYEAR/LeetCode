@@ -1,4 +1,4 @@
-package com.leetcode.hard.suggestion;
+package com.leetcode.hard.dp;
 
 import java.util.Arrays;
 

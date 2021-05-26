@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 /**
  * 整数数组 stations 表示 水平数轴 上各个加油站的位置。给你一个整数 k 。

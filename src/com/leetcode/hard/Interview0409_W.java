@@ -64,14 +64,18 @@ public class Interview0409_W {
         }
 
         List<TreeNode> temp = new ArrayList<>(content);
-        for(int i = 0; i < content.size(); i++) { // 注意循环的起始条件
+        for (int i = 0; i < content.size(); i++) { // 注意循环的起始条件
             TreeNode node = content.get(i);
             path.add(node.val);
             content.remove(i);
-            if(node.left != null) content.add(node.left);
-            if(node.right != null) content.add(node.right);
+            if (node.left != null) {
+                content.add(node.left);
+            }
+            if (node.right != null) {
+                content.add(node.right);
+            }
             dfs(content, path);
-            path.remove(path.size()-1);
+            path.remove(path.size() - 1);
             content = new ArrayList<>(temp); // 这一行很关键
         }
     }

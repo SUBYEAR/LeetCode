@@ -31,15 +31,15 @@ public class LeetCode363 {
         return res;
     }
 
-    int help(int[] arr, int k) { // 连续子数组的和不超过k的最大值, 正难则反
+    int help(int[] arr, int k) { // 连续子数组的和不超过k的最大值
         TreeSet<Integer> preSum = new TreeSet<>();
         int sum = 0, ans = Integer.MIN_VALUE;
         preSum.add(0);
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
-            Integer gap = preSum.ceiling(sum - k);
+            Integer gap = preSum.ceiling(sum - k); // ceiling是求大于该值的最小值
             if (gap != null) {
-                ans = Math.max(ans, sum - gap);
+                ans = Math.max(ans, sum - gap); // 正难则反
             }
             preSum.add(sum);
         }

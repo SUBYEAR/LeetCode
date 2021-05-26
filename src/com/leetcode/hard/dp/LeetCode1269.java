@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 /**
  * 有一个长度为 arrLen 的数组，开始有一个指针在索引 0 处。

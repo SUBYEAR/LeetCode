@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 /**
  * 给定一个字符串 S，计算 S 的不同非空子序列的个数。
