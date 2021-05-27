@@ -13,7 +13,7 @@ package com.leetcode.medium.review.backtrack;
  * 链接：https://leetcode-cn.com/problems/additive-number
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode306 {
+public class LeetCode306_W {
     int record = 0;
     public boolean isAdditiveNumber(String num) {
         int num1 = 0;
