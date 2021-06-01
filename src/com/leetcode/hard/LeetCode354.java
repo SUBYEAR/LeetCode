@@ -28,6 +28,7 @@ import java.util.Arrays;
  */
 public class LeetCode354 {
     public int maxEnvelopes(int[][] envelopes) { // 最长递增子序列
+        // 对于每一种 w 值，我们最多只能选择 1 个信封，将 h 值作为排序的第二关键字进行降序排序
         Arrays.sort(envelopes, (o1, o2) -> o1[0] == o2[0] ? o2[1] - o1[1] : o1[0] - o2[0]);
         int len = envelopes.length;
         int[] arr = new int[len];

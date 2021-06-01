@@ -31,7 +31,7 @@ public class LeetCode154 {
 //        int high = nums.length - 1;
 //        while (low < high) {
 //            int pivot = low + (high - low) / 2;
-//            if (nums[pivot] < nums[high]) {
+//            if (nums[pivot] < nums[high]) { // nums[high]为数组最后一个元素
 //                high = pivot;
 //            } else if (nums[pivot] > nums[high]) {
 //                low = pivot + 1;
