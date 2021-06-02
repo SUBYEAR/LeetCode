@@ -53,16 +53,13 @@ public class LeetCode533_W {
 
         for (int i = 0; i < row; i++) {
             StringBuilder sb = new StringBuilder();
-
             for (int j = 0; j < col; j++) {
                 if (picture[i][j] == 'B') {
                     numBlackRow[i]++;
                     numBlackCol[j]++;
                 }
-
                 sb.append(picture[i][j]);
             }
-
             rowString.add(sb.toString());
         }
 
@@ -74,7 +71,7 @@ public class LeetCode533_W {
             }
             for (int i = 0; i < row; i++) {
                 if (numBlackRow[i] != numBlackCol[j] || colVisited.contains(j)) { // 每一行要有N个B像素
-                    continue; // 这里没有colVisit标记的话0行满足结果，在1行也满足结果就会导致重复计算
+                    continue; // 这里没有colVisit标记的话在0行处理时col列满足结果，在处理1行时col列也满足结果就会导致重复计算
                 }
 
                 HashSet<String> visited = new HashSet<>();

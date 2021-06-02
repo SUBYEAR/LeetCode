@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import com.leetcode.medium.LeetCode1738;
+import com.leetcode.medium.review.Interview1614;
 import com.leetcode.medium.review.bitwise.LeetCode1442;
 
 
@@ -229,15 +230,20 @@ public class Main {
         int[] arr1 = new int[]{7,11,12,9,5,2,7,17,22};
 
         int[][] matrix = new int[][] {
-                {5,2},
-                {1,5},
+                {0,0},{1,1},
+                {1,0},{2,0}
 //                {0,-2,3},
         };
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode1738 t = new LeetCode1738();
-        System.out.println(t.kthLargestValue(matrix, 1));
+        Interview1614 t = new Interview1614();
+        System.out.println(t.getGcd(-2,-6));
+        System.out.println(gcd(-2,-6));
+    }
+
+    static private long gcd(long a,long b){
+        return b == 0? a:gcd(b,a % b);
     }
 
     public static void build(int[] arr) {

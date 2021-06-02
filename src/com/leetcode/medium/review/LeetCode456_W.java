@@ -60,7 +60,7 @@ public class LeetCode456_W {
         return false;
     }
 
-    public boolean find132pattern(int[] nums) {
+    public boolean find132pattern(int[] nums) { // 枚举最大的值
         int len = nums.length;
         if (len < 3) {
             return false;
@@ -73,7 +73,7 @@ public class LeetCode456_W {
 
         for (int j = 1; j < len - 1; j++) {
             if (leftMin < nums[j]) {
-                Integer next = rightAll.ceilingKey(leftMin + 1);
+                Integer next = rightAll.ceilingKey(leftMin + 1); // 找比leftMin大的最小值
                 if (next != null && next < nums[j]) {
                     return true;
                 }

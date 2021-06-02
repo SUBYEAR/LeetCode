@@ -34,7 +34,7 @@ package com.leetcode.medium.review;
  * 链接：https://leetcode-cn.com/problems/count-unhappy-friends
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1583 {
+public class LeetCode1583_W {
     public int unhappyFriends(int n, int[][] preferences, int[][] pairs) {
         // 创建n行n列的二维数组order，order[i][j]表示朋友j在i的朋友列表中亲近程度的下标，所有的朋友被分成 n/2 对，为了快速知道每位朋友的配
         // 对的朋友，对于配对情况也需要进行预处理。创建长度为 n 的数组 match，如果 x 和 y 配对，则有 match[x]=y 以及 match[y]=x

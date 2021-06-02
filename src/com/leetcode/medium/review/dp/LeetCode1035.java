@@ -16,6 +16,8 @@ package com.leetcode.medium.review.dp;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode1035 {
+    // k 条互不相交的直线分别连接了数组 nums1 和 nums2的k 对相等的元素，而且这 k 对相等的元素在两个数组中的相对顺序是一致的，
+    // 因此，这 k 对相等的元素组成的序列即为数组 nums1 和 nums2 的公共子序列
     // 计算数组nums1 和 nums2的最长公共子序列的长度。最长公共子序列问题是典型的二维动态规划问题。
     public int maxUncrossedLines(int[] nums1, int[] nums2) {
         int m = nums1.length, n = nums2.length;
