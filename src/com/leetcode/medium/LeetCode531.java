@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium;
 
 /**
  * 给定一幅黑白像素组成的图像, 计算黑色孤独像素的数量。

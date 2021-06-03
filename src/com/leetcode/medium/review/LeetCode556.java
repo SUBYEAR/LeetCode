@@ -20,7 +20,7 @@ package com.leetcode.medium.review;
  * @since 2020-06-11
  */
 public class LeetCode556 {
-    public int nextGreaterElement(int n) {
+    public int nextGreaterElement(int n) { // 和31题的解法是一致的
         char[] a = ("" + n).toCharArray();
         int i = a.length - 2;
         while (i >= 0 && a[i + 1] <= a[i]) { // 数组降序结束的地方

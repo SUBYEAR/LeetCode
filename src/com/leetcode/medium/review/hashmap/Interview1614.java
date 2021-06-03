@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.hashmap;
 
 import java.awt.*;
 import java.util.*;

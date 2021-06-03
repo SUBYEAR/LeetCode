@@ -21,10 +21,11 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/largest-divisible-subset
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode368 {
+public class LeetCode368_W {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         int len = nums.length;
         Arrays.sort(nums);
+        // dp[i] 表示在输入数组 nums 升序排列的前提下，以 nums[i] 为最大整数的「整除子集」的大小（在这种定义下 nums[i] 必须被选择）
 
         int[] dp = new int[len];
         Arrays.fill(dp, 1);

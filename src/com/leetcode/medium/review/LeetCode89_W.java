@@ -14,7 +14,7 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/gray-code
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode89 {
+public class LeetCode89_W {
     // 从n阶格雷码推到到n + 1阶的公式是：给n阶格雷码的最前面添加元素0；以及n阶格雷码集合的逆序最前面添加1
     // https://leetcode-cn.com/problems/gray-code/solution/gray-code-jing-xiang-fan-she-fa-by-jyd/
     

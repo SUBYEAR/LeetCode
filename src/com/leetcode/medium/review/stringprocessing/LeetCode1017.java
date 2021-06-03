@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.stringprocessing;
 
 /**
  * 给出数字 N，返回由若干 "0" 和 "1"组成的字符串，该字符串为 N 的负二进制（base -2）表示。

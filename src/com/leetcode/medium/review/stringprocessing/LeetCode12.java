@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.stringprocessing;
 
 import java.util.HashMap;
 import java.util.LinkedList;

@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @since 2020-05-27
  */
-public class LeetCode866 {
+public class LeetCode866_W {
     // 知识点： “偶数长度的回文数”中只有11是素数，其他的都可以被11整除。
     public int primePalindrome(int N) {
         for (int L = 1; L <= 5; ++L) {

@@ -11,6 +11,8 @@ package com.leetcode.medium.review.dp;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode740 {
+    // 元素 x 在数组中出现的次数为 cx，我们可以用一个数组 sum 记录数组 nums 中所有相同元素之和，即 sum[x]=x*cx
+    // 若选择了 x，则可以获取 sum[x] 的点数，且无法再选择 x-1 和 x+1
     public int deleteAndEarn(int[] nums) {
         int maxVal = 0;
         for (int num : nums) {
