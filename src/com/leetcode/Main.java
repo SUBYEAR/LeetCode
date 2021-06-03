@@ -1,7 +1,7 @@
 package com.leetcode;
 
 import com.leetcode.medium.LeetCode1738;
-import com.leetcode.medium.review.Interview1614;
+import com.leetcode.medium.review.backtrack.LeetCode1849;
 import com.leetcode.medium.review.bitwise.LeetCode1442;
 
 
@@ -237,9 +237,8 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        Interview1614 t = new Interview1614();
-        System.out.println(t.getGcd(-2,-6));
-        System.out.println(gcd(-2,-6));
+        LeetCode1849 t = new LeetCode1849();
+        System.out.println(t.splitString("0090089"));
     }
 
     static private long gcd(long a,long b){

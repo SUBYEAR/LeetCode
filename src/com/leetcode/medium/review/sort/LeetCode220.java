@@ -2,6 +2,7 @@ package com.leetcode.medium.review.sort;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeSet;
 
 /**
  * 在整数数组 nums 中，是否存在两个下标 i 和 j，使得 nums [i] 和 nums [j] 的差的绝对值小于等于 t ，
@@ -44,5 +45,43 @@ public class LeetCode220 {
     // In Java, `-3 / 5 = 0` and but we need `-3 / 5 = -1`.
     private long getId(long x, long w) {
         return x < 0 ? (x + 1) / w - 1 : x / w; // 或者试一试Math.floorDiv()函数
+    }
+
+    public boolean containsNearbyAlmostDuplicate_slide(int[] nums, int k, int t) {
+        if (t < 0) {
+            return false;
+        }
+        int left = 0;
+        int right = 0;
+        int len = nums.length;
+        TreeSet<Long> map = new TreeSet<>();
+        while (right < len) {
+            long key = nums[right];
+            if (map.contains(key)) {
+                return true;
+            }
+            if (!map.isEmpty()) {
+                Long ceilingKey = map.ceiling(key);
+                if (ceilingKey != null && ceilingKey - key <= t) {
+                    return true;
+                }
+
+                Long floorKey = map.floor(key);
+                if (floorKey != null && key - floorKey <= t) {
+                    return true;
+                }
+            }
+
+            map.add(key);
+            right++;
+
+            if (right - left > k) {
+                long remove = nums[left];
+                map.remove(remove);
+                left++;
+            }
+
+        }
+        return false;
     }
 }

@@ -53,7 +53,7 @@ public class LeetCode1178 {
 			// for (int choose = 0; choose < (1 << 6); ++choose) {
 			//     int mask = 0;
 			//     for (int i = 0; i < 6; ++i) {
-			//         if ((choose & (1 << i)) != 0) {
+			//         if ((choose & (1 << i)) != 0) { // 其实就在按位判断choose上的每一位是否为1
 			//             mask |= (1 << (puzzle.charAt(i + 1) - 'a'));
 			//         }
 			//     }

@@ -36,7 +36,7 @@ public class LeetCode784 {
             StringBuilder word = new StringBuilder();
             for (char letter : S.toCharArray()) {
                 if (Character.isLetter(letter)) {
-                    if (((bits >> b++) & 1) == 1)
+                    if (((bits >> b++) & 1) == 1) // 对bits的每一位进行判断
                         word.append(Character.toLowerCase(letter));
                     else
                         word.append(Character.toUpperCase(letter));

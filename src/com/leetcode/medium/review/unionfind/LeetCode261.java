@@ -12,7 +12,7 @@ public class LeetCode261 {
         DisjointSet disjointSet = new DisjointSet(n);
         for (int[] edge : edges) {
             if (!disjointSet.union(edge[0], edge[1]))
-                return false;
+                return false; // 为什么这里会有false的返回，应该是处理图成环了
         }
         return disjointSet.getCount() == 1;
     }
