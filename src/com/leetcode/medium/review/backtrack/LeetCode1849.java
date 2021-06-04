@@ -63,4 +63,46 @@ public class LeetCode1849 {
         }
         return path.size() > 1;
     }
+
+    // 如果我们确定了第一个子字符串，那么后续子字符串应有的数值也被唯一确定
+    // 我们确定字符串的左边界并增长右边界时，对应子串的数值不会减少。而保持不变的情况当且仅当这些子串全部由0构成
+    boolean splitString_(String s) {
+        long start = 0;
+        long INF = 1_000_000_000; // 子串对应数值的上限
+        int n = s.length();
+        // 枚举第一个子字符串对应的初始值
+        // 第一个子字符串不能包含整个字符串
+        for (int i = 0; i < n - 1 && start < INF; ++i){
+            start = start * 10 + (s.charAt(i) - '0');
+            // 循环验证当前的初始值是否符合要求
+            long pval = start;
+            long cval = 0;
+            int cidx = i + 1;
+            for (int j = i + 1; j < n && cval < INF; ++j){
+                if (pval == 1){
+                    // 如果上一个值为 1，那么剩余字符串对应的数值只能为 0
+                    if (s.substring(cidx).replace("0", "").isEmpty()) {
+                        return true;
+                    } else {
+                        break;
+                    }
+                }
+                cval = cval * 10 + (s.charAt(j) - '0');
+                if (cval > pval - 1){
+                    // 不符合要求，提前结束
+                    break;
+                }
+                else if (cval == pval - 1){
+                    if (j + 1 == n){
+                        // 已经遍历到末尾
+                        return true;
+                    }
+                    pval = cval;
+                    cval = 0;
+                    cidx = j + 1;
+                }
+            }
+        }
+        return false;
+    }
 }

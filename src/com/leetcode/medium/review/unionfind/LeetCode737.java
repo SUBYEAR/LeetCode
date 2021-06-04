@@ -1,4 +1,4 @@
-package com.leetcode.hard.suggestion;
+package com.leetcode.medium.review.unionfind;
 
 import com.leetcode.UF;
 
@@ -74,7 +74,7 @@ public class LeetCode737 {
 
         for (int i = 0; i < words1.length; i++) {
             if (!wordToIndex.containsKey(words1[i]) || !wordToIndex.containsKey(words2[i])
-                    || uf.isConnected(wordToIndex.get(words1[i]), wordToIndex.get(words2[i]))) {
+                    || !uf.isConnected(wordToIndex.get(words1[i]), wordToIndex.get(words2[i]))) {
                 return false;
             }
         }

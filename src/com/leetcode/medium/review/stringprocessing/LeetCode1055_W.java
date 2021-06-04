@@ -30,23 +30,23 @@ package com.leetcode.medium.review.stringprocessing;
  */
 public class LeetCode1055_W {
     // i 指向target，j 指向source;
-    //每次迭代寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列;
-    //具体过程：
-    //初始时i=0,j=0;
-    //寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列，每次过后再重新令j=0,即source从头开始；
-    //在每次寻找最长子序列的过程中，若source中没有子序列可以与target的子字符串匹配，则 i 不会变化，此时返回 -1 。
+    // 每次迭代寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列;
+    // 具体过程：
+    // 初始时i=0,j=0;
+    // 寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列，每次过后再重新令j=0,即source从头开始；
+    // 在每次寻找最长子序列的过程中，若source中没有子序列可以与target的子字符串匹配，则 i 不会变化，此时返回 -1 。
     public int shortestWay(String source, String target) {
         int len = 0, i = 0;
         while (i < target.length()) {
             int temp = i, j = 0;
-            //寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列
+            // 寻找target中以target.charAt(i)开头的连续子字符串所能匹配的source最长子序列
             while (j < source.length()) {
                 if (source.charAt(j++) == target.charAt(i)) {
                     if (++i == target.length()) break;
                 }
             }
-            //若source中的子序列与target的子字符串不能匹配
-            if (temp == i) return -1;
+            // 若source中的子序列与target的子字符串不能匹配
+            if (temp == i) return -1; // 727题也有类似的逻辑判断但是判断条件是循环结束后下标小于目标串的长度，因为727题目标串要全匹配
             len++;
         }
         return len;
