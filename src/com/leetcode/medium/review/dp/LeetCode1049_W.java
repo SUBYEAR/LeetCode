@@ -13,7 +13,7 @@ package com.leetcode.medium.review.dp;
  * 链接：https://leetcode-cn.com/problems/last-stone-weight-ii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1049 {
+public class LeetCode1049_W {
     // 考虑到石头要么加要么减，所以可以 " 分成两堆 "，问两堆最小的差值。那么问题就变成了一个简单的背包），求两堆石头的最小差值。
     // sum / 2：要求差值最小，越接近 sum / 2 越则差值就越小。于是就想象成有一个背包最多能装 sum/2 的石头，
     // 看在不超过 sum / 2 的范围最多能装多少石头。
@@ -36,7 +36,7 @@ public class LeetCode1049 {
                 if (j < stones[i]) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - stones[i]] + stones[j]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - stones[i]] + stones[i]);
                 }
             }
         }
@@ -44,5 +44,6 @@ public class LeetCode1049 {
     }
     //链接：https://leetcode-cn.com/problems/last-stone-weight-ii/solution/zui-hou-yi-kuai-shi-tou-de-zhong-liang-i-bl2a/
 
+    // 背包问题详解
     // https://leetcode-cn.com/problems/last-stone-weight-ii/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-5lfv/
 }
