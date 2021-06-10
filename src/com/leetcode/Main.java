@@ -1,6 +1,8 @@
 package com.leetcode;
 
 import com.leetcode.medium.LeetCode1333;
+import com.leetcode.medium.LeetCode1471;
+import com.leetcode.medium.LeetCode518;
 import com.leetcode.medium.review.dp.LeetCode494;
 
 
@@ -225,7 +227,7 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,3,5,7,966,32,64,240,10};
+        int[] arr2 = new int[]{1,2,5,10,3};
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
@@ -234,8 +236,8 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode1333 t = new LeetCode1333();
-        System.out.println(t.filterRestaurants(matrix, 1, 20, 10));
+        LeetCode518 t = new LeetCode518();
+        System.out.println(t.change(0, arr2));
     }
 
     static private long gcd(long a,long b){
