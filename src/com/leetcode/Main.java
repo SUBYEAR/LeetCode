@@ -1,9 +1,7 @@
 package com.leetcode;
 
-import com.leetcode.medium.LeetCode1333;
-import com.leetcode.medium.LeetCode1471;
-import com.leetcode.medium.LeetCode518;
-import com.leetcode.medium.review.dp.LeetCode494;
+import com.leetcode.hard.LeetCode483;
+import com.leetcode.medium.review.dp.LeetCode279;
 
 
 import java.util.*;
@@ -227,7 +225,7 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{1,2,5,10,3};
+        int[] arr2 = new int[]{24,69,100,99,79,78,67,36,26,19};
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
@@ -236,8 +234,8 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode518 t = new LeetCode518();
-        System.out.println(t.change(0, arr2));
+        LeetCode483 t = new LeetCode483();
+        System.out.println(t.smallestGoodBase("10000000000"));
     }
 
     static private long gcd(long a,long b){
