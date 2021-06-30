@@ -96,14 +96,14 @@ public class LeetCode815 {
         }
         int N = routes.length;
 
-        List<List<Integer>> graph = new ArrayList();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < N; ++i) {
             Arrays.sort(routes[i]);
-            graph.add(new ArrayList());
+            graph.add(new ArrayList<>());
         }
-        Set<Integer> seen = new HashSet();
-        Set<Integer> targets = new HashSet();
-        Queue<Point> queue = new ArrayDeque();
+        Set<Integer> seen = new HashSet<>();
+        Set<Integer> targets = new HashSet<>();
+        Queue<Point> queue = new ArrayDeque<>();
 
         // Build the graph.  Two buses are connected if
         // they share at least one bus stop.
@@ -153,5 +153,51 @@ public class LeetCode815 {
             if (A[i] < B[j]) i++; else j++;
         }
         return false;
+    }
+
+    // 官方解法
+    public int numBusesToDestination_matrix(int[][] routes, int source, int target) {
+        if (source == target) {
+            return 0;
+        }
+
+        int n = routes.length;
+        boolean[][] edge = new boolean[n][n];
+        Map<Integer, List<Integer>> rec = new HashMap<Integer, List<Integer>>();
+        for (int i = 0; i < n; i++) {
+            for (int site : routes[i]) {
+                List<Integer> list = rec.getOrDefault(site, new ArrayList<Integer>());
+                for (int j : list) {
+                    edge[i][j] = edge[j][i] = true;
+                }
+                list.add(i);
+                rec.put(site, list);
+            }
+        }
+
+        int[] dis = new int[n];
+        Arrays.fill(dis, -1);
+        Queue<Integer> que = new LinkedList<Integer>();
+        for (int bus : rec.getOrDefault(source, new ArrayList<Integer>())) {
+            dis[bus] = 1;
+            que.offer(bus);
+        }
+        while (!que.isEmpty()) {
+            int x = que.poll();
+            for (int y = 0; y < n; y++) {
+                if (edge[x][y] && dis[y] == -1) {
+                    dis[y] = dis[x] + 1;
+                    que.offer(y);
+                }
+            }
+        }
+
+        int ret = Integer.MAX_VALUE;
+        for (int bus : rec.getOrDefault(target, new ArrayList<Integer>())) {
+            if (dis[bus] != -1) {
+                ret = Math.min(ret, dis[bus]);
+            }
+        }
+        return ret == Integer.MAX_VALUE ? -1 : ret;
     }
 }

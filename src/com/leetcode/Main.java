@@ -1,6 +1,9 @@
 package com.leetcode;
 
+import com.leetcode.easy.LeetCode168;
 import com.leetcode.hard.LeetCode483;
+import com.leetcode.hard.LeetCode773;
+import com.leetcode.medium.LeetCode909;
 import com.leetcode.medium.review.dp.LeetCode279;
 
 
@@ -229,13 +232,17 @@ public class Main {
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
-                {1,4,1,40,10},{2,8,0,50,5},{3,8,1,30,4},{4,10,0,10,3},{5,1,1,15,1}
+                {1,2,3},
+                {4,0,5},
         };
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode483 t = new LeetCode483();
-        System.out.println(t.smallestGoodBase("10000000000"));
+        LeetCode773 t = new LeetCode773();
+//        for (int i = 1 ; i <= 36; i++ ) {
+//            System.out.print("start: " + i);
+//            System.out.println(t.getNext(matrix, i));
+//        }
     }
 
     static private long gcd(long a,long b){
