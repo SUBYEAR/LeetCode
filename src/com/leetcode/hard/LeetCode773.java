@@ -1,8 +1,6 @@
 package com.leetcode.hard;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 在一个 2 x 3 的板上（board）有 5 块砖瓦，用数字 1~5 来表示, 以及一块空缺用 0 来表示.
@@ -21,32 +19,72 @@ public class LeetCode773 {
     public int slidingPuzzle(int[][] board) {
         Set<Integer> seen = new HashSet<>();
         seen.add(hash(board));
+        int target = hash(new int[][] {{1,2,3}, {4,5,0}});
+        Queue<int[][]> q = new LinkedList<>();
+        q.add(board);
+        int step = 0;
+        while (!q.isEmpty()) {
+            int size = q.size();
+            while (size-- > 0) {
+                int[][] cur = q.poll();
+                if (hash(cur) == target) {
+                    return step;
+                }
+
+                for (int[][] nei : getNeighbor(cur,seen)) {
+                    int hash = hash(nei);
+                    if (seen.contains(hash)) {
+                        continue;
+                    }
+                    seen.add(hash);
+                    q.add(nei);
+                }
+            }
+            step++;
+        }
+        return -1;
     }
 
     private static final int[] dx = new int[] { 0,0,1,-1};
     private static final int[] dy = new int[] { 1,-1,0,0};
-    public void getNeighbor(int[][] board) {
+
+    public List<int[][]> getNeighbor(int[][] board, Set<Integer> seen) {
         int row = board.length, col = board[0].length;
-        int i = 0, j = 0;
-        for (;i < row; i++) {
-            for (;j < col; j++) {
-                if (board[i][j] == 0) {
-                    break;
-                }
+        int index = 0;
+        while (index < row * col) {
+            if (board[index / col][index % col] == 0) {
+                break;
             }
+            index++;
         }
 
-
+        List<int[][]> res = new ArrayList<>();
         for (int k = 0;  k < dx.length; k++) {
+            int i = index / col, j = index % col;
             if ((i + dx[k]) < 0 || (i + dx[k]) >= row || (j + dy[k]) < 0 || (j +dy[k]) >= col ) {
                 continue;
             }
-
+            int[][] pos = switchPos(board, i, j, i + dx[k], j + dy[k]);
+            int hash = hash(pos);
+            if (!seen.contains(hash)) {
+                res.add(pos);
+            }
         }
+        return res;
     }
 
     int[][] switchPos(int[][] board, int x1, int y1, int x2, int y2) {
+        int row = board.length;
+        int col = board[0].length;
+        int[][] res = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            res[i] = Arrays.copyOf(board[i], col);
+        }
 
+        int temp = res[x1][y1];
+        res[x1][y1] = res[x2][y2];
+        res[x2][y2] = temp;
+        return res;
     }
 
     public int hash(int[][] arr) {

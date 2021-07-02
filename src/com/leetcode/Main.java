@@ -1,8 +1,10 @@
 package com.leetcode;
 
+import com.leetcode.easy.LCP07;
 import com.leetcode.easy.LeetCode168;
 import com.leetcode.hard.LeetCode483;
 import com.leetcode.hard.LeetCode773;
+import com.leetcode.medium.LeetCode1833;
 import com.leetcode.medium.LeetCode909;
 import com.leetcode.medium.review.dp.LeetCode279;
 
@@ -228,21 +230,18 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[]{24,69,100,99,79,78,67,36,26,19};
+        int[] arr2 = new int[]{1,6,3,1,2,5};
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
-                {1,2,3},
-                {4,0,5},
+                {0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4},{4,5},{4,6},{3,5},{3,6},{1,6},{6,0}
+//                {0,1},{0,2},{2,1},{1,2},{1,0},{2,0}
         };
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode773 t = new LeetCode773();
-//        for (int i = 1 ; i <= 36; i++ ) {
-//            System.out.print("start: " + i);
-//            System.out.println(t.getNext(matrix, i));
-//        }
+        LeetCode1833 t = new LeetCode1833();
+        System.out.println(t.maxIceCream(arr2, 20));
     }
 
     static private long gcd(long a,long b){

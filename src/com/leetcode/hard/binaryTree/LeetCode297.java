@@ -109,6 +109,6 @@ public class LeetCode297 {
         if (val.equals("null")) {
             return null;
         }
-        return new TreeNode(Integer.valueOf(val));
+        return new TreeNode(Integer.parseInt(val));
     }
 }
