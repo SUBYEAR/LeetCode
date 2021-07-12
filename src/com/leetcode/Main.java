@@ -230,8 +230,8 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[100000];
-        Arrays.fill(arr2, 32);
+        int[] arr2 = new int[] {7,7,7,7,7,7,7};
+
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
@@ -241,16 +241,26 @@ public class Main {
 
         String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
         String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode1711 t = new LeetCode1711();
-        System.out.println(t.countPairs(arr2));
-        int a = 100000;
-        long res = (long) a * (a - 1);
-        System.out.println(res);
+        LeetCode274 t = new LeetCode274();
+        System.out.println(t.hIndex(arr2));
 //        System.out.println(t.countOfAtoms("(((U42Se42Fe10Mc31Rh49Pu49Sb49)49V39Tm50Zr44Og6)33((W2Ga48Tm14Eu46Mt12)23(RuRnMn11)7(Yb15Lu34Ra19CuTb2)47(Md38BhCu48Db15Hf12Ir40)7CdNi21(Db40Zr24Tc27SrBk46Es41DsI37Np9Lu16)46(Zn49Ho19RhClF9Tb30SiCuYb16)15)37(Cr48(Ni31)25(La8Ti17Rn6Ce35)36(Sg42Ts32Ca)37Tl6Nb47Rh32NdGa18Cm10Pt49(Ar37RuSb30Cm32Rf28B39Re7F36In19Zn50)46)38(Rh19Md23No22PoTl35Pd35Hg)41)50"));
     }
 
     static private long gcd(long a,long b){
         return b == 0? a:gcd(b,a % b);
+    }
+
+    static public int majorityElement(int[] nums) {
+        int n = nums.length;
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int num : nums) {
+            int cnt = freq.getOrDefault(num, 0) + 1;
+            if (cnt > n / 2) {
+                return num;
+            }
+            freq.put(num, cnt);
+        }
+        return -1;
     }
 
     public static void build(int[] arr) {
