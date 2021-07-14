@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.binarytree;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.review.sort;
 
 import java.util.Arrays;
 
@@ -54,4 +54,36 @@ public class LeetCode274 {
         }
         return len - l >= h;
     }
+
+    // 如果当前 指数为 h 并且在遍历过程中找到当前值 citations[i]>h，则说明我们找到了一篇被引用了至少 h+1 次的论文，所以将现有的 h 值加 1
+    // public int hIndex(int[] citations) {
+    //        Arrays.sort(citations);
+    //        int h = 0, i = citations.length - 1;
+    //        while (i >= 0 && citations[i] > h) {
+    //            h++;
+    //            i--;
+    //        }
+    //        return h;
+    //    }
+
+    // 数组 counter 用来记录当前引用次数的论文有几篇
+    // public int hIndex(int[] citations) {
+    //        int n = citations.length, tot = 0;
+    //        int[] counter = new int[n + 1];
+    //        for (int i = 0; i < n; i++) {
+    //            if (citations[i] >= n) {
+    // H 指数不可能大于总的论文发表数，所以对于引用次数超过论文发表数的情况，我们可以将其按照总的论文发表数来计算即可
+    //                counter[n]++;
+    //            } else {
+    //                counter[citations[i]]++;
+    //            }
+    //        }
+    //        for (int i = n; i >= 0; i--) {
+    //            tot += counter[i];
+    //            if (tot >= i) {
+    //                return i;
+    //            }
+    //        }
+    //        return 0;
+    //    }
 }

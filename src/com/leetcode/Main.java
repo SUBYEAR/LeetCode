@@ -1,15 +1,11 @@
 package com.leetcode;
 
-import com.leetcode.easy.LCP07;
-import com.leetcode.easy.LeetCode168;
-import com.leetcode.hard.LeetCode483;
-import com.leetcode.hard.LeetCode726;
-import com.leetcode.hard.LeetCode773;
-import com.leetcode.medium.*;
-import com.leetcode.medium.review.dp.LeetCode279;
+import com.leetcode.medium.LeetCode1461;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     // while (h < N / 3) { h = 3 * h + 1;} // (3^h - 1) / 2
@@ -189,14 +185,13 @@ public class Main {
         // n5.left = n7;
         // n5.right = n8;
         //
-         TreeNode nn1 = new TreeNode(3), nn2 = new TreeNode(5), nn3 = new TreeNode(1);
-         TreeNode nn4 = new TreeNode(6), nn5 = new TreeNode(2), nn6 = new TreeNode(0);
-         TreeNode nn7 = new TreeNode(8), nn8 = new TreeNode(7), nn9 = new TreeNode(4);
+         TreeNode nn1 = new TreeNode(1), nn2 = new TreeNode(2), nn3 = new TreeNode(3);
+         TreeNode nn4 = new TreeNode(4), nn5 = new TreeNode(2), nn6 = new TreeNode(4);
+         TreeNode nn7 = new TreeNode(4), nn8 = new TreeNode(7), nn9 = new TreeNode(4);
          nn1.left = nn2; nn1.right = nn3;
-         nn2.left = nn4; nn2.right = nn5;
-         nn3.left = nn6; nn3.right = nn7;
-         nn5.left = nn8; nn5.right = nn9;
-
+         nn2.left = nn4;
+         nn3.left = nn5; nn3.right = nn6;
+         nn5.left = nn7;
         // nn5.right = nn7;
         //Test2 test = new Test2();
         //int[]  arr1 = new int[] {2,3,1,3,2,4,6,7,9,2,19};
@@ -230,24 +225,29 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[] {7,7,7,7,7,7,7};
+        int[] arr2 = new int[] {2,1,3};
 
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
-                {0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4},{4,5},{4,6},{3,5},{3,6},{1,6},{6,0}
-//                {0,1},{0,2},{2,1},{1,2},{1,0},{2,0}
+                {2,9,10},
+//                {3,7,15},{5,12,12},{15,20,10},{19,24,8}
         };
-
-        String[] words = new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"};
-        String[] puzzles = new String[]{"aelwxyz", "aelpxyz", "aelpsxy", "saelpxy", "xaelpsy"};
-        LeetCode274 t = new LeetCode274();
-        System.out.println(t.hIndex(arr2));
-//        System.out.println(t.countOfAtoms("(((U42Se42Fe10Mc31Rh49Pu49Sb49)49V39Tm50Zr44Og6)33((W2Ga48Tm14Eu46Mt12)23(RuRnMn11)7(Yb15Lu34Ra19CuTb2)47(Md38BhCu48Db15Hf12Ir40)7CdNi21(Db40Zr24Tc27SrBk46Es41DsI37Np9Lu16)46(Zn49Ho19RhClF9Tb30SiCuYb16)15)37(Cr48(Ni31)25(La8Ti17Rn6Ce35)36(Sg42Ts32Ca)37Tl6Nb47Rh32NdGa18Cm10Pt49(Ar37RuSb30Cm32Rf28B39Re7F36In19Zn50)46)38(Rh19Md23No22PoTl35Pd35Hg)41)50"));
+        LeetCode1461 t = new LeetCode1461();
+        System.out.println(t.hasAllCodes("011001101010101011100", 3));
     }
 
     static private long gcd(long a,long b){
         return b == 0? a:gcd(b,a % b);
+    }
+
+    static void get(int k) {
+        String str = Stream.generate(() -> "0").limit(k).collect(Collectors.joining());
+        StringBuilder s = new StringBuilder(str);
+        for (int i = 0; i < k; i++) {
+
+        }
+
     }
 
     static public int majorityElement(int[] nums) {
