@@ -1,6 +1,6 @@
 package com.leetcode;
 
-import com.leetcode.medium.LeetCode1461;
+import com.leetcode.medium.review.dp.LeetCode646;
 
 
 import java.util.*;
@@ -230,11 +230,12 @@ public class Main {
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
-                {2,9,10},
+                {-10,-8},{8,9},{-5,0},{6,10},{-6,-4},{1,7},{9,10},{-4,7}
 //                {3,7,15},{5,12,12},{15,20,10},{19,24,8}
         };
-        LeetCode1461 t = new LeetCode1461();
-        System.out.println(t.hasAllCodes("011001101010101011100", 3));
+        String[] dic = new String[] {"eat", "tea", "tan", "ate", "nat", "bat"};
+        LeetCode646 t = new LeetCode646();
+        System.out.println(t.findLongestChain(matrix));
     }
 
     static private long gcd(long a,long b){

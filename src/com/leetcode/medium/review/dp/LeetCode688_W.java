@@ -15,7 +15,7 @@ package com.leetcode.medium.review.dp;
  * 链接：https://leetcode-cn.com/problems/knight-probability-in-chessboard
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode688 {
+public class LeetCode688_W {
     public double knightProbability(int N, int K, int sr, int sc) {
         double[][] dp = new double[N][N];
         int[] dr = new int[]{2, 2, 1, 1, -1, -1, -2, -2};
