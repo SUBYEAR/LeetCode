@@ -1,11 +1,9 @@
 package com.leetcode;
 
-import com.leetcode.medium.review.dp.LeetCode646;
+import com.leetcode.hard.dp.LeetCode956_W;
 
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
     // while (h < N / 3) { h = 3 * h + 1;} // (3^h - 1) / 2
@@ -225,17 +223,17 @@ public class Main {
         heights[1] = new int[] {3};
         heights[2] = new int[] {3};
 //        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[] {2,1,3};
+        int[] arr2 = new int[] {1,2,3,6};
 
         int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
         int[][] matrix = new int[][] {
-                {-10,-8},{8,9},{-5,0},{6,10},{-6,-4},{1,7},{9,10},{-4,7}
+                {1,50},
 //                {3,7,15},{5,12,12},{15,20,10},{19,24,8}
         };
-        String[] dic = new String[] {"eat", "tea", "tan", "ate", "nat", "bat"};
-        LeetCode646 t = new LeetCode646();
-        System.out.println(t.findLongestChain(matrix));
+        String[] dic = new String[] { "me", "time",};
+        LeetCode956_W t = new LeetCode956_W();
+        System.out.println(t.tallestBillboard(arr2));
     }
 
     static private long gcd(long a,long b){
@@ -243,12 +241,33 @@ public class Main {
     }
 
     static void get(int k) {
-        String str = Stream.generate(() -> "0").limit(k).collect(Collectors.joining());
-        StringBuilder s = new StringBuilder(str);
-        for (int i = 0; i < k; i++) {
-
+//        String str = Stream.generate(() -> "0").limit(k).collect(Collectors.joining());
+//        StringBuilder s = new StringBuilder(str);
+//        for (int i = 0; i < k; i++) {
+//
+//        }
+        int mask = k;
+        while (k != 0) {
+            System.out.println(Integer.toBinaryString(k));
+            k = (k - 1) & mask;
         }
 
+    }
+
+    static public boolean isCovered(int[][] ranges, int left, int right) {
+        Set<Integer> target = new HashSet<>();
+        for (int i = left; i <= right; i++) {
+            target.add(i);
+        }
+
+        Set<Integer> rangesSet = new HashSet<>();
+        for (int[] arr : ranges) {
+            for (int i = arr[0]; i <= arr[1]; i++) {
+                rangesSet.add(i);
+            }
+        }
+
+        return rangesSet.containsAll(target);
     }
 
     static public int majorityElement(int[] nums) {
