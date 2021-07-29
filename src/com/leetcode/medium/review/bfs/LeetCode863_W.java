@@ -3,6 +3,7 @@ package com.leetcode.medium.review.bfs;
 import com.leetcode.TreeNode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 给定一个二叉树（具有根结点 root）， 一个目标结点 target ，和一个整数值 K 。
@@ -59,6 +60,43 @@ public class LeetCode863_W {
                     q.offer(p);
                 }
             }
+        }
+
+        return Collections.emptyList();
+    }
+
+    public List<Integer> distanceK_(TreeNode root, TreeNode target, int K) {
+        dfs(root, null);
+        Queue<TreeNode> q = new ArrayDeque<>();
+        Set<TreeNode> seen = new HashSet<>();
+        int step = 0;
+        seen.add(target);
+        seen.add(null);
+        q.add(target);
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+
+            if (step == K) {
+                return  q.stream().mapToInt(e -> e.val).boxed().collect(Collectors.toList());
+            }
+            while (size-- > 0) {
+                TreeNode cur = q.poll();
+                TreeNode p = parent.get(cur);
+                if (!seen.contains(cur.left)) {
+                    seen.add(cur.left);
+                    q.add(cur.left);
+                }
+                if (!seen.contains(cur.right)) {
+                    seen.add(cur.right);
+                    q.add(cur.right);
+                }
+                if (!seen.contains(p)) {
+                    seen.add(p);
+                    q.add(p);
+                }
+            }
+            ++step;
         }
 
         return Collections.emptyList();
