@@ -2,8 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2020-2020. All rights reserved.
  */
 
-package com.leetcode.medium.review.binarytree;
+package com.leetcode.medium.review;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -58,4 +60,34 @@ public class LeetCode1104_W {
             arr[start + i] = dir ? sub[i] : sub[sub.length - 1 - i];
         }
     }
+
+    // 到标号为 label 的节点所在的行和该节点的「从左到右标号」.根节点在第一行，偶数行需要转换
+    public List<Integer> pathInZigZagTree_(int label) {
+        int row = 1, rowStart = 1;
+        while (rowStart * 2 <= label) {
+            row++;
+            rowStart *= 2;
+        }
+        if (row % 2 == 0) {
+            label = getReverse(label, row);
+        }
+        List<Integer> path = new ArrayList<Integer>();
+        while (row > 0) {
+            if (row % 2 == 0) {
+                path.add(getReverse(label, row));
+            } else {
+                path.add(label);
+            }
+            row--;
+            label >>= 1;
+        }
+        Collections.reverse(path);
+        return path;
+    }
+
+    // 第 i 行有 2^(i−1)个节点，最左边的节点标号为 2^(i−1),最右边的节点标号为 (2^i)-1,偶数行进行反转
+    public int getReverse(int label, int row) {
+        return (1 << row - 1) + (1 << row) - 1 - label;
+    }
 }
+

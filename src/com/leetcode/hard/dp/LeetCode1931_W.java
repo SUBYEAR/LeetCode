@@ -11,7 +11,7 @@ import java.util.*;
  * 链接：https://leetcode-cn.com/problems/painting-a-grid-with-three-different-colors
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1931 {
+public class LeetCode1931_W {
     public int colorTheGrid(int m, int n) {
         // 将m 和 n中小的值进行枚举，枚举的涂色方案红绿蓝转换为数字0~2，那么涂色方案转换成十进制是[0,3的m次方)可以枚举这个范围内的
         // 整数转换成为长度为m的三进制串，判断是否满足相邻的两个数均不相同。
