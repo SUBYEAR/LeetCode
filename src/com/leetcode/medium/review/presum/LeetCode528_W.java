@@ -22,23 +22,23 @@ import java.util.Random;
  *
  * 对于某些下标 i，所有满足 p[i] − w[i] ≤ v < p[i] 的整数 v 都映射到这个下标。因此，所有的下标都与下标权重成比例。
  */
-public class LeetCode528 {
+public class LeetCode528_W {
     List<Integer> psum = new ArrayList<>();
     int tot = 0;
     Random rand = new Random();
 
-    public LeetCode528(int[] w) {
+    public LeetCode528_W(int[] w) {
         for (int x : w) {
             tot += x;
             psum.add(tot);
         }
     }
 
-    public int pickIndex() { // 左边界的二分查找 当target不存在时，得到的索引是恰好比val大的最小元素的索引
+    public int pickIndex() { // 右边界的二分查找，得到的索引是恰好比val大的最小元素的索引
         int targ = rand.nextInt(tot);
 
         int lo = 0;
-        int hi = psum.size() - 1;
+        int hi = psum.size() - 1; // 注意这里的右边界
         while (lo != hi) {
             int mid = (lo + hi) / 2;
             if (targ >= psum.get(mid)) lo = mid + 1;
