@@ -30,7 +30,7 @@ import java.util.Map;
  * 链接：https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode446 {
+public class LeetCode446_W {
     public int numberOfArithmeticSlices(int[] nums) {
 // 弱等差数列 是至少有两个元素的子序列，任意两个连续元素的差相等。
         // f[i][d] 表示以nums[i] 结尾公差为d的弱等差数列个数

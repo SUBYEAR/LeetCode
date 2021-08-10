@@ -32,7 +32,7 @@ public class LeetCode135 {
         }
 
         int right = 0, ret = 0;
-        for (int i = len - 1; i >= 0; i++) {
+        for (int i = len - 1; i >= 0; i--) {
             if (i < len - 1 && ratings[i] > ratings[i + 1]) {
                 right++;
             } else {
