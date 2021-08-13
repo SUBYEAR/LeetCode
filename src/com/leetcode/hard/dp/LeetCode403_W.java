@@ -15,7 +15,7 @@ import java.util.Arrays;
  * 链接：https://leetcode-cn.com/problems/frog-jump
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode403_S {
+public class LeetCode403_W {
     Boolean[][] record; // 青蛙位于第 i 个石子，上次跳跃距离为 lastDis
     public boolean canCross(int[] stones) {
         int n = stones.length;
