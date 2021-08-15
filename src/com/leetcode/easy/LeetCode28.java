@@ -28,14 +28,14 @@ public class LeetCode28 {
             return 0;
         }
         int[] pi = new int[m]; // pi 即是next数组
-        for (int i = 1, j = 0; i < m; i++) {
-            while (j > 0 && needle.charAt(i) != needle.charAt(j)) {
-                j = pi[j - 1];
+        for (int j = 1, k = 0; j < m; j++) {
+            while (k > 0 && needle.charAt(j) != needle.charAt(k)) {
+                k = pi[k - 1];
             }
-            if (needle.charAt(i) == needle.charAt(j)) {
-                j++;
+            if (needle.charAt(j) == needle.charAt(k)) {
+                k++;
             }
-            pi[i] = j;
+            pi[j] = k;
         }
         for (int i = 0, j = 0; i < n; i++) {
             while (j > 0 && haystack.charAt(i) != needle.charAt(j)) {

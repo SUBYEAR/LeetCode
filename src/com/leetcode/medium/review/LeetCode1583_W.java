@@ -40,7 +40,7 @@ public class LeetCode1583_W {
         // 对的朋友，对于配对情况也需要进行预处理。创建长度为 n 的数组 match，如果 x 和 y 配对，则有 match[x]=y 以及 match[y]=x
         int[][] order = new int[n][n];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < n - 1; j++) {
                 order[i][preferences[i][j]] = j; // 下标越靠前越亲近
             }
         }

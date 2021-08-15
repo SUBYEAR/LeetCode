@@ -8,7 +8,7 @@ package com.leetcode.medium.review.dp;
  * 链接：https://leetcode-cn.com/problems/out-of-boundary-paths
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode576 {
+public class LeetCode576_W {
     public int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
         if (maxMove == 0) return 0;
         int[][] dp = new int[m][n];
@@ -45,26 +45,5 @@ public class LeetCode576 {
         return dp[startRow][startColumn];
     }
 
-    int res = 0;
-    int m;
-    int n;
-    void dfs(int startRow, int startColumn,  int maxMove) {
-        if (maxMove < 0) {
-            return;
-        }
-
-        if (isOutOfBoundary(m, n, startRow, startColumn)) {
-            ++res;
-            return;
-        }
-
-        dfs(startRow - 1, startColumn, maxMove - 1);
-        dfs(startRow + 1, startColumn, maxMove - 1);
-        dfs(startRow, startColumn - 1, maxMove - 1);
-        dfs(startRow, startColumn + 1, maxMove - 1);
-    }
-
-    boolean isOutOfBoundary(int m, int n, int startRow, int startColumn) {
-        return startRow < 0 || startRow >= m || startColumn < 0 || startColumn >= n;
-    }
+    // 使用dfs的解法明显超时了，官方的解法dp的含义是定义 dp[i][j][k] 表示球移动 i 次之后位于坐标 (j,k) 的路径数量
 }
