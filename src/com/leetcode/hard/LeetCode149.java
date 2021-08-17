@@ -30,7 +30,7 @@ public class LeetCode149 {
                 Set<Point> set = map.getOrDefault(point3D, new HashSet<>());
                 set.add(new Point(points[i][0], points[i][1]));
                 set.add(new Point(points[j][0], points[j][1]));
-                map.put(point3D,set);
+                map.put(point3D, set);
                 if (set.size() > res) {
                     res = set.size();
                 }
@@ -59,7 +59,7 @@ public class LeetCode149 {
     // 于是我们可以统计其他所有点与点 i 所连直线的斜率，出现次数最多的斜率即为经过点数最多的直线的斜率，其经过的点数为该斜率出现的次数加一
     public int maxPoints_officials(int[][] points) {
         int n = points.length;
-        if (n <= 2) { // 点的总数量小于等于 22 的情况下，我们总可以用一条直线将所有点串联
+        if (n <= 2) { // 点的总数量小于等于 2 的情况下，我们总可以用一条直线将所有点串联
             return n;
         }
         int ret = 0;

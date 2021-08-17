@@ -47,8 +47,7 @@ public class LeetCode547 {
     int unionsearch(int[] pre, int root) { // 查找根结点
         int son, tmp;
         son = root;
-        while (root != pre[root]) //
-        {
+        while (root != pre[root]) {
             root = pre[root];
         }
         while (son != root) { // 路径压缩到子节点都直接在根节点下

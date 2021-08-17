@@ -42,7 +42,7 @@ public class LeetCode381_W {
             return false;
         }
         Iterator<Integer> it = idx.get(val).iterator();
-        int i = it.next();
+        int i = it.next(); // 要删除的值在nums列表中的索引
         int lastNum = nums.get(nums.size() - 1);
         nums.set(i, lastNum);
         idx.get(val).remove(i);

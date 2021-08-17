@@ -29,17 +29,34 @@ public class LeetCode483 {
         return Long.toString(nVal - 1);
     }
 
-    public boolean toNthBase(long num, long n) {
-
-//        StringBuilder res = new StringBuilder();
-        while (num != 0) {
-            long remainder = num % n;
-            if (remainder != 1) {
-                return false;
+    /* 二分 */
+    public String smallestGoodBase_bs(String n) {
+        long num = Long.parseLong(n);
+        // 枚举 k进制 中 1 的个数，最多为 二进制 时的位数
+        for (int i = (int) (Math.log(num) / Math.log(2) + 1); i > 2; --i) {
+            // k^0 + k^1 + …… + k^(i-1) = n -- 通过二分法计算 k
+            long left = 2, right = num - 1;
+            while (left <= right) {
+                long mid = (left + right) / 2;
+                long s = 0, MaxVal = num / mid + 1;
+                for (int j = 0; j < i; ++j)
+                    if (s < MaxVal)
+                        s = s * mid + 1;
+                    else {
+                        s = num + 1;
+                        break;
+                    }
+                if (s == num)
+                    return Long.toString(mid);
+                else if (s > num)
+                    right = mid - 1;
+                else
+                    left = mid + 1;
             }
-//            res.insert(0, remainder);
-            num /= n;
         }
-        return true;
+        return Long.toString(num - 1);
     }
+
+//    链接：https://leetcode-cn.com/problems/smallest-good-base/solution/zui-xiao-hao-jin-zhi-er-fen-shu-xue-fang-frrv/
+
 }

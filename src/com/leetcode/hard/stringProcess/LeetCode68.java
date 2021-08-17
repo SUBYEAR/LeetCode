@@ -34,7 +34,7 @@ public class LeetCode68 {
             int curLen = 0;
             while (index < words.length) {
                 curLen += words[index].length();
-                if (curLen  + index - preIndex> maxWidth) {
+                if (curLen  + index - preIndex > maxWidth) { // index - preIndex 指示单词间间隔一个空格的个数
                     break;
                 }
                 index++;

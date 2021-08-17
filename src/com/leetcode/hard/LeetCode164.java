@@ -28,7 +28,7 @@ public class LeetCode164 {
         int minVal = Arrays.stream(nums).min().getAsInt();
         int dis = Math.max(1, (maxVal - minVal) / (n - 1));
         int bucketSize = (maxVal - minVal) / dis + 1;
-        int[][] bucket = new int[bucketSize][2];
+        int[][] bucket = new int[bucketSize][2]; // 存储每个桶的最大值和最小值
         for (int i = 0; i < bucketSize; i++) {
             Arrays.fill(bucket[i], - 1);
         }

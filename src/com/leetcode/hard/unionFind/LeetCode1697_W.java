@@ -22,7 +22,7 @@ public class LeetCode1697_W {
     public boolean[] distanceLimitedPathsExist(int n, int[][] edgeList, int[][] queries) {
         int len = queries.length;
 
-        // 将queries按照limit从小到大顺序进行排序
+        // 将queries按照limit从小到大顺序进行排序 离散化
         List<Integer> idx = IntStream.rangeClosed(0, len - 1).boxed()
                                      .sorted(Comparator.comparingInt(o -> queries[o][2]))
                                      .collect(Collectors.toList());
@@ -69,7 +69,7 @@ public class LeetCode1697_W {
 
         private int find2(int x) { // 这种压缩方式最终所有的子节点都挂在一个父节点上
             if (x != parent[x]) {
-                parent[x] = find(x);
+                parent[x] = find2(x);
             }
             return parent[x]; // 注意这里返回的是parent[x]
         }

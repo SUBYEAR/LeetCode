@@ -15,7 +15,7 @@ import java.util.Stack;
  *
  * https://leetcode-cn.com/problems/basic-calculator/
  */
-public class LeetCode224 {
+public class LeetCode224 { // #772 题一样
     private int i = 0;
 
     public int calculate(String s) {
@@ -35,6 +35,9 @@ public class LeetCode224 {
                 num = calculate(s);
             }
             if ((!Character.isDigit(value) && value != ' ') || i == s.length() - 1) {
+                //当遇到了新的运算符，就要对上一个运算符sign和累计的数字num作运算
+                //空格直接无视，i继续前进
+                //遇到字符串末尾，肯定是要结算的
                 int pre = 0;
                 switch (preOperator) {
                     case '+':
@@ -56,7 +59,7 @@ public class LeetCode224 {
                 preOperator = value;
                 num = 0;
             }
-            if (value == ')') {
+            if (value == ')') { // 注意这里索引i不用处理
                 break;
             }
         }

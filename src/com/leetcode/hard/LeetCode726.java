@@ -1,8 +1,6 @@
 package com.leetcode.hard;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * 给定一个化学式formula（作为字符串），返回每种原子的数量。
@@ -23,9 +21,74 @@ import java.util.TreeMap;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode726 {
-    int index = 0;
-
+    // 括号序列相关的题目，通用的解法是使用递归或栈。本题中我们将使用栈解决,栈中压入的元素是哈希表
+    int i, n;
+    String formula;
     public String countOfAtoms(String formula) {
+        this.i = 0;
+        this.n = formula.length();
+        this.formula =formula;
+        Deque<Map<String, Integer>> stack = new LinkedList<>();
+        stack.push(new HashMap<>());
+        while (i < n) {
+            char ch = formula.charAt(i);
+            if (ch == '(') {
+                i++;
+                stack.push(new HashMap<>()); // 这里的处理很妙啊
+            } else if (ch == ')') {
+                i++;
+                int num = parseNum();
+                Map<String, Integer> popMap = stack.pop();
+                Map<String, Integer> top = stack.peek();
+                for (Map.Entry<String, Integer> entry : popMap.entrySet()) {
+                    String atom = entry.getKey();
+                    int v = entry.getValue();
+                    top.put(atom, top.getOrDefault(atom, 0) + v * num);
+                }
+            } else {
+                String atom = parseAtom();
+                int num = parseNum();
+                Map<String, Integer> top = stack.peek();
+                top.put(atom, top.getOrDefault(atom, 0) + num);
+            }
+        }
+
+        Map<String, Integer> map = stack.pop();
+        TreeMap<String, Integer> treeMap = new TreeMap<>(map);
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String,Integer> entry : treeMap.entrySet()) {
+            String atom = entry.getKey();
+            int count = entry.getValue();
+            sb.append(atom);
+            if (count > 1) {
+                sb.append(count);
+            }
+        }
+        return sb.toString();
+    }
+
+    private String parseAtom() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(formula.charAt(i++)); // 首字母大写单独处理
+        while (i < n && Character.isLowerCase(formula.charAt(i))) {
+            sb.append(formula.charAt(i));
+        }
+        return sb.toString();
+    }
+
+    private int parseNum() {
+        if (i == n || !Character.isDigit(formula.charAt(i))) {
+            return 1;
+        }
+        int num = 0;
+        while (i < n && Character.isDigit(formula.charAt(i))) {
+            num = num * 10 + formula.charAt(i) - '0';
+        }
+        return num;
+    }
+
+    int index = 0;
+    public String countOfAtoms_overMemory(String formula) {
         int len = formula.length();
         StringBuilder s = new StringBuilder();
         Map<String, Integer> freq = new HashMap<>();

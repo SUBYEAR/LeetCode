@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.stringProcess;
 
 import java.util.ArrayList;
 import java.util.Arrays;

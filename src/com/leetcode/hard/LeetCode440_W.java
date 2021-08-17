@@ -30,6 +30,7 @@ public class LeetCode440_W {
         long next = prefix + 1;
         int count = 0;
         while (cur <= n) {
+            // 另一种理解加1的逻辑是计数区间[1,2]上节点计数是r - l + 1
             count += Math.min(n + 1, next) - cur; // 注意这里的n + 1的处理，其实是因为第二层以后0也要算入计数
             // 如果说刚刚prefix是1，next是2，那么现在分别变成10和20
             // 1为前缀的子节点增加10个，十叉树增加一层, 变成了两层

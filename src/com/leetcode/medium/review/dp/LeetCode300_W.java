@@ -5,62 +5,32 @@ package com.leetcode.medium.review.dp;
  */
 public class LeetCode300_W {
     public int lengthOfLIS(int[] nums) {
-        int[] top = new int[nums.length];
-        // 牌堆数初始化为 0
-        int piles = 0;
-        for (int i = 0; i < nums.length; i++) {
-            // 要处理的扑克牌
-            int poker = nums[i];
-            /***** 搜索左侧边界的⼆分查找 *****/
-            int left = 0, right = piles;
-            while (left < right) {
-                int mid = (left + right) / 2;
-                if (top[mid] > poker) {
-                    right = mid;
-                } else if (top[mid] < poker) {
-                    left = mid + 1;
-                } else {
-                    right = mid;
-                }
-            }
-            /*********************************/
-            // 没找到合适的牌堆，新建⼀堆
-            if (left == piles) piles++;
-            // 把这张牌放到牌堆顶
-            top[left] = poker;
+        int len = 1, n = nums.length;
+        if (n == 0) {
+            return 0;
         }
-        // 牌堆数就是 LIS ⻓度
-        return piles;
+        int[] d = new int[n + 1];
+        d[len] = nums[0];
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > d[len]) { // 最后的一堆排的最上面的值是最大值
+                d[++len] = nums[i];
+            } else {
+                int l = 1, r = len, pos = 0; // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
+                while (l <= r) {
+                    int mid = (l + r) >> 1;
+                    if (d[mid] < nums[i]) {
+                        pos = mid;
+                        l = mid + 1;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                d[pos + 1] = nums[i];
+            }
+        }
+        return len;
     }
 }
-
-// 官解
-//     public int lengthOfLIS(int[] nums) {
-//        int len = 1, n = nums.length;
-//        if (n == 0) {
-//            return 0;
-//        }
-//        int[] d = new int[n + 1];
-//        d[len] = nums[0];
-//        for (int i = 1; i < n; ++i) {
-//            if (nums[i] > d[len]) {
-//                d[++len] = nums[i];
-//            } else {
-//                int l = 1, r = len, pos = 0; // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
-//                while (l <= r) {
-//                    int mid = (l + r) >> 1;
-//                    if (d[mid] < nums[i]) {
-//                        pos = mid;
-//                        l = mid + 1;
-//                    } else {
-//                        r = mid - 1;
-//                    }
-//                }
-//                d[pos + 1] = nums[i];
-//            }
-//        }
-//        return len;
-//    }
 
 // 动态规划解法
 // public int lengthOfLIS(int[] nums) {

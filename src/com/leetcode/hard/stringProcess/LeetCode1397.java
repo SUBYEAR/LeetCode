@@ -32,12 +32,12 @@ public class LeetCode1397 { // 数位dp典型应用
         next = getNext4(evil);
         int res1 = solve(s1, evil);
         int res2 = solve(s2, evil);
-        return (res2 - res1 + 1000000007+ (s1.contains(evil) ? 0 : 1)) % 1000000007;
+        return (res2 - res1 + modulo + (s1.contains(evil) ? 0 : 1)) % modulo; // 注意这里还要判断s1是否包含evil
 
     }
 
     private int[][] findGoodStringsDp;
-
+    private final int modulo = 1000000007;
     private int solve(String string, String evil) {
         findGoodStringsDp = new int[string.length()][evil.length()];
         for (int i = 0; i < findGoodStringsDp.length; i++) {
@@ -57,15 +57,14 @@ public class LeetCode1397 { // 数位dp典型应用
     }
 
     private int dfs(int pos, boolean limit, int match, String evil, String string) {
-        int modulo = 1000000007;
-
         if (pos == string.length()) return 1;
         if (!limit && findGoodStringsDp[pos][match] != -1) return findGoodStringsDp[pos][match];
         int up = limit ? string.charAt(pos) : 'z';
         int tmp = 0;
         for (int i = 'a'; i <= up; i++) {
             if (evil.charAt(match) != i || match != evil.length() - 1)  { // 第二个条件限制了不可能出现evil字串很妙
-                tmp =(tmp%modulo) + (dfs(pos + 1, limit && i == string.charAt(pos), nextMatch(match, evil,(char)i), evil, string) % modulo);
+                tmp = (tmp % modulo) +
+                      dfs(pos + 1, limit && i == string.charAt(pos), nextMatch(match, evil,(char) i), evil, string) % modulo;
                 tmp %= modulo;
             }
         }

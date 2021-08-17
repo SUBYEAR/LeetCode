@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -46,6 +46,7 @@ public class LeetCode1531 {
                     if (cnt + same > T) {
                         break;
                     }
+                    // 要理解的是位置p和j之间的相同字符个数就是此处累计的cnt
                     // calc(same) + dp[j + 1][cnt + same]的含义是j位是字面a,后面选取的都是a那么可以编码成a_same
                     dp[p][cnt] = Math.min(dp[p][cnt], calc(same) + dp[j + 1][cnt + same]);
                 }
@@ -59,3 +60,4 @@ public class LeetCode1531 {
         return x <= 1 ? x : ((x <= 9) ? 2 : ((x <= 99) ? 3 : 4));
     }
 }
+//https://leetcode-cn.com/problems/string-compression-ii/solution/dong-tai-gui-hua-shi-jian-on3kong-jian-on2-by-newh/

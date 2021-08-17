@@ -40,33 +40,59 @@ public class LeetCode1172_W {
         }
     }
 
-    int getFree() { // 从左往右第一个非满栈、
+    int getFree() { // 从左往右第一个非满栈 这里是用倍增法求k
         // 目标是找到一个最大的 k，使其满足 k*capacity = sum_{i=1 ~ k}_num[i],那么k + 1就是第一个没有满的栈
-        int rate = 0, ans = 0;
-        for (int i = 14; i >= 0; i--) {
-            if (ans + (1 << i) > MAXN) {
+        int rate = 0, k = 0;
+        for (int i = 14; i >= 0; i--) { // 2^14次方是16384, 是题目中给的范围20000转换为2进制的最大位数
+            if (k + (1 << i) > MAXN) {
                 continue;
             }
-            if (rate + bitTree.sum[ans + (1 << i)] == cap * (ans + (1 << i))) {
-                rate += bitTree.sum[ans += (1 << i)];
+            if (rate + bitTree.sum[k + (1 << i)] == cap * (k + (1 << i))) {
+                rate += bitTree.sum[k += (1 << i)];
             }
         }
-        return ans + 1;
+        return k + 1;
     }
 
     int getRight(int cnt) { // 从右往左第一个不是空的栈
         // 餐盘栈中当前元素总数 siz, 要找到一个最小的 k，满足sum_{i=1 ~ k}_num[i] = siz, 那么这个k就是从右往左第一个非空栈
-        int rate = 0, ans = 0; // 找最小的 k 这个问题可以使用倍增解决
+        int rate = 0, k = 0; // 找最小的 k 这个问题可以使用倍增解决
         for (int i = 14; i >= 0; i--) { // 从高到低枚举 k−1 的二进制位(因为 k 是最小的，所以 k-1 一定不满足上述条件)
-            if (ans + (1 << i) > MAXN) {
+            if (k + (1 << i) > MAXN) {
                 continue;
             }
-            if (rate + bitTree.sum[ans + (1 << i)] < cnt) {
-                rate += bitTree.sum[ans += (1 << i)];
+            if (rate + bitTree.sum[k + (1 << i)] < cnt) {
+                rate += bitTree.sum[k += (1 << i)];
             }
         }
-        return ans + 1; // 求出来 k−1 之后，再加一就是 k 了。
+        return k + 1; // 求出来 k−1 之后，再加一就是 k 了。
     }
+
+
+    // pop
+    int getPop() {
+        int left = 1, right = MAXN;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (bitTree.get(mid) >= siz) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+
+    // push
+    int getPush() {
+        int l = 1, r = MAXN;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (cap * mid > bitTree.get(mid)) r = mid;
+            else l = mid + 1;
+        }
+        return l;
+    }
+
+
+//    链接：https://leetcode-cn.com/problems/dinner-plate-stacks/solution/shu-zhuang-shu-zu-er-fen-1184ms-by-n7w/
 
 
     public void push(int val) {
@@ -124,3 +150,4 @@ public class LeetCode1172_W {
         }
     }
 }
+// https://leetcode-cn.com/problems/dinner-plate-stacks/solution/1172-can-pan-zhan-shu-zhuang-shu-zu-shang-bei-zeng/
