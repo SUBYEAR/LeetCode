@@ -19,7 +19,7 @@ import java.util.*;
  * 链接：https://leetcode-cn.com/problems/find-the-longest-valid-obstacle-course-at-each-position
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1964 {
+public class LeetCode1964_W {
 
     public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
         // 求出的是数组 obstacles 中以每一个下标为结束位置的「最长递增子序列」的长度
@@ -75,7 +75,7 @@ public class LeetCode1964 {
             int idx = rightBound(diff, ob);
             int res = query(idx);
             ans[i++] = res + 1;
-            update(idx, res + 1);
+            update(idx, res + 1); // 注意理解这里update的操作
         }
         return ans;
     }
