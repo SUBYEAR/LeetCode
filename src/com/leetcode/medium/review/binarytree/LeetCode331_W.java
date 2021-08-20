@@ -61,27 +61,28 @@ public class LeetCode331_W {
         }
         return stack.isEmpty();
     }
+
+    // 递归解法
+    int pos = 0;
+    public boolean isValidSerialization_dfs(String preorder) {
+        pos = 0;
+        return dfs(preorder) && pos >= preorder.length(); // 成功建树且序列无多余节点才算合格
+    }
+
+    public boolean dfs(String preorder) {
+        if (pos >= preorder.length()) { // 递归有两个出口，越界返回false, s[pos] =='#'代表空节点，自然为true
+            return false;
+        }
+        if (preorder.charAt(pos) == '#') { // 关键就是这两个if的递归终止条件判断
+            pos += 2;
+            return true;
+        }
+        while (pos < preorder.length() && Character.isDigit(preorder.charAt(pos))) {
+            pos++;
+        }
+        pos++;
+        // left and right
+        return dfs(preorder) && dfs(preorder);
+    }
 }
 
-// 递归解法
-// int pos = 0;
-//    public boolean isValidSerialization(String preorder) {
-//        pos = 0;
-//        return dfs(preorder) && pos >= preorder.length(); // 成功建树且序列无多余节点才算合格
-//    }
-//
-//    public boolean dfs(String preorder) {
-//        if (pos >= preorder.length()) { // 递归有两个出口，越界返回false, s[pos] =='#'代表空节点，自然为true
-//            return false;
-//        }
-//        if (preorder.charAt(pos) == '#') { // 关键就是这两个if的递归终止条件判断
-//            pos += 2;
-//            return true;
-//        }
-//        while (pos < preorder.length() && Character.isDigit(preorder.charAt(pos))) {
-//            pos++;
-//        }
-//        pos++;
-//        // left and right
-//        return dfs(preorder) && dfs(preorder);
-//    }

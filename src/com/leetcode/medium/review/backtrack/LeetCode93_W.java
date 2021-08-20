@@ -100,7 +100,7 @@ public class LeetCode93_W {
 //         // 由于不能有前导零，如果当前数字为 0，那么这一段 IP 地址只能为 0
 //         if (s.charAt(segStart) == '0') {
 //             segments[segId] = 0;
-//             dfs(s, segId + 1, segStart + 1); // 注意这里不能return
+//             dfs(s, segId + 1, segStart + 1); // 注意这里可以直接return
 //         }
 //
 //         // 一般情况，枚举每一种可能性并递归

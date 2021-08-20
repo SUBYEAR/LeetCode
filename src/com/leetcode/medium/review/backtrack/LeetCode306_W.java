@@ -14,53 +14,6 @@ package com.leetcode.medium.review.backtrack;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode306_W {
-    int record = 0;
-    public boolean isAdditiveNumber(String num) {
-        int num1 = 0;
-        boolean res = false;
-        for (int i = 0; i < num.length(); i++) {
-            num1 = num1 * 10 +  num.charAt(i) - '0';
-            int num2 = 0;
-            for (int j = i + 1; j < num.length(); j++) {
-                num2 = num2 * 10 +  num.charAt(j) - '0';
-                if (backtrack(num, j + 1, num1, num2)) {
-                    return true;
-                }
-                if (num2 == 0) {
-                    break;
-                }
-            }
-            if (num1 == 0) {
-                break;
-            }
-        }
-        return res;
-    }
-
-    boolean backtrack(String num, int start, int num1, int num2) {
-        if (start == num.length()) {
-            System.out.println("###递归到达终止条件！" + "[" + record +", " + num1 + ", " + num2 + "]");
-            return (record + num1) == num2;
-        }
-
-        int total = 0;
-        for (int i = start; i < num.length(); i++) {
-            total = total * 10 + num.charAt(i) - '0';
-            System.out.println("递归前，" + "num1:" + num1 + ", num2:" + num2 + ", total:" + total);
-            if (num1 + num2 == total) {
-                System.out.println("~~~~~~~~~~~~~");
-                record = num1;
-                if (backtrack(num, i + 1, num2, total)) {
-                    return true;
-                }
-            }
-            if (total == 0) {
-                break;
-            }
-        }
-        return false;
-    }
-
     /**
      * 字符串
      */
@@ -70,7 +23,7 @@ public class LeetCode306_W {
      */
     int n;
 
-    public boolean isAdditiveNumber_another(String num) {
+    public boolean isAdditiveNumber(String num) {
         this.s = num;
         this.n = num.length();
         return toFlashBack(0, 0, 0, 0);

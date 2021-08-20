@@ -56,7 +56,7 @@ public class LeetCode1197_W {
                 // 即 getMhdDist(newX, newY, x, y) < (curX, curY, x, y)
                 // 而不是八个方向都走一遍
                 if (mhdist > getMhdDist(newX, newY, x, y) || abs < 4) { // 在添加新节点时不仅用到标记法还用到了距离判断
-                    newNode = new Node(newX, newY, nextDist);
+                    newNode = new Node(newX, newY, nextDist); // 注意这里绝对值小于4的条件是因为以点位中心距离为2的半径的边界上可以通过走多次日达到目标点
                     queue.add(newNode);
                     mark[newX + 333][newY + 333] = true;
                 }
