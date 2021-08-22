@@ -30,7 +30,7 @@ public class LeetCode218 {
     public List<List<Integer>> getSkyline(int[][] buildings) {
         PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> b[1] - a[1]); // 高度降序排列
         List<Integer> boundaries = new ArrayList<>();
-        for (int[] building : buildings) {
+        for (int[] building : buildings) { // 收集遍历的数据集
             boundaries.add(building[0]);
             boundaries.add(building[1]);
         }
@@ -40,7 +40,7 @@ public class LeetCode218 {
         int index = 0;
         // 如果建筑的左边界left和右边界right包含该坐标，将建筑加入到优先级队列中
         for (int boundary : boundaries) {
-            while (index < n && buildings[index][0] <= boundary) {
+            while (index < n && buildings[index][0] <= boundary) { // 满足约束条件boundary的加入队列
                 pq.add(new int[] {buildings[index][1], buildings[index][2]});
                 index++;
             }

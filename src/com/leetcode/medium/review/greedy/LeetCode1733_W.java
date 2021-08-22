@@ -51,7 +51,7 @@ public class LeetCode1733_W {
             if (user1[i] == user2[j]) {
                 return true;
             }
-            if(user1[i] < user2[j]) {
+            if (user1[i] < user2[j]) {
                 i++;
             } else {
                 j++;

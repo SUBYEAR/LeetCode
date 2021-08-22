@@ -47,19 +47,21 @@ public class LeetCode1353_W {
     }
 }
 
+// 使用优先级队列的题目有一个模板写法, 首先是用idx索引遍历数据集，以及一个变量用来做约束条件判断，遍历过程中使用while循环将满足约束条件的数据
+// 加入到优先级队列中。加入数据到优先级队列中会到堆顶的变化然后继续使用while循环将过期的堆顶弹出
 //        //首先排序：开始时间小的在前。这样是方便我们顺序遍历，把开始时间一样的都放进堆
 //         Arrays.sort(events, (o1, o2) -> o1[0] - o2[0]);
 //         //小顶堆
 //         PriorityQueue<Integer> pq = new PriorityQueue<>();
 //         //结果、开始时间、events下标、有多少组数据
 //         int res = 0, last = 1, i = 0, n = events.length;
-//         while (i < n || !pq.isEmpty()) {
+//         while (i < n || !pq.isEmpty()) { // i是索引变量
 //             //将start相同的会议都放进堆里
-//             while (i < n && events[i][0] == last) {
+//             while (i < n && events[i][0] == last) { // last用作约束条件,满足条件的加入队列
 //                 pq.offer(events[i++][1]);
 //             }
 //             //pop掉当前天数之前的
-//             while (!pq.isEmpty() && pq.peek() < last) {
+//             while (!pq.isEmpty() && pq.peek() < last) { // 堆顶变化了,将过期的堆顶弹出
 //                 pq.poll();
 //             }
 //             //顶上的就是俺们要参加的
