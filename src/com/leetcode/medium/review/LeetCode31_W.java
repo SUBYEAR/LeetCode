@@ -12,13 +12,13 @@ package com.leetcode.medium.review;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode31_W {
-    public void nextPermutation(int[] nums) {
+    public void nextPermutation(int[] nums) { // #556题也是一样的解题方法
         int len = nums.length;
         int i = len - 2;
         while (i >= 0 && nums[i + 1] <= nums[i]) {
             i--;
         }
-        if (i < 0) {
+        if (i < 0) { // 不存在将数字重新排列成最小的排列
             reverse(nums, 0 , len - 1);
             return;
         }

@@ -65,7 +65,7 @@ public class LeetCode533_W {
 
         int count = 0;
         HashSet<Integer> colVisited = new HashSet<>();
-        for (int j = 0; j < col; j++) {
+        for (int j = 0; j < col; j++) { // 注意因为把行字符拼接成字符串了所以这里先枚举的是列
             if (numBlackCol[j] != N) { // 每一列要有N个B像素
                 continue;
             }

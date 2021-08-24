@@ -23,7 +23,7 @@ public class LeetCode89_W {
         int head = 1;
         for (int i = 0; i < n; i++) {
             for (int j = res.size() - 1; j >= 0; j--)
-                res.add(head + res.get(j));
+                res.add(head + res.get(j)); // 前一阶的格雷码逆序然后在头位加1，加0操作因为默认就是高位补0所以不用处理
             head <<= 1;
         }
         return res;

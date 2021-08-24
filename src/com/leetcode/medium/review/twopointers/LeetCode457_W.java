@@ -19,7 +19,7 @@ package com.leetcode.medium.review.twopointers;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode457_W {
-    // 环形数组理解为图中的 nn 个点，nums[i] 表示 i 号点向 (i+nums[i])%n 号点连有一条单向边。
+    // 环形数组理解为图中的 n 个点，nums[i] 表示 i 号点向 (i+nums[i])%n 号点连有一条单向边。
     public boolean circularArrayLoop(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
@@ -28,7 +28,7 @@ public class LeetCode457_W {
             }
             int slow = i, fast = next(nums, i);
             // 判断非零且方向相同
-            while (nums[slow] * nums[fast] > 0 && nums[slow] * nums[next(nums, fast)] > 0) {
+            while (nums[slow] * nums[fast] > 0 && nums[slow] * nums[next(nums, fast)] > 0) { // 这里保证符合一致性的判断条件很妙啊
                 if (slow == fast) {
                     if (slow != next(nums, slow)) { // 保证长度大于1
                         return true;
