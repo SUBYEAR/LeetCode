@@ -46,7 +46,7 @@ public class LeetCode962_W { //单调递减栈，遍历到当前元素比栈顶�
 //         for (int i = 0; i < N; ++i)
 //             B[i] = i;
 //
-//         Arrays.sort(B, (i, j) -> ((Integer) A[i]).compareTo(A[j]));
+//         Arrays.sort(B, (i, j) -> ((Integer) A[i]).compareTo(A[j])); // 离散化操作
 //
 //         int ans = 0;
 //         int m = N;
