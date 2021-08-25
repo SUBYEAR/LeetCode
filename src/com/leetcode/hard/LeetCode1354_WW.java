@@ -1,5 +1,7 @@
 package com.leetcode.hard;
 
+import java.util.PriorityQueue;
+
 /**
  * 给你一个整数数组 target 。一开始，你有一个数组 A ，它的所有元素均为 1 ，你可以执行以下操作：
  *
@@ -16,8 +18,41 @@ package com.leetcode.hard;
  */
 public class LeetCode1354_WW {
     public boolean isPossible(int[] target) {
-        // 注意到这个操作是可逆的，即数组中最大的数肯定是最后一次被替换后的数，也即上一轮的数组和，我们记这个最大的数为 s ，
-        // 这一轮的数组和为 sum ，则我们可以知道被替换的数就是 s-(sum-s)
-        return false;
+        if (target.length == 1 && target[0] != 1) {
+            return false;
+        }
+
+        // 当前轮最大的数是s(其实等于上一轮所有数的总和), 总和是sum, 那么 上一轮中被替换的数是s-(sum-s)
+        // sum-s是除最大值以外的所有数的和
+        long tot = 0;
+        PriorityQueue<Long> pq = new PriorityQueue<>((o1, o2) -> o2.intValue() - o1.intValue()); // 大顶堆
+        for (int val : target) { // 从结束状态往开始状态推，确认最后是否能得到n个1
+            tot += val;
+            pq.add((long)val);
+        }
+        while (!pq.isEmpty()) {
+            long x = pq.poll();
+            if ((x == 1)) {
+                break;
+            }
+            if (2 * x - tot < 1) {
+                return false;
+            }
+            long y = pq.peek(); // y是第二小的值
+            long left = tot - x;
+            long k = 0;
+            if (y == 1) {
+                k = (x - y + left - 1) / left;
+            } else {
+                k = (x - y) / left + 1;
+            }
+            x -= k * left;
+            if (x <= 0) {
+                return false;
+            }
+            tot -= k * left;
+            pq.add(x);
+        }
+        return true;
     }
 }
