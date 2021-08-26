@@ -1,8 +1,6 @@
 package com.leetcode.exam;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Test0723 {
     // #Title_1 管理展厅人数
@@ -122,4 +120,147 @@ public class Test0723 {
     public int queryContribution(int machine) {
         return dataMachines[machine].contribution;
     }
+
+    // #Title_3
+    /*
+某社团有2*num个团队，编号为0—(2*num - 1)。有一次大型演出，需要两个团队一起出节目，两个团队出节目有一个成本。大型演出规定，社团里的所有团队都需要出演，并只能出演一次，我们取出演的所有节目总成本最高的成本，叫做昂贵成本，设计算法计算最低的昂贵成本。
+
+用例一：
+
+[[0,1,250],[0,3,10],[1,2,25],[1,3,80],[2,3,90]] //即一共有5个预选节目，[0,1,250]表示，社团0和社团1共同演出，成本为250。
+
+昂贵成本为：25。
+
+因为两种组合：
+
+[0,1,250]和[2,3,90] 成本为250
+[0,3,10],[1,2,25] 成本为25
+所以为25。
+
+思路：回溯剪枝，剪到不超时为止，剪掉社团重复的选择或者已经比当前昂贵成本高的选择，没有考虑更好的剪枝方式了
+*/
+
+    private int min = Integer.MAX_VALUE;
+
+    public int cooperativePerformance(int num, int[][] program) {
+        backtrack(num, program, new ArrayList<>(), new HashSet<>(), 0);
+        return this.min;
+    }
+
+    private void backtrack(int num, int[][] program, List<Integer> money, Set<Integer> set, int index) {
+        if (set.size() == 2 * num) {
+            int temp = Integer.MIN_VALUE;
+            for (int ele : money) {
+                temp = Math.max(temp, ele);
+            }
+            this.min = Math.min(this.min, temp);
+            return;
+        }
+        for (int i = index; i < program.length; i++) {
+            //剪枝的都在这里了
+            if (set.contains(program[i][0]) || set.contains(program[i][1]) || program[i][2] > this.min) {
+                continue;
+            }
+            set.add(program[i][0]);
+            set.add(program[i][1]);
+            money.add(program[i][2]);
+            backtrack(num, program, money, set, i + 1);
+            set.remove(program[i][0]);
+            set.remove(program[i][1]);
+            money.remove(money.size() - 1);
+        }
+    }
+
+/*
+有2n2n2n 个社团， 表演nnn个节目，且不能重复参演。则大概就是要求将这些社团两两不重复的组合起来，同时要求组合中的单个最高成本是所有组合方案中最低的。
+
+解题思路：
+
+首先需要解决的问题是如何判断所有社团不重复的全部组合进来，如果使用set的话每次判断都需要遍历一遍，看某个社团是否已被选中。这里可以看下数据范围，节目数最多是8，那么社团最多有16个，某个社团是否选中的状态空间最多216=655362^{16} = 655362
+16
+ =65536种。于是可以使用状态压缩方法，通过位运算来快速判断当前社团是否已经被选中。具体就是开一个655366553665536大小的数组，它代表所有状态。
+
+有了状态表达方法后，就是如何找到有效的组合。
+
+可以先从暴力算法入手，这个题目的暴力应该就是直接DFS搜索+回溯，这种方法复杂度很高。但是在搜索过程中如果遇到重复这种非法状态，或者当前搜索状态之前出现过，并且之前的状态成本更低，这些情况都是可以及时退出的，或者先对社团进行排序，再搜索时可排除较多无用搜索，也就是剪枝。
+
+DFS的时候，在搜索的过程中更新当前组合的最大成本，直到得到一个有n个组合的状态，这时可以更新一下完整组合的最小成本。但是DFS只会根据组合去计算成本，而不会根据状态，比如有如下社团：
+
+0 2 10
+
+1 3 20
+
+0 1 20
+
+2 3 30
+
+前两个社团和后两个社团都可以组成 0 1 2 3的两个节目，且前两个组合的成本会低一些。后两个社团出现在后面，DFS回溯的时候很可能会出现使用该两个社团再次往后搜索更多社团的无效操作，然而它们两个组合的状态都是0 1 2 3，理想的做法应该是根据 0 1 2 3这个状态的最小成本20去搜索，而不是根据使用哪对组合的具体情况去搜索。
+
+这时就可以考虑动态规划了，它可以使用不同组合之前的状态转移去搜索。 同时可以看到一个新的组合要加入的话，只与之前哪些社团已经参加有关，而与它们具体是怎么组合的无关，并且之前状态的成本的最优值是已确定的，当前组合加入后的最优解也是由当前状态决定的。因此该问题满足无后效性 ，是可以使用动态规划的。同时状态转移方程也比较明显了。
+
+dp[statu∣cur]=min(dp[statu∣cur],max(dp[statu],curcost))dp[statu | cur] = min(dp[statu | cur], max(dp[statu], cur_cost))
+dp[statu∣cur]=min(dp[statu∣cur],max(dp[statu],cur
+c
+​
+ ost))
+
+含义是当前组合加入后的状态 = 之前状态 与 当前组合成本的最大值 再和加入后状态的成本比较的最小值。
+
+Tips: 由推导过程和代码可以看出动态规划只关注状态转移（某个社团是否被选中），而DFS需要不断尝试所有组合去搜索结果。
+	#include <iostream>
+	#include <cstdio>
+	#include <vector>
+	#include <cstring>
+
+	using namespace std;
+
+	int n; // 社团数量
+	int dp[1 << 16];
+
+	struct Combination {
+	    int a;
+	    int b;
+	    int cost;
+	    Combination(int t1, int t2, int t3) : a(t1), b(t2), cost(t3) {}
+	};
+
+	int solve(vector<Combination>& cb, int num_comb)
+	{
+	    memset(dp, 0x3f3f3f3f, sizeof dp);
+	    dp[0] = 0;   // 初始无社团参加, cost为0
+
+	    int all = (1 << 2 * num_comb) - 1;
+	    for (int statu = 0; statu < all; ++statu)  // 枚举所有状态
+	    {
+	        if (dp[statu] == 0x3f3f3f3f)
+	            continue;
+	        for (const auto& com : cb)           // 枚举所有组合
+	        {
+	            int cur = (1 << com.a) | (1 << com.b);              // 当前组合的状态
+	            if ((statu & (1 << com.a) || statu & (1 << com.b))) // 判断是否之前参加过
+	                continue;
+	            dp[statu | cur] = min(dp[statu | cur], max(dp[statu], com.cost)); // 更新状态
+	        }
+	    }
+
+	    return dp[all];
+	}
+
+	int main()
+	{
+	    std::ios::sync_with_stdio(false);
+	    cin >> n;
+	    int a, b, value;
+
+	    vector<Combination> cb;
+	    while (cin >> a >> b >> value)
+	    {
+	        cb.push_back(Combination(a, b, value));
+	    }
+
+	    cout << solve(cb, n) << endl;
+
+	    return 0;
+	}
+*/
 }
