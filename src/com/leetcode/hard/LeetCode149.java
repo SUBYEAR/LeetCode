@@ -14,7 +14,7 @@ import java.util.Set;
 public class LeetCode149 {
     public int maxPoints(int[][] points) {
         int res = 1;
-        Map<Point3D, Set<Point>> map = new HashMap<>();
+        Map<Coeff, Set<Point>> map = new HashMap<>();
         for (int i = 0; i < points.length - 1; i++) {
             for (int j = i + 1; j < points.length; j++) {
                 // 直线的表示是Ax + By + C = 0;
@@ -26,11 +26,11 @@ public class LeetCode149 {
                 A /= gcd;
                 B /= gcd;
                 C /= gcd;
-                Point3D point3D = new Point3D(A, B, C);// int hash = hash(A, B, C);
-                Set<Point> set = map.getOrDefault(point3D, new HashSet<>());
+                Coeff coeff = new Coeff(A, B, C);// int hash = hash(A, B, C);
+                Set<Point> set = map.getOrDefault(coeff, new HashSet<>());
                 set.add(new Point(points[i][0], points[i][1]));
                 set.add(new Point(points[j][0], points[j][1]));
-                map.put(point3D, set);
+                map.put(coeff, set);
                 if (set.size() > res) {
                     res = set.size();
                 }
@@ -48,11 +48,60 @@ public class LeetCode149 {
         return a;
     }
 
-    private int hash(int a, int b, int c) { // 这个hash 函数不太好
-        a = (a ^ (a >>> 16) & 0xffff) << 20;
-        b = (b ^ (b >>> 16) & 0xffff) << 10;
-        c = (c ^ (c >>> 16) & 0xffff);
-        return a | b | c;
+    private static class Point {
+        int x;
+        int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override public boolean equals(Object obj) {
+            if (obj == this) return true;
+            if (obj instanceof Point) {
+                Point other = (Point) obj;
+                return x == other.x && y == other.y;
+            } else return false;
+        }
+
+        public int hashCode() {
+            long bits = java.lang.Double.doubleToLongBits(x);
+            bits ^= java.lang.Double.doubleToLongBits(y) * 31;
+            return (((int) bits) ^ ((int) (bits >> 32)));
+        }
+    }
+
+    private static class Coeff {
+        int hash = 0;
+        double A;
+        double B;
+        double C;
+
+        public Coeff(int a, int b, int c) {
+            A = a;
+            B = b;
+            C = c;
+        }
+
+        @Override public int hashCode() {
+            if (hash == 0) {
+                long bits = 7L;
+                bits = 31L * bits + Double.doubleToLongBits(A);
+                bits = 31L * bits + Double.doubleToLongBits(B);
+                bits = 31L * bits + Double.doubleToLongBits(C);
+                hash = (int) (bits ^ (bits >> 32));
+            }
+            return hash;
+        }
+
+        @Override public boolean equals(Object obj) {
+            if (obj == this) return true;
+            if (obj instanceof Coeff) {
+                Coeff other = (Coeff) obj;
+                return A == other.A && B == other.B && C == other.C;
+            } else return false;
+        }
     }
 
     // 当前枚举到点 i，如果直线同时经过另外两个不同的点 j 和 k，那么可以发现点 i 和点 j 所连直线的斜率恰等于点 i 和点 k 所连直线的斜率。
