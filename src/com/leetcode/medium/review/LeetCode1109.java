@@ -13,7 +13,7 @@ package com.leetcode.medium.review;
  *
  * @since 2021-03-02
  */
-public class LeetCode1109 {
+public class LeetCode1109 { // 考察知识点是差分
 	public int[] corpFlightBookings(int[][] bookings, int n) {
 		int[] res = new int[n];
 		int[] diff = new int[n + 2];
@@ -27,5 +27,25 @@ public class LeetCode1109 {
 			res[i] =  total;
 		}
 		return res;
+	}
+
+	// 官解
+	// 对于预定记录booking=[l,r,inc]，我们需要让 d[l-1]增加 inc，d[r] 减少inc。
+	// 特别地，当 r 为 n 时，我们无需修改 d[r]，因为这个位置溢出了下标范围。如果求前缀和时考虑该位置，那么该位置对应的前缀和值必定为 0
+	// 因为给定的航班号是从1下标开始所以航班n映射到差分数组的n-1位置
+	// 差分数组中n-1是最后一个位置，下一个位置n和前一个位置的差是-(n-1位置上的值),这样在累加求和至差分数组的n位置时其值必然为0
+	// 或者还有一直理解差分数组中n位置是航班号的n+1,在这个航班号上还没有座位被遇到所以其差分值为0
+	public int[] corpFlightBookings_diff(int[][] bookings, int n) {
+		int[] nums = new int[n];
+		for (int[] booking : bookings) {
+			nums[booking[0] - 1] += booking[2];
+			if (booking[1] < n) {
+				nums[booking[1]] -= booking[2];
+			}
+		}
+		for (int i = 1; i < n; i++) {
+			nums[i] += nums[i - 1];
+		}
+		return nums;
 	}
 }
