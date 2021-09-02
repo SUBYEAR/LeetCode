@@ -39,8 +39,8 @@ public class LeetCode1354_WW {
                 return false;
             }
             long y = pq.peek(); // y是第二小的值
-            long left = tot - x;
-            long k = 0;
+            long left = tot - x; // 如果最大的数被替换掉以后还是最大的数，那么每次减去的差值，即 (sum-s) 是恒定不变的
+            long k = 0; // 算出K的目的是让y成为最大的数
             if (y == 1) {
                 k = (x - y + left - 1) / left;
             } else {
@@ -50,7 +50,7 @@ public class LeetCode1354_WW {
             if (x <= 0) {
                 return false;
             }
-            tot -= k * left;
+            tot -= k * left; // 更新total
             pq.add(x);
         }
         return true;

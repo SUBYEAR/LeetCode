@@ -42,9 +42,10 @@ public class LeetCode381_W {
             return false;
         }
         Iterator<Integer> it = idx.get(val).iterator();
-        int i = it.next(); // 要删除的值在nums列表中的索引
+        int i = it.next(); // 要删除的值在nums列表中的最后出现的索引
         int lastNum = nums.get(nums.size() - 1);
-        nums.set(i, lastNum);
+
+        nums.set(i, lastNum); // 最后一个数和val删除的索引进行交换
         idx.get(val).remove(i);
         idx.get(lastNum).remove(nums.size() - 1);
         if (i < nums.size() - 1) { // 这里的判断很重要，考虑nums和idx中均存在一个元素，且这个元素相同，i肯定是小于等于size - 1的

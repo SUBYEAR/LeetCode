@@ -24,23 +24,27 @@ public class Interview0504_W {
             low *= 2;
         }
         if ((low < Integer.MAX_VALUE + 1L)) {
-            if (low == Integer.highestOneBit(num) * 2L) {
+            if (low == Integer.highestOneBit(num) * 2L) { // 一直找到最高位了
                 ans[0] = (int) (low + (1 << (Integer.bitCount(num) - 1)) - 1);
             } else {
                 int mask = (int) low - 1;
                 int rest = num & mask;
                 ans[0] = num - rest + mask + (1 << (Integer.bitCount(rest) - 1));
+                // ans[0] = num - rest + mask + 1 + (1 << (Integer.bitCount(rest) - 1)) - 1;
+                // num - rest为去除最后的一些1的数,
+                // mask + 1为选取能让下一个最大值最小的位置
+                // (1 << (Integer.bitCount(rest) - 1)) - 1 将还剩下的1全部放在最低位
             }
         }
 
         // 求最小值时要找到从高位往地位的最后一个0的位置
-        int tmp = num & (num + 1); // 可以得到所求的0位置
+        int tmp = num & (num + 1); // tmp保留的是高位的部分
         if (tmp != 0) { // 排除num为1时找到最末尾了
-            int cnt = Integer.bitCount(num - tmp) + 1;
+            int cnt = Integer.bitCount(num - tmp) + 1; // 高位部分的数去掉最后面的那个1,所以cnt要加1
             int lowestOneBit = Integer.lowestOneBit(tmp);
-            tmp -= lowestOneBit;
+            tmp -= lowestOneBit; // 高位部分的数去掉最后面的那个1
             while (cnt != 0) {
-                tmp += (lowestOneBit / 2);
+                tmp += (lowestOneBit / 2); // 剩下的1从高往低放置
                 lowestOneBit /= 2;
                 cnt--;
             }
@@ -48,4 +52,6 @@ public class Interview0504_W {
         }
         return ans;
     }
+    // x & (x - 1) 去除最低的1保留剩下的值
+    // x & (x + 1)
 }

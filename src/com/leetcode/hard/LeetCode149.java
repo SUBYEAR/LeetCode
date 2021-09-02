@@ -135,7 +135,7 @@ public class LeetCode149 {
                     x /= gcdXY;
                     y /= gcdXY;
                 }
-                int key = y + x * 20001;
+                int key = y + x * 20001; // x、y的范围是[-10000, 10000]
                 map.put(key, map.getOrDefault(key, 0) + 1);
             }
             int maxn = 0;

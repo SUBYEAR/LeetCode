@@ -29,21 +29,21 @@ public class LeetCode866_W {
                 for (int k = L - 2; k >= 0; --k) {
                     sb.append(sb.charAt(k));
                 }
-                int x = Integer.valueOf(sb.toString());
+                int x = Integer.parseInt(sb.toString());
                 if (x >= N && isPrime(x)) {
                     return x;
                 }
                 // If we didn't check for even-length palindromes:
                 // return N <= 11 ? min(x, 11) : x
             }
-            // 一个回文根可能对应两个回文串，例如 123321，12321 的回文根就都是 123
+            // 一个回文根可能对应两个回文串，例如 123321、12321 的回文根就都是 123
             // Check for even-length palindromes
             for (int root = (int) Math.pow(10, L - 1); root < (int) Math.pow(10, L); ++root) {
                 StringBuilder sb = new StringBuilder(Integer.toString(root));
                 for (int k = L - 1; k >= 0; --k) {
                     sb.append(sb.charAt(k));
                 }
-                int x = Integer.valueOf(sb.toString());
+                int x = Integer.parseInt(sb.toString());
                 if (x >= N && isPrime(x)) {
                     return x;
                 }
@@ -119,7 +119,7 @@ public class LeetCode866_W {
     }
 
     boolean isPalindrome(int n) { // 或者利用回文数逆序后的值来判断
-        String s = Integer.toString(n);
+        String s = Integer.toString(n); // 这样使用到字符串效率不高
         int end = s.length() - 1;
         for (int i = 0; i <= end; i++, end--) {
             if (s.charAt(i) != s.charAt(end)) {
@@ -128,4 +128,23 @@ public class LeetCode866_W {
         }
         return true;
     }
+
+    public int reverse(int N) { // 使用反转后的整数与原数字判断是否回文
+        int ans = 0;
+        while (N > 0) {
+            ans = 10 * ans + (N % 10);
+            N /= 10;
+        }
+        return ans;
+    }
+    public int primePalindrome_calc(int N) {
+        while (true) {
+            if (N == reverse(N) && isPrime(N))
+                return N;
+            N++;
+            if (10_000_000 < N && N < 100_000_000) // 如果当前数字长度为 8，可以跳过检查，因为不存在 8 长度的素数。
+                N = 100_000_000; // 知识点： “偶数长度的回文数”中只有11是素数，其他的都可以被11整除。
+        }
+    }
+
 }

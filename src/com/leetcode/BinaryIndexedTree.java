@@ -1,5 +1,6 @@
 package com.leetcode;
 
+// https://zhuanlan.zhihu.com/p/25185969
 // 可以延伸到求区间和/单点查询的情况，处理是运用了差分的思想. 比如将区间[3, 6]加5，然后查询位置4上的值
 // 那么在区间加的时候可以将L左边界3上的值加5, R右边界的下一个位置7上减5
 // 然后查询x位置上的值就可以之间用query函数了
@@ -27,7 +28,7 @@ public class BinaryIndexedTree {
 //        }
 //    }
 
-    public void update(int idx, int val) {
+    public void update(int idx, int val) { // udpate是指对索引index上的指加或者减少一个指,不是指将位置上的值变为新的值
         idx += 1;
         if (idx < 0 || idx >= tree.length) {
             return;

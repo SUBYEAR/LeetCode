@@ -67,7 +67,7 @@ public class LeetCode1825_W {
             minPart.offer(num);
             if (minPart.size() > k)
                 minToMid();
-        } else { // num 属于中间范围
+        } else { // num 属于中间范围或者是初始情况minPart和maxPart大小都是0
             midPartMIN.offer(num);
             midPartMAX.offer(num);
             midSum += num;
@@ -76,7 +76,7 @@ public class LeetCode1825_W {
             if (minPart.size() < k)
                 midToMin();
             else
-                midToMax(); // 为什么else就添加到maxPart呢？
+                midToMax(); // 为什么else就添加到maxPart呢？因为这里处理的是midPartMin
         }
     }
 

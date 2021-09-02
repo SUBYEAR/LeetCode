@@ -29,7 +29,7 @@ public class LeetCode995_W {
                 }
                 ++ans;
                 ++revCnt; // 直接将 revCnt 增加 1(其实对应于diff[l] 加1)，这样第23行就不同用循环diff数组取求差分数组的累加值了
-                --diff[i + K]; // diff[i+K] 减少 1
+                --diff[i + K]; // 翻转区间[i, i + k - 1]则diff[i+K] 减少 1
             }
         }
         return ans;

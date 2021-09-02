@@ -26,6 +26,7 @@ import java.util.Stack;
 public class LeetCode1172_W {
     // 题目的本质就是让我们快速找到 从右往左第一个不是空的栈 与 从左往右第一个非满栈 。
     // 树状数组 tree 维护一个序列 num（支持Log复杂度单点修改/区间查询），第i个位置维护的是第i个栈中的元素个数，那么上诉两个问题我们都可以快速得到
+    // 解题思路的本质是每个stack存储K个数,stack的容量变化情况用树状数组进行维护和查询
     private static final int MAXN = 200000;
     private Stack<Integer>[] stk = new Stack[MAXN + 5]; // stk的索引是基于1开始的
     int cap;
@@ -43,15 +44,16 @@ public class LeetCode1172_W {
     int getFree() { // 从左往右第一个非满栈 这里是用倍增法求k
         // 目标是找到一个最大的 k，使其满足 k*capacity = sum_{i=1 ~ k}_num[i],那么k + 1就是第一个没有满的栈
         int rate = 0, k = 0;
+        // 类似[1,128]的
         for (int i = 14; i >= 0; i--) { // 2^14次方是16384, 是题目中给的范围20000转换为2进制的最大位数
             if (k + (1 << i) > MAXN) {
                 continue;
             }
             if (rate + bitTree.sum[k + (1 << i)] == cap * (k + (1 << i))) {
-                rate += bitTree.sum[k += (1 << i)];
+                rate += bitTree.sum[k += (1 << i)]; // 这里更新了k每一次都往k的二进制表示上加一个1
             }
         }
-        return k + 1;
+        return k + 1;// 下标从1开始
     }
 
     int getRight(int cnt) { // 从右往左第一个不是空的栈
