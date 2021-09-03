@@ -74,8 +74,8 @@ public class LeetCode1178 {
 				if (frequency.containsKey(s)) {
 					total += frequency.get(s);
 				}
-				subset = (subset - 1) & mask;
-			} while (subset != mask);
+				subset = (subset - 1) & mask; // 枚举子集的关键点
+			} while (subset != mask); // 这里使用subset == 0判断条件不可以,这样循环的结果会过滤掉0
 
 			ans.add(total);
 		}

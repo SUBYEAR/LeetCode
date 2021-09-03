@@ -62,7 +62,7 @@ public class LeetCode679_W {
                             list2.add(list.get(i) - list.get(j));
                         } else if (k == DIVIDE) {
                             if (Math.abs(list.get(j)) < EPSILON) {
-                                continue; // 遇到除数为 00 的情况，则这种可能性可以直接排除
+                                continue; // 遇到除数为 0 的情况，则这种可能性可以直接排除
                             } else {
                                 list2.add(list.get(i) / list.get(j));
                             }

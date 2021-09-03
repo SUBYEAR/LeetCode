@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class LeetCode1723_W {
     public int minimumTimeRequired(int[] jobs, int k) {
-        Arrays.sort(jobs);
+        Arrays.sort(jobs); // Arrays的sort只能支持升序排列,所有的Collection默认都是升序的
         int low = 0, high = jobs.length -1;
         while (low < high) { // jobs降序排列
             int temp = jobs[low];
@@ -59,7 +59,7 @@ public class LeetCode1723_W {
             // 或者当前工作恰能使该工人的工作量达到了上限
             // 这两种情况下我们无需尝试继续分配工作
             if (workloads[j] == 0 || workloads[j] + cur == limit) { // 不要第二个条件也可以执行成功
-                // 就是 jobs[i]是从大到下排序的，若jobs[i]给工人j后，工人j的工作量刚好等于limit，此时剩余的工作分配失败（即返回false），
+                // 就是 jobs[i]是从大到小排序的，若jobs[i]给工人j后，工人j的工作量刚好等于limit，此时剩余的工作分配失败（即返回false），
                 // 说明jobs[i]之后的小工作量不能被剩余的工人在limit期限内完成；若此时将jobs[i]之后的小工作量（可能是多个，没影响）给到工人j，
                 // 也就是job[i]分给工人j之后的工人，相当于分给工人j之后工人的工作量增大了，自然更无法完成，所以剩余的情况不需要枚举了，直接break
                 break;

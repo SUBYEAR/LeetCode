@@ -28,7 +28,7 @@ package com.leetcode.hard.bitwise;
  * 链接：https://leetcode-cn.com/problems/triples-with-bitwise-and-equal-to-zero
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode982 {
+public class LeetCode982_W {
     public int countTriplets(int[] nums) {
         // 遍历数组， 确定形如100..00的上界， 以便之后可以用k-1作为掩码
         int k = 1;
@@ -43,11 +43,16 @@ public class LeetCode982 {
             // 需要在特定mask之下降序遍历
             int mask = (k - 1) ^ item; // 所有1的位置和item完全无重合的值位与item都是0，所以这里用了异或
             int i = mask;
-            while (true) {
+            while (true) { // 这个写法功能逻辑上等价于下面的do while循环
                 mem[i]++;
                 if (i == 0) break;
                 i = (i - 1) & mask; // 关键算法，别记错了,与1178题的枚举二进制子集的方法是一样的
             }
+//            do {
+//                mem[i]++;
+//                i = (i - 1) & mask;
+//            } while (i != mask);
+
         }
         int ans = 0;
         for (int a : nums) {

@@ -123,6 +123,7 @@ public class LeetCode327_W {
 //        }
 //    }
 
+    // 线段树的写法再定义好了SegNode之后和二叉树的递归很类似
     public SegNode build(int left, int right) {
         SegNode node = new SegNode(left, right);
         if (left == right) {
@@ -144,7 +145,7 @@ public class LeetCode327_W {
         return count(root.lchild, left, right) + count(root.rchild, left, right);
     }
 
-    public void insert(SegNode root, int val) {
+    public void insert(SegNode root, int val) { // 在这里val代表的是索引
         root.add++;
         if (root.lo == root.hi) {
             return;
@@ -199,6 +200,7 @@ public class LeetCode327_W {
             int left = values.get(preSum[i] - upper), right = values.get(preSum[i] - lower);
             ret += bit.query(right + 1) - bit.query(left);
             bit.update(values.get(preSum[i]) + 1, 1); // 位置上摆了一个值，所以置1，这样query时就知道有多数个数了
+            // 树状数组里面值的含义是下标位置上值是presun_i的数的个数多了一个
         }
         return ret;
     }

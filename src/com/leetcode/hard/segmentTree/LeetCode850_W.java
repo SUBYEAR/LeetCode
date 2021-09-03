@@ -34,6 +34,7 @@ public class LeetCode850_W {
         Map<Integer, Integer> mapx = new HashMap<>();
         Map<Integer, Integer> mapy = new HashMap<>();
         for (int i = 0; i < imapx.length; i++) {
+            // 其实这也是个离散化的过程,且重复的值离散化后坐标一样,在#1964题中使用了list加二分查找的方式获取下标.这里是用map存起来后直接获取
             mapx.put(imapx[i], i); // 将排序后的x坐标映射到idx：0,1,2,...
         }
         for (int i = 0; i < imapy.length; i++) {
@@ -76,7 +77,7 @@ public class LeetCode850_W {
 
         Arrays.sort(events, (a, b) -> Integer.compare(a[0], b[0])); // 所有的水平间隔以 y 坐标由小到大的顺序
 
-        List<int[]> active = new ArrayList();
+        List<int[]> active = new ArrayList<>();
         int cur_y = events[0][0];
         long ans = 0;
         for (int[] event: events) {
@@ -113,11 +114,13 @@ public class LeetCode850_W {
     }
 
     // 线段树
+    // 将每个矩形都看作是一条从底部传递到顶部的水平线段，把从底部到顶部中间的区域称为活动区域，底部边和顶部边称为水平间隔。
+    // 每个矩形都会更新两次，即在底部添加水平间隔和顶部删除水平间隔。那么 N 个矩形共有 2 * N 次更新，且每次最多更新 N 个水平间隔。
     class Solution {
         public int rectangleArea_ST(int[][] rectangles) {
             int OPEN = 1, CLOSE = -1;
             int[][] events = new int[rectangles.length * 2][];
-            Set<Integer> Xvals = new HashSet();
+            Set<Integer> Xvals = new HashSet<>();
             int t = 0;
             for (int[] rec: rectangles) {
                 events[t++] = new int[]{rec[1], OPEN, rec[0], rec[2]};
@@ -130,7 +133,7 @@ public class LeetCode850_W {
 
             Integer[] X = Xvals.toArray(new Integer[0]);
             Arrays.sort(X);
-            Map<Integer, Integer> Xi = new HashMap();
+            Map<Integer, Integer> Xi = new HashMap<>(); // Xi离散化后的信息
             for (int i = 0; i < X.length; ++i)
                 Xi.put(X[i], i);
 

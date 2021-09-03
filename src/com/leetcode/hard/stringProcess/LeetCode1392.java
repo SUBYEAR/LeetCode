@@ -27,17 +27,14 @@ public class LeetCode1392 {
         int k = 0;
         for (int j = 1; j <= n; j++) {
             k = next[j - 1];
+
+            while (k != -1 && s.charAt(j - 1) != s.charAt(k)) {
+                k = next[k];
+            }
             if (k == -1) {
                 next[j] = 0;
             } else {
-                while (k != -1 && s.charAt(j - 1) != s.charAt(k)) {
-                    k = next[k];
-                }
-                if (k == -1) {
-                    next[j] = 0;
-                } else {
-                    next[j] = k + 1;
-                }
+                next[j] = k + 1;
             }
         }
         return next;

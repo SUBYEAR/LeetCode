@@ -16,6 +16,7 @@ public class LeetCode321_W { // 单调栈和贪心思想
     public int[] maxNumber(int[] nums1, int[] nums2, int k) {
         int m = nums1.length, n = nums2.length;
         int[] maxSubsequence = new int[k];
+        // 在k<= m + n时枚举选择的长度这种写法可以借鉴啊
         int start = Math.max(0, k - n), end  = Math.min(k, m);
         // start: 如果k小于等于n那么在num1数组中最小的选择长度是0个, 反之则在num2全被选择后还剩下k-n个数在num1中选择
         // end: 最多再num1中选择k个数
@@ -32,21 +33,21 @@ public class LeetCode321_W { // 单调栈和贪心思想
     }
 
     // 在数组中选择长度为k的最大子序列,使用单调递减栈
-    private int[] maxSubsequence(int[] nums, int k) {
+    public int[] maxSubsequence(int[] nums, int k) {
         int length = nums.length;
         int[] stack = new int[k]; // 使用数组作为递减栈
-        int remain = length - k; // 需要remain的原因是为了避免如果在维护递减栈时num剩下的元素不够形成k个子序列了
+        int remain = length - k; // remian表示的是选择了k个数之后还剩下多少个数
         int top = -1;
         for (int i = 0; i < length; i++) {
             int num = nums[i];
-            while (top >= 0 && stack[top] < num && remain >0) {
+            while (top >= 0 && stack[top] < num && remain > 0) {
                 top--;
-                remain--; // 这里减是因为在压栈操作时没有更新remain，所以在这里减就知道当前元素入栈时后面的元素还剩多少个
+                remain--; // 这里减是因为压栈了就是排除了之前的一个数,那么还剩下的个数为排除的这个数加上remain - 1
             }
             if (top < k - 1) {
                 stack[++top] = num;
-            } else { // 当前数组下标递减栈的个数已经是k个了,虽然num也比栈顶小但是不用入栈了,只更新remain
-                remain--;
+            } else {
+                remain--; // 同样是因为这个数没有被选择那么不被选择的数个数又增加了一个
             }
         }
         return stack;

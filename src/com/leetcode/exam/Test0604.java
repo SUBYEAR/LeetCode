@@ -23,7 +23,7 @@ public class Test0604 {
             count++;
             return new int[] {second, count};
         }
-        return new int[] {-1, count};
+        return new int[] {-1, count}; // count指示已经处理了多少个乘客
     }
 
     // 思路:采用两个队列队列0表示出战队列1表示进站.进站条件:上一秒没有使用或者上一秒有乘客进站
@@ -43,12 +43,12 @@ public class Test0604 {
         int j = 0;
         int count = 0;
         for (int i = 0; i < maxTime; i++) { // 遍历每一时刻
-            if (count == len) {
+            if (count == len) { // 所有的乘客都已经处理完了
                 break;
             }
 
-            while (j < len && arrTime[j] <= i) {
-                pq[direction[j]].add(j);
+            while (j < len && arrTime[j] <= i) { // 满足约束条件的加入队列
+                pq[direction[j]].add(j); // 队列中的值是arrTime中的下标
                 j++;
             }
             if (flag == -1 || flag == 1) {

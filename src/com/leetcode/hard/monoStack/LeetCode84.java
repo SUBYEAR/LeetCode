@@ -19,7 +19,7 @@ public class LeetCode84 {
 
         Stack<Integer> stack = new Stack();
         for (index = 0; index < arr.length; index++) {
-            // 也是单调递减栈这一题与接雨水的区别是弹出栈时计算弹出元素对应的值
+            // 也是单调递增栈这一题与接雨水的区别是弹出栈时计算弹出元素对应的值
             // 为了维护单调性需要弹出元素，在弹出元素的时候需要计算它对应的结果值
             while (!stack.isEmpty() && arr[stack.peek()] >= arr[index]) {
                 int h = arr[stack.peek()];

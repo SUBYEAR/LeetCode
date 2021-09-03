@@ -32,7 +32,7 @@ public class LeetCode1964_W {
                 ans.add(list.size());
             } else {
                 int pos = rightBound(list, ob);
-                ans.add(pos + 1);
+                ans.add(pos + 1); // 加1操作是指要算上自身这个数
                 list.set(pos, ob);
             }
         }
@@ -86,7 +86,7 @@ public class LeetCode1964_W {
 
     private void update(int idx, int val) {
         while (idx <= n) {
-            binaryTree[idx] = Math.max(val, binaryTree[idx]);
+            binaryTree[idx] = Math.max(val, binaryTree[idx]); // 这里是要求子序列的最长度如果使用累加会出错
             idx += lowbit(idx);
         }
     }

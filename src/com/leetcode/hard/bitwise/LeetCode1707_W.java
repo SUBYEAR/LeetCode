@@ -30,7 +30,7 @@ public class LeetCode1707_W {
             public int compare(int[] o1, int[] o2) {
                 return o1[1] - o2[1];
             }
-        });
+        }); // 离散化
 
         int[] ans = new int[numQ];
         Trie trie = new Trie();

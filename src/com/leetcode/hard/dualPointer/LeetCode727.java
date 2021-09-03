@@ -65,7 +65,7 @@ public class LeetCode727 {
         return end < S.length() ? S.substring(start, end + 1) : "";
     }
 
-    public  static final String EMPTY = "";
+    public static final String EMPTY = "";
     public String minWidow_2(String S, String T) {
         if (S == null || S.length() == 0 || T.length() == 0) {
             return EMPTY;

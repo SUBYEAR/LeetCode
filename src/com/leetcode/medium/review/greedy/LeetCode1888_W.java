@@ -33,6 +33,7 @@ public class LeetCode1888_W {
 
         int ans = Math.min(pre[n - 1][0], pre[n - 1][1]);
         if (n % 2 != 0) {
+            // 要么由两个交替字符串拼接而成，其中左侧的交替字符串以 0 结尾，右侧的交替字符串以 0 开头。
             // 如果 n 是奇数，还需要求出 suf
             int[][] suf = new int[n][2];
             for (int i = n - 1; i >= 0; i--) {

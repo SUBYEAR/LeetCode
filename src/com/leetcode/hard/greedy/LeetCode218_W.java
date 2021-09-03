@@ -26,7 +26,7 @@ import java.util.*;
  * 链接：https://leetcode-cn.com/problems/the-skyline-problem
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode218 {
+public class LeetCode218_W {
     public List<List<Integer>> getSkyline(int[][] buildings) {
         PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> b[1] - a[1]); // 高度降序排列
         List<Integer> boundaries = new ArrayList<>();

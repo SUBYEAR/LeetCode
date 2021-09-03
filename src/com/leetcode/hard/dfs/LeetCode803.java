@@ -69,7 +69,7 @@ public class LeetCode803 {
                 }
             }
             int size = uf.size(h * w);
-            ret[i] = Math.max(0, size - prev - 1);
+            ret[i] = Math.max(0, size - prev - 1); // 这里jian1不要忘掉,1表示这一块砖是消除的砖块
             status[r][c] = 1;
         }
         return ret;

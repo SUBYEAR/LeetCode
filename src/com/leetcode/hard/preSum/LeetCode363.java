@@ -19,7 +19,7 @@ public class LeetCode363 {
     public int maxSumSubmatrix(int[][] matrix, int k) {
         int row = matrix.length;
         int col = matrix[0].length;
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < row; i++) { // 枚举row的上下边界
             int[] sum = new int[col];
             for (int j = i; j < row; j++) {
                 for (int c = 0; c < col; c++) {

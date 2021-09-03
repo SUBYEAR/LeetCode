@@ -40,7 +40,7 @@ public class LeetCode85 {
 
         for (int i = 0; i <= n; i++) {
             while (!st.isEmpty() && newArr[st.getLast()] >= newArr[i]) {
-                int r = st.pollLast();
+                int r = st.pollLast(); // 计算的是出栈的元素
                 int l = st.size() > 0 ? st.peekLast() : -1;
                 res = Math.max(res, (i - l - 1) * newArr[r]);
             }
