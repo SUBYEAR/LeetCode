@@ -1,8 +1,5 @@
 package com.leetcode;
 
-import com.leetcode.hard.dp.LeetCode956_W;
-
-
 import java.util.*;
 
 public class Main {
@@ -183,13 +180,13 @@ public class Main {
         // n5.left = n7;
         // n5.right = n8;
         //
-         TreeNode nn1 = new TreeNode(1), nn2 = new TreeNode(2), nn3 = new TreeNode(3);
-         TreeNode nn4 = new TreeNode(4), nn5 = new TreeNode(2), nn6 = new TreeNode(4);
-         TreeNode nn7 = new TreeNode(4), nn8 = new TreeNode(7), nn9 = new TreeNode(4);
-         nn1.left = nn2; nn1.right = nn3;
-         nn2.left = nn4;
-         nn3.left = nn5; nn3.right = nn6;
-         nn5.left = nn7;
+//         TreeNode nn1 = new TreeNode(1), nn2 = new TreeNode(2), nn3 = new TreeNode(3);
+//         TreeNode nn4 = new TreeNode(4), nn5 = new TreeNode(2), nn6 = new TreeNode(4);
+//         TreeNode nn7 = new TreeNode(4), nn8 = new TreeNode(7), nn9 = new TreeNode(4);
+//         nn1.left = nn2; nn1.right = nn3;
+//         nn2.left = nn4;
+//         nn3.left = nn5; nn3.right = nn6;
+//         nn5.left = nn7;
         // nn5.right = nn7;
         //Test2 test = new Test2();
         //int[]  arr1 = new int[] {2,3,1,3,2,4,6,7,9,2,19};
@@ -209,31 +206,31 @@ public class Main {
         // String s = "aaa/*  *  *";
         // System.out.println(s.matches(".*/\\*(?:\\*|\\s)*"));
 
-        // Node node1 = new Node(1);
-        // Node node2 = new Node(2);
-        // Node node3 = new Node(3);
-        // Node node4 = new Node(4);
-        //
-        // node1.neighbors.add(node2);node1.neighbors.add(node4);
-        // node2.neighbors.add(node1);node2.neighbors.add(node3);
-        // node3.neighbors.add(node2);node3.neighbors.add(node4);
-        // node4.neighbors.add(node1);node4.neighbors.add(node3);
-        int[][] heights = new int[4][];
-        heights[0] = new int[] {1,2};
-        heights[1] = new int[] {3};
-        heights[2] = new int[] {3};
-//        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
-        int[] arr2 = new int[] {1,2,3,6};
+//        ListNode node8 = new ListNode(1);
+//        ListNode node7 = new ListNode(-5, node8);
+//        ListNode node6 = new ListNode(5, node7);
+//        ListNode node5 = new ListNode(5, node6);
+//        ListNode node4 = new ListNode(-2, node5);
+//        ListNode node3 = new ListNode(-3, node4);
+//        ListNode node2 = new ListNode(2, node3);
+//        ListNode node1 = new ListNode(3, node2);
+//        ListNode node0 = new ListNode(1, node1);
 
-        int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
+//        int[][] heights = new int[4][];
+//        heights[0] = new int[] {1,2};
+//        heights[1] = new int[] {3};
+//        heights[2] = new int[] {3};
+////        Arrays.sort(heights, (o1, o2) -> o2[1] - o1[1]);
+//        int[] arr2 = new int[] {1,2,3,6};
+//
+//        int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
-        int[][] matrix = new int[][] {
-                {1,50},
-//                {3,7,15},{5,12,12},{15,20,10},{19,24,8}
-        };
-        String[] dic = new String[] { "me", "time",};
-        LeetCode956_W t = new LeetCode956_W();
-        System.out.println(t.tallestBillboard(arr2));
+//        int[][] matrix = new int[][] {
+//                {1,50},
+////                {3,7,15},{5,12,12},{15,20,10},{19,24,8}
+//        };
+//        String[] dic = new String[] { "me", "time",};
+
     }
 
     static private long gcd(long a,long b){
