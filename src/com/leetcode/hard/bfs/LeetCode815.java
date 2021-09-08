@@ -27,69 +27,6 @@ import java.util.stream.Collectors;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode815 {
-    class Solution {
-        public int numBusesToDestination(int[][] routes, int source, int target) { // 超时解法
-            if (source == target) {
-                return 0;
-            }
-
-            int m = routes.length;
-            ArrayList<Integer>[] graph = new ArrayList[m];
-            for (int i = 0; i < graph.length; i++) {
-                graph[i] = new ArrayList<>();
-            }
-            Set<Integer> start = new HashSet<>(), end = new HashSet<>();
-            for (int row = 0; row < m; row++) {
-                Set<Integer> routeSet = Arrays.stream(routes[row]).boxed().collect(Collectors.toSet());
-                if (routeSet.contains(source)) {
-                    start.add(row);
-                }
-                if (routeSet.contains(target)) {
-                    end.add(row);
-                }
-
-                for (int j = row + 1; j < m; j++) {
-                    Set<Integer> routeSet1 = Arrays.stream(routes[row]).boxed().collect(Collectors.toSet());
-                    Set<Integer> routeSet2 = Arrays.stream(routes[j]).boxed().collect(Collectors.toSet());
-                    routeSet1.retainAll(routeSet2);
-                    if (!routeSet1.isEmpty()) {
-                        graph[row].add(j);
-                        graph[j].add(row);
-                    }
-                }
-            }
-
-            int res = Integer.MAX_VALUE;
-            for (int startRow : start) {
-                int level = 0;
-                boolean[] visit = new boolean[m];
-                Queue<Integer> q = new LinkedList<>();
-                q.offer(startRow);
-                visit[startRow] = true;
-
-                while (!q.isEmpty()) {
-                    int size = q.size();
-                    level++;
-                    while (size-- > 0) {
-                        int cur = q.poll();
-                        if (end.contains(cur)) {
-                            res = Math.min(res, level);
-                        }
-
-                        for (int next : graph[cur]) {
-                            if (visit[next]) {
-                                continue;
-                            }
-                            visit[next] = true;
-                            q.offer(next);
-                        }
-                    }
-                }
-            }
-            return res == Integer.MAX_VALUE ? -1 : res;
-        }
-    }
-
     public int numBusesToDestination(int[][] routes, int S, int T) { // 官方解法
         if (S == T) {
             return 0;

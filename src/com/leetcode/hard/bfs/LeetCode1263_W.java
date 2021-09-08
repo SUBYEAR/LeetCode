@@ -23,7 +23,7 @@ import java.util.Stack;
  * 链接：https://leetcode-cn.com/problems/minimum-moves-to-move-a-box-to-their-target-location
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1263 {
+public class LeetCode1263_W {
     private static final int[][] directions = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
     public int minPushBox(char[][] grid) {
         int startX = -1, startY = -1;

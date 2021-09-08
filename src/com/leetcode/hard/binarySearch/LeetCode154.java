@@ -15,32 +15,24 @@ import java.util.Arrays;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode154 {
-    public int findMin(int[] nums) {
-        int res = Integer.MAX_VALUE;
-        for (int n : nums) {
-            res = Math.min(res, n);
-        }
-        return res;
-    }
-}
-
 // 数组中的最后一个元素 x：在最小值右侧的元素（不包括最后一个元素本身），它们的值一定都严格小于 x；
 // 而在最小值左侧的元素，它们的值一定都严格大于 x。因此，我们可以根据这一条性质，通过二分查找的方法找出最小值
-//     public int findMin(int[] nums) {
-//        int low = 0;
-//        int high = nums.length - 1;
-//        while (low < high) {
-//            int pivot = low + (high - low) / 2;
-//            if (nums[pivot] < nums[high]) { // nums[high]为数组最后一个元素
-//                high = pivot;
-//            } else if (nums[pivot] > nums[high]) {
-//                low = pivot + 1;
-//            } else {
-//                high -= 1;
-//            }
-//        }
-//        return nums[low];
-//    }
+     public int findMin(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low < high) {
+            int pivot = low + (high - low) / 2;
+            if (nums[pivot] < nums[high]) { // nums[high]为数组最后一个元素
+                high = pivot; // 最小值肯定在pivo左侧
+            } else if (nums[pivot] > nums[high]) {
+                low = pivot + 1;
+            } else {
+                high -= 1;
+            }
+        }
+        return nums[low];
+    }
+}
 
 // 如果是无重复元素那么二分查找如下
 // class Solution {

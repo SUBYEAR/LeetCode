@@ -21,13 +21,14 @@ import java.util.Set;
  * 链接：https://leetcode-cn.com/problems/escape-a-large-maze
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1036 {
+public class LeetCode1036_W {
     static int dirs[][] = new int[][]{{0,1}, {1,0}, {-1,0}, {0,-1}};
     static int limit = (int)1e6;
     public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
         Set<String> blocks = new HashSet<>();
-        for(int block[] : blocked)
+        for (int block[] : blocked) {
             blocks.add(block[0] + ":" + block[1]);
+        }
         return bfs(source, target, blocks) && bfs(target, source, blocks);
         // 如果没有后面与的条件那么当终点被4个阻塞点包围住的时候，第一个条件会返回true不符合预期
     }

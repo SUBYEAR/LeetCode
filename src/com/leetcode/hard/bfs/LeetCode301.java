@@ -67,7 +67,7 @@ public class LeetCode301 {
             } else if (c == ')') {
                 count--;
             }
-            if (count < 0) {
+            if (count < 0) { // 注意这里的条件保证了遇到右括号比其前面的左括号个数多的情况直接返回false
                 return false;
             }
         }
