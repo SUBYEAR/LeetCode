@@ -52,6 +52,7 @@ public class LeetCode274 {
                 r = mid;
             }
         }
+
         return len - l >= h;
     }
 

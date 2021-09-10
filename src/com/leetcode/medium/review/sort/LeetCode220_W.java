@@ -14,7 +14,7 @@ import java.util.TreeSet;
  * 链接：https://leetcode-cn.com/problems/contains-duplicate-iii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode220 {
+public class LeetCode220_W {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (t < 0) {
             return false;
