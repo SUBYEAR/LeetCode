@@ -40,7 +40,8 @@ public class LeetCode335_W {
                 if (distance[i - 4] + distance[i] >= distance[i - 2] && distance[i - 3] == distance[i - 1]) return true;
             }
             if (i > 4) { // 第三种情况
-                if (distance[i] + distance[i - 4] >= distance[i - 2] && distance[i - 2] >= distance[i - 4] && distance[i - 5] + distance[i - 1] >= distance[i - 3] && distance[i - 1] <= distance[i - 3])
+                if (distance[i] + distance[i - 4] >= distance[i - 2] && distance[i - 2] >= distance[i - 4] && distance[i - 5] + distance[i - 1] >= distance[i - 3]
+                        && distance[i - 1] <= distance[i - 3]) // 这里如果x[i-1]不小于x[i-3]就会导致相交 那一条横线上抬到最顶端
                     return true;
             }
         }

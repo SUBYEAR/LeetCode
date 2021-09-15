@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.dp;
 
 import java.util.HashSet;
 
@@ -17,7 +17,7 @@ import java.util.HashSet;
  * 链接：https://leetcode-cn.com/problems/longest-common-subpath
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1923 { // 后缀数字可以了解
+public class LeetCode1923_W { // 后缀数字可以了解
     // 滚动哈希将一个字符串看成某个进制下的整数，并将其对应的十进制值作为哈希值.
     // 在子数组长度固定的前提下，给定进制 k，子数组与其十进制值满足「一一对应」的关系，
     // 即不会有两个不同的子数组，它们的十进制值相同。因此滚动哈希得到的哈希值是可以表示原子数组的。
