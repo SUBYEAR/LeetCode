@@ -23,7 +23,7 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/strange-printer-ii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode1510_W {
+public class LeetCode1591_W {
     public boolean isPrintable(int[][] targetGrid) {
         int m = targetGrid.length;
         int n = targetGrid[0].length;
