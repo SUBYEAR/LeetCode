@@ -1,4 +1,4 @@
-package com.leetcode.medium.review;
+package com.leetcode.medium.review.stringprocessing;
 
 import java.util.ArrayList;
 import java.util.HashSet;

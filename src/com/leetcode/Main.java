@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import com.leetcode.medium.review.backtrack.LeetCode1947;
+
 import java.util.*;
 
 public class Main {
@@ -225,12 +227,15 @@ public class Main {
 //
 //        int[] arr1 = new int[]{20,48,33,16,19,44,14,31,42,34,38,32,27,7,22,22,48,18,48,39};
 
-//        int[][] matrix = new int[][] {
-//                {1,50},
-////                {3,7,15},{5,12,12},{15,20,10},{19,24,8}
-//        };
+        int[][] matrix = new int[][] {
+                {1,1,0},{1,0,1},{0,0,1},
+        };
+        int[][] matrix2 = new int[][] {
+                {1,0,0},{0,0,1},{1,1,0},
+        };
 //        String[] dic = new String[] { "me", "time",};
-
+        LeetCode1947 t = new LeetCode1947();
+        System.out.println(t.maxCompatibilitySum(matrix, matrix2));
     }
 
     static private long gcd(long a,long b){

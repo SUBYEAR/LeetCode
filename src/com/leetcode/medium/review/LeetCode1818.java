@@ -30,7 +30,7 @@ public class LeetCode1818 {
         System.arraycopy(nums1, 0, rec, 0, n);
         Arrays.sort(rec);
         int sum = 0, maxn = 0;
-        for (int i = 0; i  < n; i++) {
+        for (int i = 0; i < n; i++) {
             int diff = Math.abs(nums1[i] - nums2[i]);
             sum = (sum + diff) % MOD;
             int j = binarySearch(rec, nums2[i]);
@@ -41,11 +41,10 @@ public class LeetCode1818 {
                 maxn = Math.max(maxn, diff - (nums2[i] - rec[j - 1]));
             }
         }
-
-        return 0;
+        return (sum - maxn + MOD) % MOD;
     }
 
-    public int binarySearch(int[] rec, int target) { // 左边界查找
+    public int binarySearch(int[] rec, int target) {
         int left = 0, right = rec.length;
         while (left < right) {
             int mid = (right - left) / 2 + left;

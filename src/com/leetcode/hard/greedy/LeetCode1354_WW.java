@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.greedy;
 
 import java.util.PriorityQueue;
 

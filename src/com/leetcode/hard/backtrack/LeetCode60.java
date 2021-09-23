@@ -1,8 +1,24 @@
-package com.leetcode.medium;
+package com.leetcode.hard.backtrack;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
+/**
+ * 给出集合 [1,2,3,...,n]，其所有元素共有 n! 种排列。
+ *
+ * 按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
+ *
+ * "123"
+ * "132"
+ * "213"
+ * "231"
+ * "312"
+ * "321"
+ * 给定 n 和 k，返回第 k 个排列。
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/permutation-sequence
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
 public class LeetCode60 {
     static final char[] arr = new char[] {'1', '2','3','4','5','6','7','8','9'};
     int cnt;

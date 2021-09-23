@@ -19,7 +19,7 @@ import java.util.Random;
  * 链接：https://leetcode-cn.com/problems/random-flip-matrix
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LeetCode519 {
+public class LeetCode519_W {
     // 解法通过但是不完美没有做到尽量少的调用random
     Map<Integer, Integer> V = new HashMap<>();
     int nr, nc, rem;
@@ -27,7 +27,7 @@ public class LeetCode519 {
 
     // 每次反转后将反转的1保存在映射后的数组的后半部分, 维护好这样的前半部分是0后半部分是1的数组
     // 当我们进行下一次翻转操作时，我们只需要在 [0, k) 这个区间生成随机数 x，并将 V[x] 映射到的位置进行翻转即可。
-    public LeetCode519(int n_rows, int n_cols) {
+    public LeetCode519_W(int n_rows, int n_cols) {
         nr = n_rows;
         nc = n_cols;
         rem = nr * nc;

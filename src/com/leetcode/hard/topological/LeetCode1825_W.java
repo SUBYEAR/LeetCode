@@ -1,4 +1,4 @@
-package com.leetcode.hard;
+package com.leetcode.hard.topological;
 
 import java.util.*;
 

@@ -5,6 +5,21 @@ import com.leetcode.ListNode;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 给你一个链表的头节点 head，请你编写代码，反复删去链表中由 总和 值为 0 的连续节点组成的序列，直到不存在这样的序列为止。
+ *
+ * 删除完毕后，请你返回最终结果链表的头节点。
+ *
+ *  
+ *
+ * 你可以返回任何满足题目要求的答案。
+ *
+ * （注意，下面示例中的所有序列，都是对 ListNode 对象序列化的表示。）
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
 public class LeetCode1171 {
     // 一种效率更高的解法
     public ListNode removeZeroSumSublists_(ListNode head) {
