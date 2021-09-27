@@ -1,7 +1,5 @@
 package com.leetcode.medium.review.dp;
 
-import java.util.Arrays;
-
 /**
  * 一个下标从 0 开始的数组的 交替和 定义为 偶数 下标处元素之 和 减去 奇数 下标处元素之 和 。
  *

@@ -1,7 +1,6 @@
 package com.leetcode.medium.review.greedy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * 你正在玩一款电子游戏，在游戏中你需要保护城市免受怪物侵袭。给你一个 下标从 0 开始 且长度为 n 的整数数组 dist ，

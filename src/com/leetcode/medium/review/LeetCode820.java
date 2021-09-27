@@ -1,7 +1,6 @@
 package com.leetcode.medium.review;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * 单词数组 words 的 有效编码 由任意助记字符串 s 和下标数组 indices 组成，且满足：

@@ -27,7 +27,7 @@ public class LeetCode91 {
         int[] dp = new int[length + 1];
         dp[0] = s.charAt(0) == '0' ? 0 : 1;
         for (int i = 1; i <= length; i++) {
-            for (int j = i - 1; j >=0; j--) {
+            for (int j = i - 1; j >= 0; j--) {
                 while (j >= 0 && s.charAt(j) == '0') {
                     j--;
                 }

@@ -1,7 +1,6 @@
 package com.leetcode.medium.review.dp;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * 给出 n 个数对。 在每一个数对中，第一个数字总是比第二个数字小。

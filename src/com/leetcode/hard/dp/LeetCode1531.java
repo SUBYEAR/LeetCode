@@ -1,7 +1,6 @@
 package com.leetcode.hard.dp;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
 
 /**
  * 行程长度编码 是一种常用的字符串压缩方法，它将连续的相同字符（重复 2 次或更多次）替换为字符和表示字符计数的数字（行程长度）。

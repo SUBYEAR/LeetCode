@@ -1,7 +1,5 @@
 package com.leetcode.medium.review.greedy;
 
-import com.leetcode.Main;
-
 import java.util.Arrays;
 
 /**

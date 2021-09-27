@@ -1,7 +1,6 @@
 package com.leetcode.medium.review.backtrack;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 给你一个仅由数字组成的字符串 s 。

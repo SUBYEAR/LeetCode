@@ -2,9 +2,6 @@ package com.leetcode.medium.review.binarytree;
 
 import com.leetcode.TreeNode;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * 给你一棵根为 root 的二叉树，请你返回二叉树中好节点的数目。
  *

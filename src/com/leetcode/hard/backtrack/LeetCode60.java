@@ -1,6 +1,6 @@
 package com.leetcode.hard.backtrack;
 
-import java.util.*;
+import java.util.Arrays;
 
 /**
  * 给出集合 [1,2,3,...,n]，其所有元素共有 n! 种排列。

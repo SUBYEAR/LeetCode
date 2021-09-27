@@ -1,7 +1,5 @@
 package com.leetcode;
 
-import java.util.Map;
-
 public class SparseTable {
     private static final int LEN = 1000_000_006;
     // 解决静态区间最值问题的数据结构O(nlogn)预处理，单次查询O(1),空间O(nlogn)

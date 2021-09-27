@@ -1,6 +1,5 @@
 package com.leetcode.hard.segmentTree;
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 /**

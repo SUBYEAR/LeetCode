@@ -1,8 +1,6 @@
 package com.leetcode.medium.review;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 给你两个正整数数组 nums1 和 nums2 ，数组的长度都是 n 。

@@ -1,6 +1,6 @@
 package com.leetcode;
 
-import com.leetcode.medium.review.backtrack.LeetCode1947;
+import com.leetcode.medium.passed.hashmap.LeetCode1887;
 
 import java.util.*;
 
@@ -234,8 +234,6 @@ public class Main {
                 {1,0,0},{0,0,1},{1,1,0},
         };
 //        String[] dic = new String[] { "me", "time",};
-        LeetCode1947 t = new LeetCode1947();
-        System.out.println(t.maxCompatibilitySum(matrix, matrix2));
     }
 
     static private long gcd(long a,long b){

@@ -1,7 +1,5 @@
 package com.leetcode.exam;
 
-import com.leetcode.medium.review.sort.HeapSort;
-
 import java.util.HashMap;
 
 public class Test0423 {

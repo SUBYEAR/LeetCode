@@ -1,7 +1,5 @@
 package com.leetcode.hard.dp;
 
-import java.util.Arrays;
-
 /**
  * 给定一个整数数组 nums ，小李想将 nums 切割成若干个非空子数组，使得每个子数组最左边的数和最右边的数的最大公约数大于 1 。
  * 为了减少他的工作量，请求出最少可以切成多少个子数组。

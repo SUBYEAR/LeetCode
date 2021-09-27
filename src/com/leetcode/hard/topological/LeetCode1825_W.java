@@ -1,6 +1,7 @@
 package com.leetcode.hard.topological;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 /**
  * 给你两个整数 m 和 k ，以及数据流形式的若干整数。你需要实现一个数据结构，计算这个数据流的 MK 平均值 。

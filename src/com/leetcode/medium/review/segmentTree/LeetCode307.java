@@ -1,7 +1,5 @@
 package com.leetcode.medium.review.segmentTree;
 
-import java.util.Arrays;
-
 /**
  * 给你一个数组 nums ，请你完成两类查询，其中一类查询要求更新数组下标对应的值，另一类查询要求返回数组中某个范围内元素的总和。
  *

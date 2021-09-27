@@ -1,6 +1,7 @@
 package com.leetcode.hard;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 你将会得到一份单词表 words，一个字母表 letters （可能会有重复字母），以及每个字母对应的得分情况表 score。

@@ -1,9 +1,6 @@
 package com.leetcode.hard.preSum;
 
-import java.util.Arrays;
 import java.util.TreeSet;
-
-import static com.leetcode.Main.printArr;
 
 /**
  * 给你一个 m x n 的矩阵 matrix 和一个整数 k ，找出并返回矩阵内部矩形区域的不超过 k 的最大数值和。

@@ -1,7 +1,5 @@
 package com.leetcode;
 
-import java.util.*;
-
 public class CombinationAndPermutation {
     private void swap(char[] arr,int i,int j){
         char temp = arr[i];
